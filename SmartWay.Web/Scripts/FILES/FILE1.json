@@ -1,0 +1,151 @@
+[
+
+  {
+    "id": 6450,
+    "shapeType": "Cylinder",
+    "shapeControlName": "HHW-JRSESL01 scpurse",
+    "shapeLabel": "HHW-JRSESL01 scpurse",
+    "linkSource": "",
+    "linkTarget": "",
+    "parent": "Campaign Management",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+
+
+  {
+    "id": 6626,
+    "shapeType": "Rectangle",
+    "shapeControlName": "MYDEMO11",
+    "shapeLabel": "MYDEMO11",
+    "linkSource": "",
+    "linkTarget": "",
+    "parent": "Campaign Management",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+
+  {
+    "id": 6661,
+    "shapeType": "Rectangle",
+    "shapeControlName": "HHL-RGELDB01",
+    "shapeLabel": "HHL-RGELDB01",
+    "linkSource": "",
+    "linkTarget": "",
+    "parent": "Campaign Management",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+
+  {
+    "id": 97679,
+    "shapeType": "Rectangle",
+    "shapeControlName": "qq",
+    "shapeLabel": "qq",
+    "linkSource": "",
+    "linkTarget": "",
+    "parent": "Campaign Management",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+
+  {
+    "id": 97684,
+    "shapeType": "Rectangle",
+    "shapeControlName": "Baby",
+    "shapeLabel": "Baby",
+    "linkSource": "",
+    "linkTarget": "",
+    "parent": "Campaign Management",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 6661,
+    "shapeType": "Link",
+    "shapeControlName": "HHL-RGELDB01",
+    "shapeLabel": "HHL-RGELDB01",
+    "linkSource": "Campaign Management",
+    "linkTarget": "HHL-RGELDB01",
+    "parent": "",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 97684,
+    "shapeType": "Link",
+    "shapeControlName": "Baby",
+    "shapeLabel": "Baby",
+    "linkSource": "Campaign Management",
+    "linkTarget": "Baby",
+    "parent": "",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 97679,
+    "shapeType": "Link",
+    "shapeControlName": "qq",
+    "shapeLabel": "qq",
+    "linkSource": "Campaign Management",
+    "linkTarget": "qq",
+    "parent": "",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 6626,
+    "shapeType": "Link",
+    "shapeControlName": "MYDEMO11",
+    "shapeLabel": "MYDEMO11",
+    "linkSource": "Campaign Management",
+    "linkTarget": "MYDEMO11",
+    "parent": "",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 6450,
+    "shapeType": "Link",
+    "shapeControlName": "HHW-JRSESL01 scpurse",
+    "shapeLabel": "HHW-JRSESL01 scpurse",
+    "linkSource": "Campaign Management",
+    "linkTarget": "HHW-JRSESL01 scpurse",
+    "parent": "Campaign Management",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 6450,
+    "shapeType": "Link",
+    "shapeControlName": "HHW-JRSESL01 scpurse",
+    "shapeLabel": "HHW-JRSESL01 scpurse",
+    "linkSource": "HHL-RGELDB01",
+    "linkTarget": "HHW-JRSESL01 scpurse",
+    "parent": "Campaign Management",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 97684,
+    "shapeType": "Rectangle",
+    "shapeControlName": "Baby2",
+    "shapeLabel": "Baby2",
+    "linkSource": "",
+    "linkTarget": "",
+    "parent": "Baby",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 6450,
+    "shapeType": "Link",
+    "shapeControlName": "Link2",
+    "shapeLabel": "Link2",
+    "linkSource": "Baby",
+    "linkTarget": "Baby2",
+    "parent": "",
+    "IsLeaf": false,
+    "IsBase": false
+  }
+]

@@ -1,0 +1,95 @@
+//[
+
+
+//  {
+//    "id": 0,
+//    "shapeType": "Cylinder",
+//    "shapeControlName": "DBName",
+//    "shapeLabel": "DBName",
+//    "linkSource": null,
+//    "linkTarget": null,
+//    "parent": "EBS",
+//    "IsLeaf": false,
+//    "IsBase": false
+//  },
+//  {
+//    "id": 0,
+//    "shapeType": "Rectangle",
+//    "shapeControlName": "Server1",
+//    "shapeLabel": "Server1",
+//    "linkSource": null,
+//    "linkTarget": null,
+//    "parent": "EBS",
+//    "IsLeaf": false,
+//    "IsBase": false
+//  },
+//  {
+//    "id": 0,
+//    "shapeType": "Rectangle",
+//    "shapeControlName": "Server2",
+//    "shapeLabel": "Server2",
+//    "linkSource": null,
+//    "linkTarget": null,
+//    "parent": "EBS",
+//    "IsLeaf": false,
+//    "IsBase": false
+//  },
+//  {
+//    "id": 0,
+//    "shapeType": "Rectangle",
+//    "shapeControlName": "Server3",
+//    "shapeLabel": "Server3",
+//    "linkSource": null,
+//    "linkTarget": null,
+//    "parent": "EBS",
+//    "IsLeaf": false,
+//    "IsBase": false
+//  },
+
+//  {
+//    "id": 0,
+//    "shapeType": "Link",
+//    "shapeControlName": "Link2",
+//    "shapeLabel": "Link2",
+//    "linkSource": "EBS",
+//    "linkTarget": "Server1",
+//    "parent": null,
+//    "IsLeaf": false,
+//    "IsBase": false
+//  },
+//  {
+//    "id": 0,
+//    "shapeType": "Link",
+//    "shapeControlName": "Link2",
+//    "shapeLabel": "Link2",
+//    "linkSource": "EBS",
+//    "linkTarget": "Server2",
+//    "parent": null,
+//    "IsLeaf": false,
+//    "IsBase": false
+//  },
+//  {
+//    "id": 0,
+//    "shapeType": "Link",
+//    "shapeControlName": "Link2",
+//    "shapeLabel": "Link2",
+//    "linkSource": "EBS",
+//    "linkTarget": "Server3",
+//    "parent": null,
+//    "IsLeaf": false,
+//    "IsBase": false
+//  },
+//  {
+//    "id": 0,
+//    "shapeType": "Link",
+//    "shapeControlName": "Link2",
+//    "shapeLabel": "Link2",
+//    "linkSource": "EBS",
+//    "linkTarget": "DBName",
+//    "parent": null,
+//    "IsLeaf": false,
+//    "IsBase": false
+//  },
+
+//]
+

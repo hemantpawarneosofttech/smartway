@@ -1,0 +1,1102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{60E8C632-BC22-4502-BF90-6A92B0A325A4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartWay.Data</RootNamespace>
+    <AssemblyName>SmartWay.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=8.1.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.8.1.0\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessDetail.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActionPaneCategoriesLink.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppDocindex.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppErrorCode.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Application.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationAuditStatu.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationCompany.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationConnection.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationConnectionsTransmitType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationContactPerson.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationDocument.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationInformation.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationInformationType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationInstraction.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationJobFunction.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationMaintenance.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationModule.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationOperation.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationParamValue.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationSection.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationsLog.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationsSecurityStatu.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ApplicationVetsionControl.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppMoveStatu.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppVersion.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Area.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ASD.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AthorMethod.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AthorMethorRight.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AthorPage.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AthorPagesRight.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditWSQueryCatalog.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoTest.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoTestMail.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoTestServer.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoTestSubSystem.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AutoTestTag.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BackupAgent.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BackupType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BdStatu.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BigFix.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BIkva.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BizProcess.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BizProcessApplication.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BizProcessType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Building.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CableColor.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CableItem.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CableLength.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CableType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Captcha.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChangesInfrastructure.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ChangesReport.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CheckListToItem.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CheckListToSystem.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="City.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CloudHostingLocationForSystem.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CloudInfoForSystem.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CloudProviderForSystem.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CloudRedundancyLevelForSystem.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cluster.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClusterDBMember.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClusterItemMember.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClusterMethod.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClusterProtocol.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClustersStatu.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClusterSystemMember.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ClusterType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ComboCatalog.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationLine.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationLineAttachedEquipment.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationLineBandwidth.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationLineCluster.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationLineContact.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationLineContactPerson.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationLineHop.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationLineInfrastructureProvider.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationLineISP.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationLineKind.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationLineLink.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationLineNote.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationLineRealatedItem.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationLineRealatedSystem.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationLinesupplier.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CommunicationLineType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Company.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ContactPerson.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Country.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CriticalLevel.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseInstance.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseJobFunction.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DatabaseVersion.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbClassification.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBInstanceConnectedToSystem.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBLocation.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBRemoteControl.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbStatu.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DbType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DCM2statistic.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DEMO.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Department.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DiminutionRea.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocIndex.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocRepository.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DocType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Domain.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DownTime.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DownTimeConflictReason.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DownTimeDay.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DownTimeDuration.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DowntimeGroup.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DownTimeLog.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DownTimeMounth.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DownTimeMsgBox.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DownTimeWeek.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DpItem.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DpItemHardware.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DRPChecker.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DRPDocument.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DRPEvent.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DRPLoadOrder.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DRPPreparation.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DRPPreparationType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DRPRequiredSoftware.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DR_EnumNoteSubject.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DR_EnumStatus.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ElectricalCircuite.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ELMAH_Error.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Environment.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EnvironmentToDowntimeGroup.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EqiupmentServerRole.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentJobFunction.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentLog.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EquipmentsNote.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Essence.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EtcToRackID.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EtcToRoom.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FieldDataType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Floor.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Frequency.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="From_TADDM_to_LANSWEEPER.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GenericRepository\GenericRepository.cs" />
+    <Compile Include="HP_Servers.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ImporterLog.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ImporterLogAction.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="infoWebService.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\DbFactory.cs" />
+    <Compile Include="Infrastructure\Disposable.cs" />
+    <Compile Include="Infrastructure\IDbFactory.cs" />
+    <Compile Include="Infrastructure\IRepository.cs" />
+    <Compile Include="Infrastructure\Mapper.cs" />
+    <Compile Include="Infrastructure\RepositoryBase.cs" />
+    <Compile Include="Infrastructure\ResponseWrapper.cs" />
+    <Compile Include="IntelDcmConverter.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\IApplicationRepository.cs" />
+    <Compile Include="IP.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemApplication.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemApplicationConnection.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemApplicationConnectionDB.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemBackupDocument.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemCheckList.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemContactPerson.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemData.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemDeleteReason.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemDiminution.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemEnergy.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemExtendedItemTypeField.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemExtendedMetaField.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemFileLink.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemInstraction.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemLog.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemMetaData.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemNIC.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemRole.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemRoleType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemServerRole.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemStatu.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemTypeField.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ItemTypeOfUse.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Item_BackUp.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobFunction.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobFunctionToFix.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobOrder.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="JobType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LansweeperImport_Temp01.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LastUserUpdate.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="List.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ListItem.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LOBALERT.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Location.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Log.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogDcm2.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LogDcmPlu.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LoginType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MaintenanceCompany.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ManageTable.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Manufacturer.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MeasureUnit.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuDcm2.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuForScript.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MetaItem.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MetaItemCrossReference.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MetaItemExtendedField.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MetaItemField.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDCompny.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDContactPerson.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDEvent.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDEventType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDGroup.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDJobOwner.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDJobOwnersGroup.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDMovement.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDMovementItemMember.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDMovementSystemMember.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDProgressStatu.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDRiskBank.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDRiskType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDShipment.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDShipmentsLog.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDStatu.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDSystemProgressStatu.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDToDoBank.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDToDoList.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MNDToDoType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MND_SystemMovement.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModuleSystem.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NCHeader.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NCItemSaveData.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NCMain.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewLocation.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NICIP.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NICType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrgTree.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PageHeader.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerConnectUserToPermission.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerGroup.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Permission.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PermissionsModule.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PermissionsPage.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PersonalizationDisplay.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerUser.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PhysicalInterface.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="portalReport.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortalSection.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortalWebPart.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PortalZoneLayout.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileDocument.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileJobFunction.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ProfileLocation.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="profilesApplicationConnection.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Profiles_From_As400.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Protocol.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PublishQueue.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PublishStatu.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rack.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RelatveLocation.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Report.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repository\ApplicationRepository.cs" />
+    <Compile Include="RiskAssessmentType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Room.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoomMetaItem.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Round.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Scenario.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScenDomain.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScenTag.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SensitivityData.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServerMonitoringData.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServerPropertiesLog.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServerProperty.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ServerRole.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="slaTier.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmartWayEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmartWayEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmartWayEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SmartWayEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmartWayEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="SNMP_Code.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SoftwareInstalled.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Station.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StationSeat.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysDocNew.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemExtendedSystemField.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemExtenendFieldLayout.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemExtenendFieldWebPart.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemFieldDataType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemFileLink.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemMaintenanceCompany.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemSectionExtendedField.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemsNote.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemsRequiresDR.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemStatu.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemTypeField.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TaddmImpoterLog.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Technology.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TempTbl.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="testTbl1.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tier.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TSTRackDemo.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UnitOfWork\UnitOfWork.cs" />
+    <Compile Include="UploadedStencil.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserDisplayDefualtView.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserFavorite.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagentLOG.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Version.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VersionsDetailed.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VisioMaster.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizationContact.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VisualizationNote.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VLAN.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_HOST_IMPORT_FROM_IMPORT_PROD.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_HOST_IMPORT_FROM_IMPORT_TEST.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_HOST_IMPORT_PROD.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_HOST_IMPORT_TEMP04.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_HOST_IMPORT_TEST.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_IMPORT_FROM_IMPORT_PROD.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_IMPORT_FROM_IMPORT_TEST.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_IMPORT_PROD.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_IMPORT_TEMP.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_IMPORT_TEMP03.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VM_IMPORT_TEST.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VPXImpData.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="warehouse.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WeightType.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Wiki.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WikiSection.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WikiTag.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WMILog.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WSFileLauncherCatalog.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WSFileLauncherMethod.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WSIncomingData.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WSQueryCatalog.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WSTimeIntervalUnit.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WSV2_Methods.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WSV2_Parameters.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WSV2_Services.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WSXmlLibrary.cs">
+      <DependentUpon>SmartWayEntities.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="SmartWayEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SmartWayEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SmartWayEntities.edmx.diagram">
+      <DependentUpon>SmartWayEntities.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SmartWayEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SmartWayEntities.edmx</DependentUpon>
+      <LastGenOutput>SmartWayEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SmartWayEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SmartWayEntities.edmx</DependentUpon>
+      <LastGenOutput>SmartWayEntities.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SmartWay.Model\SmartWay.Model.csproj">
+      <Project>{7c763fba-5ff0-4633-9355-644e2cc221a5}</Project>
+      <Name>SmartWay.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

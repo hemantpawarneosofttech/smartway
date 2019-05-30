@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="80416bac25ec47c9b163d9227a51d76e" Name="Diagram1">
+        <EntityTypeShape EntityType="SmartWayModel.AccessDetail" Width="1.5" PointX="24.75" PointY="58.125" />
+        <EntityTypeShape EntityType="SmartWayModel.ActionPaneCategoriesLink" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="SmartWayModel.AppDocindex" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="SmartWayModel.AppErrorCode" Width="1.5" PointX="17.75" PointY="14.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationAuditStatu" Width="1.5" PointX="12.75" PointY="10.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationCompany" Width="1.5" PointX="11.25" PointY="52.5" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationConnection" Width="1.5" PointX="3" PointY="57" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationConnectionsTransmitType" Width="1.5" PointX="17.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationContactPerson" Width="1.5" PointX="17.75" PointY="17.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationDocument" Width="1.5" PointX="19.75" PointY="14.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationInformation" Width="1.5" PointX="17.25" PointY="54.5" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationInformationType" Width="1.5" PointX="15" PointY="48.625" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationInstraction" Width="1.5" PointX="19.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationJobFunction" Width="1.5" PointX="17.25" PointY="57.5" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationMaintenance" Width="1.5" PointX="19.75" PointY="17.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationModule" Width="1.5" PointX="11.25" PointY="61.5" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationOperation" Width="1.5" PointX="5.75" PointY="20.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationParamValue" Width="1.5" PointX="7.75" PointY="20.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Application" Width="1.5" PointX="9" PointY="51.5" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationSection" Width="1.5" PointX="6.75" PointY="66.625" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationsSecurityStatu" Width="1.5" PointX="9.75" PointY="20.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationType" Width="1.5" PointX="6.75" PointY="69.875" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationVetsionControl" Width="1.5" PointX="11.75" PointY="20.75" />
+        <EntityTypeShape EntityType="SmartWayModel.AppVersion" Width="1.5" PointX="13.75" PointY="20.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Area" Width="1.5" PointX="15.75" PointY="20.75" />
+        <EntityTypeShape EntityType="SmartWayModel.AthorMethod" Width="1.5" PointX="21.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SmartWayModel.AthorMethorRight" Width="1.5" PointX="21.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SmartWayModel.AthorPage" Width="1.5" PointX="21.75" PointY="15.75" />
+        <EntityTypeShape EntityType="SmartWayModel.AthorPagesRight" Width="1.5" PointX="17.75" PointY="21.75" />
+        <EntityTypeShape EntityType="SmartWayModel.AutoTestMail" Width="1.5" PointX="21.75" PointY="18.75" />
+        <EntityTypeShape EntityType="SmartWayModel.AutoTest" Width="1.5" PointX="12.75" PointY="3.875" />
+        <EntityTypeShape EntityType="SmartWayModel.AutoTestServer" Width="1.5" PointX="15" PointY="1.25" />
+        <EntityTypeShape EntityType="SmartWayModel.AutoTestSubSystem" Width="1.5" PointX="15" PointY="6.875" />
+        <EntityTypeShape EntityType="SmartWayModel.AutoTestTag" Width="1.5" PointX="15" PointY="4.5" />
+        <EntityTypeShape EntityType="SmartWayModel.BackupAgent" Width="1.5" PointX="19.75" PointY="21.75" />
+        <EntityTypeShape EntityType="SmartWayModel.BackupType" Width="1.5" PointX="21.75" PointY="21.75" />
+        <EntityTypeShape EntityType="SmartWayModel.BdStatu" Width="1.5" PointX="22.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartWayModel.BigFix" Width="1.5" PointX="22.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SmartWayModel.BIkva" Width="1.5" PointX="23.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SmartWayModel.BizProcess" Width="1.5" PointX="6" PointY="58.125" />
+        <EntityTypeShape EntityType="SmartWayModel.BizProcessApplication" Width="1.5" PointX="11.25" PointY="64.5" />
+        <EntityTypeShape EntityType="SmartWayModel.BizProcessType" Width="1.5" PointX="3.75" PointY="54.625" />
+        <EntityTypeShape EntityType="SmartWayModel.Building" Width="1.5" PointX="10.5" PointY="79.875" />
+        <EntityTypeShape EntityType="SmartWayModel.CableColor" Width="1.5" PointX="25.5" PointY="48.625" />
+        <EntityTypeShape EntityType="SmartWayModel.CableItem" Width="1.5" PointX="27.75" PointY="57" />
+        <EntityTypeShape EntityType="SmartWayModel.CableLength" Width="1.5" PointX="23.75" PointY="9.75" />
+        <EntityTypeShape EntityType="SmartWayModel.CableType" Width="1.5" PointX="25.5" PointY="66" />
+        <EntityTypeShape EntityType="SmartWayModel.Captcha" Width="1.5" PointX="23.75" PointY="12.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ChangesInfrastructure" Width="1.5" PointX="13.75" PointY="23.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ChangesReport" Width="1.5" PointX="23.75" PointY="15.75" />
+        <EntityTypeShape EntityType="SmartWayModel.CheckListToItem" Width="1.5" PointX="23.75" PointY="18.75" />
+        <EntityTypeShape EntityType="SmartWayModel.CheckListToSystem" Width="1.5" PointX="23.75" PointY="21.75" />
+        <EntityTypeShape EntityType="SmartWayModel.City" Width="1.5" PointX="8.25" PointY="79.875" />
+        <EntityTypeShape EntityType="SmartWayModel.CloudHostingLocationForSystem" Width="1.5" PointX="7.75" PointY="1.625" />
+        <EntityTypeShape EntityType="SmartWayModel.CloudInfoForSystem" Width="1.5" PointX="10" PointY="1" />
+        <EntityTypeShape EntityType="SmartWayModel.CloudProviderForSystem" Width="1.5" PointX="7.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SmartWayModel.CloudRedundancyLevelForSystem" Width="1.5" PointX="7.75" PointY="14.125" />
+        <EntityTypeShape EntityType="SmartWayModel.ClusterDBMember" Width="1.5" PointX="24.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ClusterItemMember" Width="1.5" PointX="21.75" PointY="54.5" />
+        <EntityTypeShape EntityType="SmartWayModel.ClusterMethod" Width="1.5" PointX="0.75" PointY="24.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ClusterProtocol" Width="1.5" PointX="2.75" PointY="24.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Cluster" Width="1.5" PointX="17.25" PointY="67.875" />
+        <EntityTypeShape EntityType="SmartWayModel.ClustersStatu" Width="1.5" PointX="24.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ClusterSystemMember" Width="1.5" PointX="4.75" PointY="24.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ClusterType" Width="1.5" PointX="15" PointY="69.125" />
+        <EntityTypeShape EntityType="SmartWayModel.ComboCatalog" Width="1.5" PointX="6.75" PointY="24.75" />
+        <EntityTypeShape EntityType="SmartWayModel.CommunicationLine" Width="1.5" PointX="3" PointY="12.375" />
+        <EntityTypeShape EntityType="SmartWayModel.CommunicationLineAttachedEquipment" Width="1.5" PointX="20" PointY="4.875" />
+        <EntityTypeShape EntityType="SmartWayModel.CommunicationLineBandwidth" Width="1.5" PointX="0.75" PointY="17" />
+        <EntityTypeShape EntityType="SmartWayModel.CommunicationLineCluster" Width="1.5" PointX="19.75" PointY="24.75" />
+        <EntityTypeShape EntityType="SmartWayModel.CommunicationLineContact" Width="1.5" PointX="21.75" PointY="24.75" />
+        <EntityTypeShape EntityType="SmartWayModel.CommunicationLineHop" Width="1.5" PointX="23.75" PointY="24.75" />
+        <EntityTypeShape EntityType="SmartWayModel.CommunicationLineInfrastructureProvider" Width="1.5" PointX="25.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SmartWayModel.CommunicationLineISP" Width="1.5" PointX="0.75" PointY="13.75" />
+        <EntityTypeShape EntityType="SmartWayModel.CommunicationLineKind" Width="1.5" PointX="0.75" PointY="20.125" />
+        <EntityTypeShape EntityType="SmartWayModel.CommunicationLineLink" Width="1.5" PointX="8.75" PointY="25.75" />
+        <EntityTypeShape EntityType="SmartWayModel.CommunicationLineNote" Width="1.5" PointX="25.75" PointY="9.75" />
+        <EntityTypeShape EntityType="SmartWayModel.CommunicationLineRealatedItem" Width="1.5" PointX="10.75" PointY="25.75" />
+        <EntityTypeShape EntityType="SmartWayModel.CommunicationLineRealatedSystem" Width="1.5" PointX="25.75" PointY="12.75" />
+        <EntityTypeShape EntityType="SmartWayModel.CommunicationLinesupplier" Width="1.5" PointX="17.75" PointY="5.25" />
+        <EntityTypeShape EntityType="SmartWayModel.CommunicationLineType" Width="1.5" PointX="25.75" PointY="15.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Company" Width="1.5" PointX="9" PointY="48.625" />
+        <EntityTypeShape EntityType="SmartWayModel.ContactPerson" Width="1.5" PointX="25.75" PointY="18.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Country" Width="1.5" PointX="6" PointY="80.125" />
+        <EntityTypeShape EntityType="SmartWayModel.CriticalLevel" Width="1.5" PointX="0.75" PointY="58.375" />
+        <EntityTypeShape EntityType="SmartWayModel.DatabaseInstance" Width="1.5" PointX="3" PointY="79.5" />
+        <EntityTypeShape EntityType="SmartWayModel.DatabaseJobFunction" Width="1.5" PointX="17.25" PointY="84.25" />
+        <EntityTypeShape EntityType="SmartWayModel.DatabaseVersion" Width="1.5" PointX="15.75" PointY="25.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DataType" Width="1.5" PointX="0.75" PointY="48.875" />
+        <EntityTypeShape EntityType="SmartWayModel.DbClassification" Width="1.5" PointX="26.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DBInstanceConnectedToSystem" Width="1.5" PointX="26.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DBLocation" Width="1.5" PointX="12.75" PointY="26.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DBRemoteControl" Width="1.5" PointX="25.75" PointY="26.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DbStatu" Width="1.5" PointX="0.75" PointY="27.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DbType" Width="1.5" PointX="2.75" PointY="27.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DCM2statistic" Width="1.5" PointX="4.75" PointY="27.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DEMO" Width="1.5" PointX="27.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Department" Width="1.5" PointX="0.75" PointY="3.5" />
+        <EntityTypeShape EntityType="SmartWayModel.DiminutionRea" Width="1.5" PointX="27.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DocRepository" Width="1.5" PointX="14.25" PointY="57.625" />
+        <EntityTypeShape EntityType="SmartWayModel.DocType" Width="1.5" PointX="12" PointY="67.625" />
+        <EntityTypeShape EntityType="SmartWayModel.Domain" Width="1.5" PointX="27.75" PointY="14.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DownTime" Width="1.5" PointX="6.75" PointY="52.5" />
+        <EntityTypeShape EntityType="SmartWayModel.DownTimeConflictReason" Width="1.5" PointX="27.75" PointY="17.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DownTimeDay" Width="1.5" PointX="17.75" PointY="27.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DownTimeDuration" Width="1.5" PointX="19.75" PointY="27.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DowntimeGroup" Width="1.5" PointX="27.75" PointY="20.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DownTimeLog" Width="1.5" PointX="27.75" PointY="23.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DownTimeMounth" Width="1.5" PointX="28.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DownTimeMsgBox" Width="1.5" PointX="28.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DownTimeWeek" Width="1.5" PointX="6.75" PointY="28.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DpItem" Width="1.5" PointX="8.75" PointY="28.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DpItemHardware" Width="1.5" PointX="21.75" PointY="85.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DR_EnumNoteSubject" Width="1.5" PointX="14.75" PointY="28.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DR_EnumStatus" Width="1.5" PointX="21.75" PointY="28.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DRPChecker" Width="1.5" PointX="27.75" PointY="28.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DRPDocument" Width="1.5" PointX="29.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DRPEvent" Width="1.5" PointX="29.75" PointY="9.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DRPLoadOrder" Width="1.5" PointX="6.75" PointY="61.875" />
+        <EntityTypeShape EntityType="SmartWayModel.DRPPreparation" Width="1.5" PointX="10.75" PointY="29.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DRPPreparationType" Width="1.5" PointX="29.75" PointY="13.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DRPRequiredSoftware" Width="1.5" PointX="29.75" PointY="16.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ElectricalCircuite" Width="1.5" PointX="15" PointY="75" />
+        <EntityTypeShape EntityType="SmartWayModel.ELMAH_Error" Width="1.5" PointX="29.75" PointY="21.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Environment" Width="1.5" PointX="17.25" PointY="62.375" />
+        <EntityTypeShape EntityType="SmartWayModel.EqiupmentServerRole" Width="1.5" PointX="23.75" PointY="29.75" />
+        <EntityTypeShape EntityType="SmartWayModel.EquipmentJobFunction" Width="1.5" PointX="21.75" PointY="57.625" />
+        <EntityTypeShape EntityType="SmartWayModel.EquipmentsNote" Width="1.5" PointX="21.75" PointY="72.375" />
+        <EntityTypeShape EntityType="SmartWayModel.EtcToRackID" Width="1.5" PointX="29.75" PointY="25.75" />
+        <EntityTypeShape EntityType="SmartWayModel.EtcToRoom" Width="1.5" PointX="29.75" PointY="28.75" />
+        <EntityTypeShape EntityType="SmartWayModel.FieldDataType" Width="1.5" PointX="20.25" PointY="75.25" />
+        <EntityTypeShape EntityType="SmartWayModel.Floor" Width="1.5" PointX="12.75" PointY="79.875" />
+        <EntityTypeShape EntityType="SmartWayModel.Frequency" Width="1.5" PointX="0.75" PointY="53.625" />
+        <EntityTypeShape EntityType="SmartWayModel.From_TADDM_to_LANSWEEPER" Width="1.5" PointX="30.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ImporterLog" Width="1.5" PointX="0.75" PointY="30.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ImporterLogAction" Width="1.5" PointX="2.75" PointY="30.75" />
+        <EntityTypeShape EntityType="SmartWayModel.infoWebService" Width="1.5" PointX="31.75" PointY="4.75" />
+        <EntityTypeShape EntityType="SmartWayModel.IntelDcmConverter" Width="1.5" PointX="4.75" PointY="31.75" />
+        <EntityTypeShape EntityType="SmartWayModel.IP" Width="1.5" PointX="6.75" PointY="31.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Item" Width="1.5" PointX="19.5" PointY="46.375" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemApplicationConnection" Width="1.5" PointX="31.75" PointY="8.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemApplication" Width="1.5" PointX="11.25" PointY="55.5" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemBackupDocument" Width="1.5" PointX="31.75" PointY="11.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemCheckList" Width="1.5" PointX="31.75" PointY="14.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemContactPerson" Width="1.5" PointX="31.75" PointY="17.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemData" Width="1.5" PointX="21.75" PointY="48.125" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemDeleteReason" Width="1.5" PointX="19.75" PointY="31.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemDiminution" Width="1.5" PointX="31.75" PointY="20.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemEnergy" Width="1.5" PointX="31.75" PointY="23.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemExtendedItemTypeField" Width="1.5" PointX="30.75" PointY="64.875" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemExtendedMetaField" Width="1.5" PointX="24.75" PointY="62.375" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemFileLink" Width="1.5" PointX="31.75" PointY="27.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemInstraction" Width="1.5" PointX="29.75" PointY="31.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemLog" Width="1.5" PointX="31.75" PointY="30.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemMetaData" Width="1.5" PointX="21.75" PointY="97.625" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemNIC" Width="1.5" PointX="27.75" PointY="51.375" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemRole" Width="1.5" PointX="21.75" PointY="95.125" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemRoleType" Width="1.5" PointX="32.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemServerRole" Width="1.5" PointX="21.75" PointY="62.25" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemStatu" Width="1.5" PointX="17.25" PointY="72.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemType" Width="1.5" PointX="15" PointY="37.875" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemTypeField" Width="1.5" PointX="28.5" PointY="63" />
+        <EntityTypeShape EntityType="SmartWayModel.JobFunction" Width="1.5" PointX="15" PointY="84.375" />
+        <EntityTypeShape EntityType="SmartWayModel.JobFunctionToFix" Width="1.5" PointX="21.75" PointY="32.75" />
+        <EntityTypeShape EntityType="SmartWayModel.JobOrder" Width="1.5" PointX="21.75" PointY="91" />
+        <EntityTypeShape EntityType="SmartWayModel.JobType" Width="1.5" PointX="23.75" PointY="32.75" />
+        <EntityTypeShape EntityType="SmartWayModel.LastUserUpdate" Width="1.5" PointX="33.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SmartWayModel.List" Width="1.5" PointX="20.25" PointY="77.875" />
+        <EntityTypeShape EntityType="SmartWayModel.ListItem" Width="1.5" PointX="22.5" PointY="79.875" />
+        <EntityTypeShape EntityType="SmartWayModel.LOBALERT" Width="1.5" PointX="33.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Location" Width="1.5" PointX="24.75" PointY="54.25" />
+        <EntityTypeShape EntityType="SmartWayModel.LogDcm2" Width="1.5" PointX="8.75" PointY="33.75" />
+        <EntityTypeShape EntityType="SmartWayModel.LogDcmPlu" Width="1.5" PointX="19" PointY="11" />
+        <EntityTypeShape EntityType="SmartWayModel.LoginType" Width="1.5" PointX="22.5" PointY="65.625" />
+        <EntityTypeShape EntityType="SmartWayModel.MaintenanceCompany" Width="1.5" PointX="12" PointY="70.25" />
+        <EntityTypeShape EntityType="SmartWayModel.ManageTable" Width="1.5" PointX="33.75" PointY="9.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Manufacturer" Width="1.5" PointX="15" PointY="32.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MeasureUnit" Width="1.5" PointX="15" PointY="35.5" />
+        <EntityTypeShape EntityType="SmartWayModel.Menu" Width="1.5" PointX="10.75" PointY="33.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MenuDcm2" Width="1.5" PointX="33.75" PointY="12.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MenuForScript" Width="1.5" PointX="33.75" PointY="16.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MetaItem" Width="1.5" PointX="17.25" PointY="36.25" />
+        <EntityTypeShape EntityType="SmartWayModel.MetaItemCrossReference" Width="1.5" PointX="33.75" PointY="20.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MetaItemExtendedField" Width="1.5" PointX="30.75" PointY="62.125" />
+        <EntityTypeShape EntityType="SmartWayModel.MetaItemField" Width="1.5" PointX="22.5" PointY="76" />
+        <EntityTypeShape EntityType="SmartWayModel.MND_SystemMovement" Width="1.5" PointX="33.75" PointY="23.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDCompny" Width="1.5" PointX="25.75" PointY="33.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDContactPerson" Width="1.5" PointX="33.75" PointY="27.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDEvent" Width="1.5" PointX="33.75" PointY="30.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDEventType" Width="1.5" PointX="34.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDGroup" Width="1.5" PointX="2.75" PointY="34.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDJobOwner" Width="1.5" PointX="4.75" PointY="34.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDMovement" Width="1.5" PointX="27.75" PointY="34.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDProgressStatu" Width="1.5" PointX="33.75" PointY="34.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDRiskBank" Width="1.5" PointX="35.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDShipment" Width="1.5" PointX="35.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDShipmentsLog" Width="1.5" PointX="35.75" PointY="9.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDStatu" Width="1.5" PointX="35.75" PointY="12.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDToDoList" Width="1.5" PointX="35.75" PointY="15.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ModuleSystem" Width="1.5" PointX="9" PointY="71.625" />
+        <EntityTypeShape EntityType="SmartWayModel.NCHeader" Width="1.5" PointX="35.75" PointY="18.75" />
+        <EntityTypeShape EntityType="SmartWayModel.NCItemSaveData" Width="1.5" PointX="35.75" PointY="22.75" />
+        <EntityTypeShape EntityType="SmartWayModel.NCMain" Width="1.5" PointX="35.75" PointY="27.75" />
+        <EntityTypeShape EntityType="SmartWayModel.NewLocation" Width="1.5" PointX="35.75" PointY="30.75" />
+        <EntityTypeShape EntityType="SmartWayModel.NICIP" Width="1.5" PointX="30" PointY="52.5" />
+        <EntityTypeShape EntityType="SmartWayModel.NICType" Width="1.5" PointX="25.5" PointY="51.625" />
+        <EntityTypeShape EntityType="SmartWayModel.OrgTree" Width="1.5" PointX="35.75" PointY="34.75" />
+        <EntityTypeShape EntityType="SmartWayModel.PageHeader" Width="1.5" PointX="19.75" PointY="36.75" />
+        <EntityTypeShape EntityType="SmartWayModel.PerConnectUserToPermission" Width="1.5" PointX="10.25" PointY="8.625" />
+        <EntityTypeShape EntityType="SmartWayModel.PerGroup" Width="1.5" PointX="5.75" PointY="9" />
+        <EntityTypeShape EntityType="SmartWayModel.Permission" Width="1.5" PointX="8" PointY="8.875" />
+        <EntityTypeShape EntityType="SmartWayModel.PermissionsModule" Width="1.5" PointX="17.75" PointY="1.25" />
+        <EntityTypeShape EntityType="SmartWayModel.PermissionsPage" Width="1.5" PointX="20" PointY="1" />
+        <EntityTypeShape EntityType="SmartWayModel.PersonalizationDisplay" Width="1.5" PointX="36.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartWayModel.PerUser" Width="1.5" PointX="8" PointY="6" />
+        <EntityTypeShape EntityType="SmartWayModel.PhysicalInterface" Width="1.5" PointX="25.5" PointY="68.375" />
+        <EntityTypeShape EntityType="SmartWayModel.portalReport" Width="1.5" PointX="21.75" PointY="36.75" />
+        <EntityTypeShape EntityType="SmartWayModel.PortalSection" Width="1.5" PointX="23.75" PointY="36.75" />
+        <EntityTypeShape EntityType="SmartWayModel.PortalWebPart" Width="1.5" PointX="0.75" PointY="37.75" />
+        <EntityTypeShape EntityType="SmartWayModel.PortalZoneLayout" Width="1.5" PointX="2.75" PointY="37.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ProfileDocument" Width="1.5" PointX="37.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ProfileJobFunction" Width="1.5" PointX="17.25" PointY="45.5" />
+        <EntityTypeShape EntityType="SmartWayModel.ProfileLocation" Width="1.5" PointX="5.25" PointY="3.125" />
+        <EntityTypeShape EntityType="SmartWayModel.Profile" Width="1.5" PointX="3" PointY="1.875" />
+        <EntityTypeShape EntityType="SmartWayModel.Profiles_From_As400" Width="1.5" PointX="4.75" PointY="37.75" />
+        <EntityTypeShape EntityType="SmartWayModel.profilesApplicationConnection" Width="1.5" PointX="37.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Protocol" Width="1.5" PointX="0.75" PointY="51.25" />
+        <EntityTypeShape EntityType="SmartWayModel.PublishQueue" Width="1.5" PointX="15" PointY="17" />
+        <EntityTypeShape EntityType="SmartWayModel.PublishStatu" Width="1.5" PointX="12.75" PointY="17.25" />
+        <EntityTypeShape EntityType="SmartWayModel.Rack" Width="1.5" PointX="17.25" PointY="75.875" />
+        <EntityTypeShape EntityType="SmartWayModel.RelatveLocation" Width="1.5" PointX="6.75" PointY="37.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Report" Width="1.5" PointX="8.75" PointY="37.75" />
+        <EntityTypeShape EntityType="SmartWayModel.RoomMetaItem" Width="1.5" PointX="16.75" PointY="30.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Room" Width="1.5" PointX="15" PointY="79.125" />
+        <EntityTypeShape EntityType="SmartWayModel.Scenario" Width="1.5" PointX="11.25" PointY="58.25" />
+        <EntityTypeShape EntityType="SmartWayModel.ScenDomain" Width="1.5" PointX="9" PointY="68.625" />
+        <EntityTypeShape EntityType="SmartWayModel.ScenTag" Width="1.5" PointX="13.5" PointY="51.625" />
+        <EntityTypeShape EntityType="SmartWayModel.SensitivityData" Width="1.5" PointX="37.75" PointY="9.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ServerMonitoringData" Width="1.5" PointX="10.75" PointY="37.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ServerProperty" Width="1.5" PointX="37.75" PointY="12.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ServerPropertiesLog" Width="1.5" PointX="37.75" PointY="22.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ServerRole" Width="1.5" PointX="19.5" PointY="43.5" />
+        <EntityTypeShape EntityType="SmartWayModel.SNMP_Code" Width="1.5" PointX="37.75" PointY="25.75" />
+        <EntityTypeShape EntityType="SmartWayModel.SoftwareInstalled" Width="1.5" PointX="37.75" PointY="28.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Station" Width="1.5" PointX="37.75" PointY="32.75" />
+        <EntityTypeShape EntityType="SmartWayModel.sysdiagram" Width="1.5" PointX="37.75" PointY="35.75" />
+        <EntityTypeShape EntityType="SmartWayModel.SysDocNew" Width="1.5" PointX="38.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartWayModel.SystemExtendedSystemField" Width="1.5" PointX="14.25" PointY="54.375" />
+        <EntityTypeShape EntityType="SmartWayModel.SystemExtenendFieldLayout" Width="1.5" PointX="7.5" PointY="41.25" />
+        <EntityTypeShape EntityType="SmartWayModel.SystemExtenendFieldWebPart" Width="1.5" PointX="7.5" PointY="43.625" />
+        <EntityTypeShape EntityType="SmartWayModel.SystemFieldDataType" Width="1.5" PointX="9.75" PointY="45.875" />
+        <EntityTypeShape EntityType="SmartWayModel.SystemFileLink" Width="1.5" PointX="11.25" PointY="91.5" />
+        <EntityTypeShape EntityType="SmartWayModel.SystemMaintenanceCompany" Width="1.5" PointX="14.25" PointY="62.625" />
+        <EntityTypeShape EntityType="SmartWayModel.SystemSectionExtendedField" Width="1.5" PointX="9.75" PointY="42" />
+        <EntityTypeShape EntityType="SmartWayModel.SystemsNote" Width="1.5" PointX="25.75" PointY="38.75" />
+        <EntityTypeShape EntityType="SmartWayModel.SystemsRequiresDR" Width="1.5" PointX="27.75" PointY="38.75" />
+        <EntityTypeShape EntityType="SmartWayModel.SystemStatu" Width="1.5" PointX="33.75" PointY="38.75" />
+        <EntityTypeShape EntityType="SmartWayModel.SystemTypeField" Width="1.5" PointX="12" PointY="43" />
+        <EntityTypeShape EntityType="SmartWayModel.TaddmImpoterLog" Width="1.5" PointX="35.75" PointY="38.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Technology" Width="1.5" PointX="6.75" PointY="64.25" />
+        <EntityTypeShape EntityType="SmartWayModel.Tier" Width="1.5" PointX="37.75" PointY="38.75" />
+        <EntityTypeShape EntityType="SmartWayModel.TSTRackDemo" Width="1.5" PointX="39.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SmartWayModel.UploadedStencil" Width="1.5" PointX="17.25" PointY="32.875" />
+        <EntityTypeShape EntityType="SmartWayModel.UserDisplayDefualtView" Width="1.5" PointX="39.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SmartWayModel.UserFavorite" Width="1.5" PointX="39.75" PointY="9.75" />
+        <EntityTypeShape EntityType="SmartWayModel.UserManagentLOG" Width="1.5" PointX="39.75" PointY="12.75" />
+        <EntityTypeShape EntityType="SmartWayModel.User" Width="1.5" PointX="16.75" PointY="11.25" />
+        <EntityTypeShape EntityType="SmartWayModel.VersionsDetailed" Width="1.5" PointX="39.75" PointY="15.75" />
+        <EntityTypeShape EntityType="SmartWayModel.VisioMaster" Width="1.5" PointX="15" PointY="44.5" />
+        <EntityTypeShape EntityType="SmartWayModel.VisualizationContact" Width="1.5" PointX="39.75" PointY="19.75" />
+        <EntityTypeShape EntityType="SmartWayModel.VisualizationNote" Width="1.5" PointX="21.75" PointY="39.75" />
+        <EntityTypeShape EntityType="SmartWayModel.VLAN" Width="1.5" PointX="39.75" PointY="22.75" />
+        <EntityTypeShape EntityType="SmartWayModel.VPXImpData" Width="1.5" PointX="39.75" PointY="27.75" />
+        <EntityTypeShape EntityType="SmartWayModel.warehouse" Width="1.5" PointX="39.75" PointY="30.75" />
+        <EntityTypeShape EntityType="SmartWayModel.WeightType" Width="1.5" PointX="15" PointY="42.125" />
+        <EntityTypeShape EntityType="SmartWayModel.Wiki" Width="1.5" PointX="8" PointY="16.875" />
+        <EntityTypeShape EntityType="SmartWayModel.WikiSection" Width="1.5" PointX="5.75" PointY="17.25" />
+        <EntityTypeShape EntityType="SmartWayModel.WikiTag" Width="1.5" PointX="10.25" PointY="17.25" />
+        <EntityTypeShape EntityType="SmartWayModel.WMILog" Width="1.5" PointX="40.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartWayModel.WSFileLauncherCatalog" Width="1.5" PointX="0.75" PointY="40.75" />
+        <EntityTypeShape EntityType="SmartWayModel.WSFileLauncherMethod" Width="1.5" PointX="2.75" PointY="40.75" />
+        <EntityTypeShape EntityType="SmartWayModel.WSIncomingData" Width="1.5" PointX="4.75" PointY="40.75" />
+        <EntityTypeShape EntityType="SmartWayModel.WSQueryCatalog" Width="1.5" PointX="39.75" PointY="40.75" />
+        <EntityTypeShape EntityType="SmartWayModel.WSTimeIntervalUnit" Width="1.5" PointX="11.75" PointY="40.75" />
+        <EntityTypeShape EntityType="SmartWayModel.WSV2_Methods" Width="1.5" PointX="12" PointY="13" />
+        <EntityTypeShape EntityType="SmartWayModel.WSV2_Parameters" Width="1.5" PointX="14.25" PointY="13" />
+        <EntityTypeShape EntityType="SmartWayModel.WSV2_Services" Width="1.5" PointX="9.75" PointY="13.125" />
+        <EntityTypeShape EntityType="SmartWayModel.WSXmlLibrary" Width="1.5" PointX="41.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ApplicationsLog" Width="1.5" PointX="41.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SmartWayModel.AppMoveStatu" Width="1.5" PointX="41.75" PointY="17.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ASD" Width="1.5" PointX="41.75" PointY="20.75" />
+        <EntityTypeShape EntityType="SmartWayModel.AuditWSQueryCatalog" Width="1.5" PointX="23.75" PointY="41.75" />
+        <EntityTypeShape EntityType="SmartWayModel.CommunicationLineContactPerson" Width="1.5" PointX="25.75" PointY="41.75" />
+        <EntityTypeShape EntityType="SmartWayModel.DocIndex" Width="1.5" PointX="27.75" PointY="41.75" />
+        <EntityTypeShape EntityType="SmartWayModel.EnvironmentToDowntimeGroup" Width="1.5" PointX="41.75" PointY="39.75" />
+        <EntityTypeShape EntityType="SmartWayModel.EquipmentLog" Width="1.5" PointX="33.75" PointY="42.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Essence" Width="1.5" PointX="42.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartWayModel.HP_Servers" Width="1.5" PointX="35.75" PointY="42.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Item_BackUp" Width="1.5" PointX="41.75" PointY="42.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemApplicationConnectionDB" Width="1.5" PointX="2.75" PointY="43.75" />
+        <EntityTypeShape EntityType="SmartWayModel.ItemTypeOfUse" Width="1.5" PointX="43.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SmartWayModel.LansweeperImport_Temp01" Width="1.5" PointX="4.75" PointY="43.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Log" Width="1.5" PointX="43.75" PointY="6.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDJobOwnersGroup" Width="1.5" PointX="43.75" PointY="10.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDMovementItemMember" Width="1.5" PointX="43.75" PointY="13.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDMovementSystemMember" Width="1.5" PointX="43.75" PointY="16.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDRiskType" Width="1.5" PointX="43.75" PointY="20.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDSystemProgressStatu" Width="1.5" PointX="43.75" PointY="23.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDToDoBank" Width="1.5" PointX="43.75" PointY="26.75" />
+        <EntityTypeShape EntityType="SmartWayModel.MNDToDoType" Width="1.5" PointX="43.75" PointY="29.75" />
+        <EntityTypeShape EntityType="SmartWayModel.RiskAssessmentType" Width="1.5" PointX="43.75" PointY="32.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Round" Width="1.5" PointX="43.75" PointY="35.75" />
+        <EntityTypeShape EntityType="SmartWayModel.slaTier" Width="1.5" PointX="37.75" PointY="43.75" />
+        <EntityTypeShape EntityType="SmartWayModel.StationSeat" Width="1.5" PointX="43.75" PointY="38.75" />
+        <EntityTypeShape EntityType="SmartWayModel.TempTbl" Width="1.5" PointX="43.75" PointY="40.75" />
+        <EntityTypeShape EntityType="SmartWayModel.testTbl1" Width="1.5" PointX="43.75" PointY="43.75" />
+        <EntityTypeShape EntityType="SmartWayModel.Version" Width="1.5" PointX="44.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartWayModel.VM_HOST_IMPORT_FROM_IMPORT_PROD" Width="1.5" PointX="45.75" PointY="3.75" />
+        <EntityTypeShape EntityType="SmartWayModel.VM_HOST_IMPORT_FROM_IMPORT_TEST" Width="1.5" PointX="45.75" PointY="19.75" />
+        <EntityTypeShape EntityType="SmartWayModel.VM_HOST_IMPORT_PROD" Width="1.5" PointX="45.75" PointY="35.75" />
+        <EntityTypeShape EntityType="SmartWayModel.VM_HOST_IMPORT_TEMP04" Width="1.5" PointX="32.75" PointY="46.75" />
+        <EntityTypeShape EntityType="SmartWayModel.VM_HOST_IMPORT_TEST" Width="1.5" PointX="37.75" PointY="46.75" />
+        <EntityTypeShape EntityType="SmartWayModel.VM_IMPORT_FROM_IMPORT_PROD" Width="1.5" PointX="47.75" PointY="0.75" />
+        <EntityTypeShape EntityType="SmartWayModel.VM_IMPORT_FROM_IMPORT_TEST" Width="1.5" PointX="47.75" PointY="16.75" />
+        <EntityTypeShape EntityType="SmartWayModel.VM_IMPORT_PROD" Width="1.5" PointX="47.75" PointY="32.75" />
+        <EntityTypeShape EntityType="SmartWayModel.VM_IMPORT_TEMP" Width="1.5" PointX="34.75" PointY="48.75" />
+        <EntityTypeShape EntityType="SmartWayModel.VM_IMPORT_TEMP03" Width="1.5" PointX="47.75" PointY="48.75" />
+        <EntityTypeShape EntityType="SmartWayModel.VM_IMPORT_TEST" Width="1.5" PointX="49.75" PointY="0.75" />
+        <AssociationConnector Association="SmartWayModel.FK_AccessDetails_Item" />
+        <AssociationConnector Association="SmartWayModel.FK_AccessDetails_LoginTypes" />
+        <AssociationConnector Association="SmartWayModel.FK_ActionPaneCategories_ActionPaneCategories" />
+        <AssociationConnector Association="SmartWayModel.FK_ApplicationCompany_Companies" />
+        <AssociationConnector Association="SmartWayModel.FK_SystemsCompany_Applications" />
+        <AssociationConnector Association="SmartWayModel.FK_ApplicationConnections_Applications" />
+        <AssociationConnector Association="SmartWayModel.FK_ApplicationConnections_Applications1" />
+        <AssociationConnector Association="SmartWayModel.FK_ApplicationConnections_CriticalLevels" />
+        <AssociationConnector Association="SmartWayModel.FK_ApplicationConnections_DataTypes" />
+        <AssociationConnector Association="SmartWayModel.FK_ApplicationConnections_Frequency" />
+        <AssociationConnector Association="SmartWayModel.FK_ApplicationConnections_Protocols" />
+        <AssociationConnector Association="SmartWayModel.FK_ApplicationInformation_ApplicationInformationTypes" />
+        <AssociationConnector Association="SmartWayModel.FK_ApplicationInformation_Applications" />
+        <AssociationConnector Association="SmartWayModel.FK_ApplicationJobFunction_Applications" />
+        <AssociationConnector Association="SmartWayModel.FK_ApplicationJobFunction_JobFunction" />
+        <AssociationConnector Association="SmartWayModel.FK_ApplicationModule_Applications" />
+        <AssociationConnector Association="SmartWayModel.FK_ApplicationModule_ModuleSystem" />
+        <AssociationConnector Association="SmartWayModel.FK__Applicati__DownT__19AC65EF" />
+        <AssociationConnector Association="SmartWayModel.FK__Applicati__TypeI__5C6E4D85" />
+        <AssociationConnector Association="SmartWayModel.FK__SystemMai__Syste__019419E5" />
+        <AssociationConnector Association="SmartWayModel.FK__SystemMai__Syste__02883E1E" />
+        <AssociationConnector Association="SmartWayModel.FK__SystemMai__Syste__0737E4A2" />
+        <AssociationConnector Association="SmartWayModel.FK__SystemMai__Syste__082C08DB" />
+        <AssociationConnector Association="SmartWayModel.FK__SystemMai__Syste__1E8F7FEF" />
+        <AssociationConnector Association="SmartWayModel.FK__SystemMai__Syste__2DD1C37F" />
+        <AssociationConnector Association="SmartWayModel.FK_Applications_Applications" />
+        <AssociationConnector Association="SmartWayModel.FK_Applications_Applications1" />
+        <AssociationConnector Association="SmartWayModel.FK_Applications_Applications2" />
+        <AssociationConnector Association="SmartWayModel.FK_Applications_ApplicationSections" />
+        <AssociationConnector Association="SmartWayModel.FK_Applications_CriticalLevels" />
+        <AssociationConnector Association="SmartWayModel.FK_Applications_DRPLoadOrder" />
+        <AssociationConnector Association="SmartWayModel.FK_Applications_Technology" />
+        <AssociationConnector Association="SmartWayModel.FK_BizProcessApplications_Applications" />
+        <AssociationConnector Association="SmartWayModel.FK_ItemApplications_Applications1" />
+        <AssociationConnector Association="SmartWayModel.FK_SystemExtendedSystemFields_Applications" />
+        <AssociationConnector Association="SmartWayModel.FK_SystemFileLink_Applications" />
+        <AssociationConnector Association="SmartWayModel.FK_AutoTestServers_AutoTests" />
+        <AssociationConnector Association="SmartWayModel.FK_AutoTestSubSystems_AutoTests" />
+        <AssociationConnector Association="SmartWayModel.FK_BizProcess_BizProcessTypes" />
+        <AssociationConnector Association="SmartWayModel.FK_BizProcess_CriticalLevels" />
+        <AssociationConnector Association="SmartWayModel.FK_BizProcessApplications_BizProcess" />
+        <AssociationConnector Association="SmartWayModel.FK_Buildings_Cities" />
+        <AssociationConnector Association="SmartWayModel.FK_Floors_Buildings" />
+        <AssociationConnector Association="SmartWayModel.FK_cableitem_Color" />
+        <AssociationConnector Association="SmartWayModel.FK_cableitem_Destination" />
+        <AssociationConnector Association="SmartWayModel.FK_cableitem_Parent" />
+        <AssociationConnector Association="SmartWayModel.FK_CableItem_PhysicalInterfaces" />
+        <AssociationConnector Association="SmartWayModel.FK_CableItem_PhysicalInterfaces1" />
+        <AssociationConnector Association="SmartWayModel.FK_cableitem_Source" />
+        <AssociationConnector Association="SmartWayModel.FK_cableitem_Type" />
+        <AssociationConnector Association="SmartWayModel.FK_Cities_Countries" />
+        <AssociationConnector Association="SmartWayModel.FK__CloudInfo__Hosti__5A860513" />
+        <AssociationConnector Association="SmartWayModel.FK__CloudInfo__Cloud__5991E0DA" />
+        <AssociationConnector Association="SmartWayModel.FK__CloudInfo__Redun__5B7A294C" />
+        <AssociationConnector Association="SmartWayModel.FK__ClusterIt__Clust__01D4DC5E" />
+        <AssociationConnector Association="SmartWayModel.FK__ClusterIt__ItemI__04B14909" />
+        <AssociationConnector Association="SmartWayModel.FK__ClusterIt__ItemI__0699917B" />
+        <AssociationConnector Association="SmartWayModel.FK__Clusters__Cluste__27FA8546" />
+        <AssociationConnector Association="SmartWayModel.FK__Item__ClusterID__18B841B6" />
+        <AssociationConnector Association="SmartWayModel.FK_CommunicationLine_CommunicationLineBandwidth" />
+        <AssociationConnector Association="SmartWayModel.FK_CommunicationLine_CommunicationLineISP" />
+        <AssociationConnector Association="SmartWayModel.FK_CommunicationLine_CommunicationLineKind" />
+        <AssociationConnector Association="SmartWayModel.FK_CommunicationLineAttachedEquipment_CommunicationLinesupplier" />
+        <AssociationConnector Association="SmartWayModel.FK_DatabaseInstances_CriticalLevels" />
+        <AssociationConnector Association="SmartWayModel.FK_DatabaseJobFunction_JobFunction" />
+        <AssociationConnector Association="SmartWayModel.FK__Profiles__Deprtm__2C55260F" />
+        <AssociationConnector Association="SmartWayModel.FK_DocRepository_DocType" />
+        <AssociationConnector Association="SmartWayModel.FK__Item__DownTimeID__7D102741" />
+        <AssociationConnector Association="SmartWayModel.FK_DpItemHardware_DpItem" />
+        <AssociationConnector Association="SmartWayModel.FK_ElectricalCircuites_Rooms" />
+        <AssociationConnector Association="SmartWayModel.FK_Item_Environment" />
+        <AssociationConnector Association="SmartWayModel.FK_EquipmentJobFunction_Item" />
+        <AssociationConnector Association="SmartWayModel.FK_EquipmentJobFunction_JobFunction" />
+        <AssociationConnector Association="SmartWayModel.FK_EquipmentsNote_Item" />
+        <AssociationConnector Association="SmartWayModel.FK_ItemTypeFields_FieldDataType" />
+        <AssociationConnector Association="SmartWayModel.FK_MetaItemFields_FieldDataType" />
+        <AssociationConnector Association="SmartWayModel.FK_Rooms_Floors" />
+        <AssociationConnector Association="SmartWayModel.FK__Item__MetaItemID__756F0579" />
+        <AssociationConnector Association="SmartWayModel.FK__Item__MetaItemID__766329B2" />
+        <AssociationConnector Association="SmartWayModel.FK__Item__MetaItemID__77574DEB" />
+        <AssociationConnector Association="SmartWayModel.FK_Item_Item" />
+        <AssociationConnector Association="SmartWayModel.FK_Item_ItemStatus" />
+        <AssociationConnector Association="SmartWayModel.FK_Item_Racks" />
+        <AssociationConnector Association="SmartWayModel.FK_Item_Rooms" />
+        <AssociationConnector Association="SmartWayModel.FK_ItemData_Item" />
+        <AssociationConnector Association="SmartWayModel.FK_ItemFields_Item" />
+        <AssociationConnector Association="SmartWayModel.FK_ItemMetaData_Item" />
+        <AssociationConnector Association="SmartWayModel.FK_ItemNICs_Item" />
+        <AssociationConnector Association="SmartWayModel.FK_ItemRole_Item" />
+        <AssociationConnector Association="SmartWayModel.FK_ItemServerRole_Item" />
+        <AssociationConnector Association="SmartWayModel.FK_JobOrder_Item" />
+        <AssociationConnector Association="SmartWayModel.FK_Locations_Item" />
+        <AssociationConnector Association="SmartWayModel.FK_ItemApplications_ItemServerRoles" />
+        <AssociationConnector Association="SmartWayModel.FK_ItemExtendedItemTypeFields_ItemTypeFields" />
+        <AssociationConnector Association="SmartWayModel.FK_ItemFields_MetaItemFields" />
+        <AssociationConnector Association="SmartWayModel.FK_ItemNICs_NICTypes" />
+        <AssociationConnector Association="SmartWayModel.FK_NICIPs_ItemNICs" />
+        <AssociationConnector Association="SmartWayModel.FK_ItemServerRoles_ServerRoles" />
+        <AssociationConnector Association="SmartWayModel.FK_ItemTypeFields_ItemType" />
+        <AssociationConnector Association="SmartWayModel.FK_MetaItem_ItemType" />
+        <AssociationConnector Association="SmartWayModel.FK_UploadedStencils_UploadedStencils" />
+        <AssociationConnector Association="SmartWayModel.FK_MetaItemExtendedFields_MetaItemFields" />
+        <AssociationConnector Association="SmartWayModel.FK_ProfileJobFunction_JobFunction" />
+        <AssociationConnector Association="SmartWayModel.FK_ListItem_List" />
+        <AssociationConnector Association="SmartWayModel.FK_MetaItemFields_List" />
+        <AssociationConnector Association="SmartWayModel.FK_Locations_Rooms" />
+        <AssociationConnector Association="SmartWayModel.FK_Log_Users" />
+        <AssociationConnector Association="SmartWayModel.FK__SystemMai__Maint__009FF5AC" />
+        <AssociationConnector Association="SmartWayModel.FK__SystemMai__Maint__054F9C30" />
+        <AssociationConnector Association="SmartWayModel.FK__SystemMai__Maint__0643C069" />
+        <AssociationConnector Association="SmartWayModel.FK__SystemMai__Maint__18178C8A" />
+        <AssociationConnector Association="SmartWayModel.FK__SystemMai__Maint__2CDD9F46" />
+        <AssociationConnector Association="SmartWayModel.FK__SystemMai__Maint__7FABD173" />
+        <AssociationConnector Association="SmartWayModel.FK_MetaItem_Manufacturers" />
+        <AssociationConnector Association="SmartWayModel.FK_UploadedStencils_Manufacturers" />
+        <AssociationConnector Association="SmartWayModel.FK_MetaItem_MeasureUnits" />
+        <AssociationConnector Association="SmartWayModel.FK_MetaItem_VisioMaster" />
+        <AssociationConnector Association="SmartWayModel.FK_MetaItem_WeightTypes" />
+        <AssociationConnector Association="SmartWayModel.FK_PerConnectUserToPermission_PerGroups" />
+        <AssociationConnector Association="SmartWayModel.FK_PerConnectUserToPermission_Permissions" />
+        <AssociationConnector Association="SmartWayModel.FK_PerConnectUserToPermission_PerUsers" />
+        <AssociationConnector Association="SmartWayModel.FK_Permissions_PerGroups" />
+        <AssociationConnector Association="SmartWayModel.FK_PermissionsPage_PermissionsModule" />
+        <AssociationConnector Association="SmartWayModel.FK_ProfileJobFunction_Profiles" />
+        <AssociationConnector Association="SmartWayModel.FK_ProfileLocation_Profiles" />
+        <AssociationConnector Association="SmartWayModel.FK_PublishQueue_PublishStatus" />
+        <AssociationConnector Association="SmartWayModel.FK_Racks_Rooms" />
+        <AssociationConnector Association="SmartWayModel.FK_Scenarios_ScenDomain" />
+        <AssociationConnector Association="SmartWayModel.FK_SystemExtendedSystemFields_SystemTypeFields" />
+        <AssociationConnector Association="SmartWayModel.FK_SystemSectionExtendedField_SystemExtenendFieldLayout" />
+        <AssociationConnector Association="SmartWayModel.FK_SystemSectionExtendedField_SystemExtenendFieldWebPart" />
+        <AssociationConnector Association="SmartWayModel.FK_SystemTypeFields_SystemFieldDataType" />
+        <AssociationConnector Association="SmartWayModel.FK_SystemTypeFields_SystemSectionExtendedField" />
+        <AssociationConnector Association="SmartWayModel.FK_VisioMaster_VisioMaster" />
+        <AssociationConnector Association="SmartWayModel.FK_Wikis_WikiSection" />
+        <AssociationConnector Association="SmartWayModel.FK_WSV2_Methods_WSV2_Services" />
+        <AssociationConnector Association="SmartWayModel.FK_WSV2_Parameters_WSV2_Methods" />
+        <AssociationConnector Association="SmartWayModel.AutoTestConnectedTags" />
+        <AssociationConnector Association="SmartWayModel.DocItem" />
+        <AssociationConnector Association="SmartWayModel.DocSystems" />
+        <AssociationConnector Association="SmartWayModel.ItemTypeParents" />
+        <AssociationConnector Association="SmartWayModel.RackElectricalCircuits" />
+        <AssociationConnector Association="SmartWayModel.ScenApplication" />
+        <AssociationConnector Association="SmartWayModel.ScenTagLinking" />
+        <AssociationConnector Association="SmartWayModel.WikiConnectionTag" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
