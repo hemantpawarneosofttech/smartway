@@ -18,24 +18,35 @@ namespace SmartWay.Data.Repository
 {
     public class ApplicationRepository : RepositoryBase<Application>, IApplicationRepository
     {
-
+        string connectionString = ConfigurationManager.ConnectionStrings[ConfigurationManager.AppSettings["connectionstringName"].ToString()].ConnectionString;
+        #region ParentModel
         public class ParentModel
         {
             public List<ApplicationViewModel> applicationList { get; set; }
         }
+        #endregion ParentModel
+
+        #region getAllParentApplications
         public List<ApplicationViewModel> getAllParentApplications()
         {
-            return Mapper.applicationViewModelMapper(DbContext.Applications.ToList());
+            var applications = DbContext.Applications.Where(x => !x.IsSubsystem.Value && x.StatusID != 5).ToList();
+            return Mapper.applicationViewModelMapper(applications);
         }
+        #endregion getAllParentApplications
 
-        public List<JsonModel> GetRelatedChildNodes(int applicationId)
+        #region GetApplicationChild
+        /// <summary>
+        /// used to Get Application Child
+        /// </summary>
+        /// <param name="applicationId"></param>
+        /// <returns></returns>
+        public List<JsonModel> GetApplicationChild(int applicationId)
         {
             List<JsonModel> list = new List<JsonModel>();
 
             try
             {
-                string str = ConfigurationManager.ConnectionStrings["SmartWayNewDB"].ConnectionString;
-                SqlConnection conString = new SqlConnection(str);
+                SqlConnection conString = new SqlConnection(connectionString);
                 conString.Open();
                 SqlCommand cmdQuery = new SqlCommand("STP_GetApplicationChild", conString);
                 cmdQuery.Parameters.AddWithValue("@ID", applicationId);
@@ -49,17 +60,28 @@ namespace SmartWay.Data.Repository
 
             catch (Exception ex)
             {
+                throw ex;
             }
             return list;
         }
-        public List<JsonModel> GetItemsApplication(int itemId, int applicationId)
+
+        #endregion GetApplicationChild
+
+        #region GetItemsApplication
+        /// <summary>
+        /// used for get item's application
+        /// </summary>
+        /// <param name="itemId"></param>
+        /// <param name="applicationId"></param>
+        /// <returns></returns>
+        public List<JsonModel> GetItemsApplication(long itemId, int applicationId)
         {
             List<JsonModel> list = new List<JsonModel>();
 
             try
             {
-                string str = ConfigurationManager.ConnectionStrings["SmartWayNewDB"].ConnectionString;
-                SqlConnection conString = new SqlConnection(str);
+                //string str = ConfigurationManager.ConnectionStrings["SmartWayNewDB"].ConnectionString;
+                SqlConnection conString = new SqlConnection(connectionString);
                 conString.Open();
                 SqlCommand cmdQuery = new SqlCommand("STP_GetItemsApplication", conString);
                 cmdQuery.Parameters.AddWithValue("@ID", applicationId);
@@ -79,6 +101,70 @@ namespace SmartWay.Data.Repository
 
             return list;
         }
+
+        #endregion
+
+        #region GetSubsystemApplications
+
+        /// <summary>
+        ///uased to  Get Subsystem Applications
+        /// </summary>
+        /// <param name="applicationId"></param>
+        /// <returns></returns>
+        public List<JsonModel> GetSubsystemApplications(int applicationId)
+        {
+            List<JsonModel> list = new List<JsonModel>();
+
+            try
+            {
+                SqlConnection conString = new SqlConnection(connectionString);
+                conString.Open();
+                SqlCommand cmdQuery = new SqlCommand("STP_GetSubsystemApplications", conString);
+                cmdQuery.Parameters.AddWithValue("@ID", applicationId);
+                cmdQuery.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter sda = new SqlDataAdapter(cmdQuery);
+                DataSet dsData = new DataSet();
+                sda.Fill(dsData);
+
+                list = CreateListFromTable(dsData);
+            }
+            catch (Exception ex)
+            {
+            }
+            return list;
+        }
+
+        #endregion GetSubsystemApplications
+
+        #region GetItemIdFromName
+        /// <summary>
+        /// Get Id From Item or application Name
+        /// </ summary>
+        /// <param name="labelName"></param>
+        /// <param name="isApplication"></param>
+        /// <returns></returns>
+        public long GetItemIdFromName(string labelName, bool isApplication)
+        {
+            long id = 0;
+            if (isApplication)
+            {
+                var id1 = DbContext.Applications.Where(x => x.Name == labelName).FirstOrDefault()?.ID;
+                if (id1.HasValue)
+                    id = id1.Value;
+            }
+            else
+            {
+                var id1 = DbContext.Items.Where(x => x.Name == labelName).FirstOrDefault()?.ID;
+                if (id1.HasValue)
+                    id = id1.Value;
+            }
+
+            return id;
+        }
+
+        #endregion
+
+        #region Private Methods
         private List<JsonModel> CreateListFromTable(DataSet dsData)
         {
             List<JsonModel> list = new List<JsonModel>();
@@ -94,7 +180,8 @@ namespace SmartWay.Data.Repository
                     jsonModel.linkSource = row.ItemArray.GetValue(4).ToString();
                     jsonModel.linkTarget = row.ItemArray.GetValue(5).ToString();
                     jsonModel.parent = row.ItemArray.GetValue(6).ToString();
-                    jsonModel.IsApplication = Convert.ToBoolean(row.ItemArray.GetValue(7));
+                    jsonModel.IsApplication = Convert.ToBoolean(row.ItemArray.GetValue(8));
+                    jsonModel.Level = Convert.ToInt32(row.ItemArray.GetValue(9).ToString());
                     if (string.IsNullOrEmpty(jsonModel.parent) && jsonModel.shapeType != "Link")
                     {
                         jsonModel.IsBase = true;
@@ -104,5 +191,9 @@ namespace SmartWay.Data.Repository
             }
             return list;
         }
+
+        #endregion
+
+
     }
 }

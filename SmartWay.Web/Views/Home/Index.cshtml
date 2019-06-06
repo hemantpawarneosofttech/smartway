@@ -64,18 +64,26 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-12">
+        @*<div class="col-md-12">*@
             <div class="panel panel-info">
                 <div class="panel-heading">JointJs Graph</div>
-                <div class="panel-body" id="myholder">
-                    <div>
+                <div class="panel-body">
 
+                    <div class="row">
+                        <button type="button" id="btnLoad" class="btn btn-primary" style="margin-left:250px;">
+                            Load
+                        </button>
+                        <div id="myholder"></div>
                     </div>
+                   
+
+                   
+
                 </div>
             </div>
 
         </div>
-    </div>
+    @*</div>*@
 </div>
 
 <script type="text/javascript">
@@ -85,6 +93,8 @@
     });
     $(document).ready(function () {
         $("#applicationList").select2();
+        $("#btnLoad").hide();
+
     })
     var graph = new joint.dia.Graph;
 
@@ -138,7 +148,7 @@
             }
         });
     }
-
+    var parent = $("#applicationList option:selected").text();
     function bindData() {
 
         graph.clear();
@@ -154,6 +164,7 @@
         var controlName = $("#applicationList option:selected").text();
         controlName = new joint.shapes.standard.Rectangle();
         window[a] = controlName;
+        window[parent] = controlName;
 
         controlName.position(550, 100);
         prevParentPositionX = 200;
@@ -359,6 +370,8 @@
         count = 0;
         graph.clear();
         loadData();
+
+        $("#btnLoad").show();
     });
 
     $("#btnClear").click(function () {
@@ -366,5 +379,62 @@
         graph.clear();
 
     });
+
+    $("#btnLoad").click(function () {
+
+        var rectangle1 = new joint.shapes.standard.Rectangle();
+        rectangle1.position(150, 40);
+        rectangle1.resize(120, 60);
+        rectangle1.attr({
+            body: {
+                fill: 'lightblue',
+                stroke: 'black',
+                strokeWidth: 2
+            },
+            label: {
+                text: "Child-Application-I",
+                fill: 'black'
+            }
+        });
+        rectangle1.addTo(graph);
+
+
+        var rectangle2 = new joint.shapes.standard.Rectangle();
+        rectangle2.position(150, 150);
+        rectangle2.resize(120, 60);
+        rectangle2.attr({
+            body: {
+                fill: 'lightblue',
+                stroke: 'black',
+                strokeWidth: 2
+            },
+            label: {
+                text: "Child-Application-II ",
+                fill: 'black'
+            }
+        });
+        rectangle2.addTo(graph);
+
+        var link = new joint.shapes.standard.Link({
+
+            source: { id: window[parent].id },
+            target: { id: rectangle1.id },
+            router: { name: 'manhattan' },
+            connector: { name: 'rounded' }
+        });
+        link.addTo(graph);
+
+        var link = new joint.shapes.standard.Link({
+
+            source: { id: window[parent].id },
+            target: { id: rectangle2.id },
+            router: { name: 'manhattan' },
+            connector: { name: 'rounded' }
+        });
+        link.addTo(graph);
+
+
+    });
+    
 
 </script>

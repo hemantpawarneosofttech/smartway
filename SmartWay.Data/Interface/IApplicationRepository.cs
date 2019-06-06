@@ -13,8 +13,12 @@ namespace SmartWay.Data.Interface
     public interface IApplicationRepository : IRepository<Application>
     {
         List<ApplicationViewModel> getAllParentApplications();
-        List<JsonModel> GetRelatedChildNodes(int applicationId);
+        List<JsonModel> GetApplicationChild(int applicationId);
 
-        List<JsonModel> GetItemsApplication(int itemId, int applicationId);
+        List<JsonModel> GetItemsApplication(long itemId, int applicationId);
+
+        long GetItemIdFromName(string labelName, bool isApplication);
+
+        List<JsonModel> GetSubsystemApplications(int applicationId);
     }
 }

@@ -24,4 +24,25 @@ namespace SmartWay.Model.Models
 
 
     }
+
+    //public class InputJsonModel
+    //{
+    //    public int id { get; set; }
+    //    public string shapeType { get; set; }
+    //    public string shapeControlName { get; set; }
+    //    public string shapeLabel { get; set; }
+    //    public string linkSource { get; set; }
+    //    public string linkTarget { get; set; }
+    //    public string parent { get; set; }
+    //    public bool IsLeaf { get; set; }
+    //    public bool IsBase { get; set; }
+    //    public bool IsApplication { get; set; }
+
+    //    public int Level { get; set; }
+
+    //    public string inputShapeLabel { get; set; }
+    //    public string inputItemId { get; set; }
+    //    public string inputSelectedParentId { get; set; }
+
+    //}
 }

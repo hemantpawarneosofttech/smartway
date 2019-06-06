@@ -13,51 +13,123 @@ namespace SmartWay.Web.Controllers
     public class HomeController : Controller
     {
         IApplicationRepository applicationRepository = new ApplicationRepository();
-        public ActionResult Index()
-        {
-            var model = new ParentModel();
-
-            model.applicationList = applicationRepository.getAllParentApplications();
-            return View(model);
-        }
-
-        public JsonResult GetApplicationChild(int id)
-        {
-            var list = applicationRepository.GetRelatedChildNodes(id);
-
-            //var result = applicationRepository.GetItemsApplication(list[1].id, list[0].id);
-            return Json(list, JsonRequestBehavior.AllowGet);
-        }
-
-        public JsonResult GetItemsApplication(int itemId, int appId)
-        {
-            var list = applicationRepository.GetItemsApplication(itemId, appId);
-            foreach (var item in list)
-            {
-                item.Level = 3;
-            }
-            return Json(list, JsonRequestBehavior.AllowGet);
-        }
-
-
-        public JsonResult FilterChildData(string name)
-        {
-            var Data = JsonConvert.DeserializeObject("");
-
-            return Json(Data, JsonRequestBehavior.AllowGet);
-        }
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
+        #region Graph
         public ActionResult Graph()
         {
             var model = new ParentModel();
             model.applicationList = applicationRepository.getAllParentApplications();
             return View(model);
         }
+
+        #endregion Graph
+
+        #region GetCompletGraph
+        /// <summary>
+        /// GetCompletGraph
+        /// </summary>
+        /// <param name="shapeLabel"></param>
+        /// <param name="itemid"></param>
+        /// <param name="selectedParentId"></param>
+        /// <param name="inputJsonModel"></param>
+        /// <remarks>
+        /// used to get graph data as per level
+        /// </remarks>
+        /// <returns></returns>
+        [HttpPost]
+        public JsonResult GetCompletGraph(string shapeLabel, int? itemid, int? selectedParentId, List<JsonModel> inputJsonModel)
+        {
+            if (itemid == null)
+            {
+                var list = applicationRepository.GetApplicationChild(Convert.ToInt32(selectedParentId));
+                //append list to inputjsonModel
+                inputJsonModel.AddRange(list);
+
+                //return list;
+                return Json(inputJsonModel, JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                var isApplication = inputJsonModel.Where(x => x.shapeLabel == shapeLabel).FirstOrDefault().IsApplication;
+
+
+                long idFromLabel = applicationRepository.GetItemIdFromName(shapeLabel, isApplication);//get id from label ie.currently passed item name's id
+
+                if (idFromLabel <= 0)
+                {
+                    return Json(inputJsonModel);
+                }
+                //get level from label ie.currently passed itemid's level
+                var currentLevel = 3;
+
+                //check whether current itemid is IsAppication or not
+
+                if (isApplication)
+                {
+                    currentLevel = 4;
+                    //application child
+                    var applicationChildList = applicationRepository.GetApplicationChild(Convert.ToInt32(idFromLabel));
+
+                    applicationChildList.ForEach(x => x.Level = currentLevel);
+
+                    //remove all child of current Level from inputJsonModel list
+                    inputJsonModel.RemoveAll(x => x.Level >= currentLevel);
+
+                    //append applicationChildList to inputjsonModel
+                    inputJsonModel = CombineList(inputJsonModel, applicationChildList);
+                    //inputJsonModel.AddRange(applicationChildList);
+                }
+                else
+                {
+                    //application child
+                    var applicationChildList = applicationRepository.GetItemsApplication(Convert.ToInt64(idFromLabel), Convert.ToInt32(selectedParentId));
+
+                    //remove all child of current Level from inputJsonModel list
+                    inputJsonModel.RemoveAll(x => x.Level >= currentLevel);
+
+                    //append applicationChildList to inputjsonModel
+                    inputJsonModel = CombineList(inputJsonModel, applicationChildList);
+                }
+
+                //return inputJsonmodel after appending data
+                return Json(inputJsonModel, JsonRequestBehavior.AllowGet);
+            }
+
+        }
+
+        #endregion GetCompletGraph
+
+        #region GetSubsystemApplications
+
+        /// <summary>
+        /// Get Applications Subsystem 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <remarks>
+        /// Used for getting sub system data 
+        /// </remarks>
+        /// <returns></returns>
+        [HttpGet]
+        public JsonResult GetSubsystemApplications(int id)
+        {
+            var subSystemList = applicationRepository.GetSubsystemApplications(id);
+
+            return Json(subSystemList, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion GetSubsystemApplications
+
+        #region Private Methods
+        private List<JsonModel> CombineList(List<JsonModel> firstList, List<JsonModel> secondList)
+        {
+            List<JsonModel> jsonModels = new List<JsonModel>();
+
+            jsonModels.AddRange(firstList.Where(x => x.shapeType != "Link"));
+            jsonModels.AddRange(secondList.Where(x => x.shapeType != "Link"));
+            jsonModels.AddRange(firstList.Where(x => x.shapeType == "Link"));
+            jsonModels.AddRange(secondList.Where(x => x.shapeType == "Link"));
+
+            return jsonModels;
+        }
+        #endregion Private Methods
     }
 }
