@@ -7,9 +7,39 @@
 }
 
 
-<link href="https://rawgit.com/select2/select2/master/dist/css/select2.min.css" rel="stylesheet" />
+@*<link href="https://rawgit.com/select2/select2/master/dist/css/select2.min.css" rel="stylesheet" />*@
 
+<style type="text/css">
+    .tap1 {
+        display: none;
+        z-index: 9990;
+        opacity: 0.5;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background: #FFF none repeat scroll 0% 0%;
+    }
 
+    .tap2 {
+        display: none;
+        z-index: 9995;
+        overflow: auto;
+        opacity: 0.5;
+        width: 50%;
+        height: 60%;
+        top: 50%;
+        left: 50%;
+        padding: 20px;
+        position: fixed;
+        border-radius: 5px;
+    }
+
+    #image {
+        width: 12px;
+        height: 12px;
+    }
+
+</style>
 
 <link href="~/Content/Css/bootstrap-base.min.css" rel="stylesheet" />
 <link href="~/Content/Css/bootstrap.min.css" rel="stylesheet" />
@@ -35,7 +65,7 @@
                     <form class="form-inline">
                         <div class="form-group col-md-6">
                             <div class="form-group col-md-3">
-                                <label for="email">Select Application:</label>
+                                <label for="email" >Select Application:</label>
 
                             </div>
 
@@ -68,10 +98,12 @@
         <div class="panel panel-info">
             <div class="panel-heading">JointJs Graph</div>
             <div class="panel-body">
-
+                <div class="tap2">                    
+                    <img src="~/Content/805.gif"  />
+                </div>
                 <div class="row">
-                    <button type="button" id="btnLoad" class="btn btn-primary" style="margin-left:250px;">
-                        Load
+                    <button type="button" id="btnLoad" class="btn btn-primary" style="margin-left:190px;">
+                        Load Sub-System
                     </button>
                     <div id="myholder"></div>
                 </div>
@@ -94,7 +126,8 @@
     $(document).ready(function () {
         $("#applicationList").select2();
         $("#btnLoad").hide();
-
+        $(".tap2").hide();
+        
 
     })
     var graph = new joint.dia.Graph;
@@ -102,7 +135,7 @@
     var paper = new joint.dia.Paper({
         el: document.getElementById('myholder'),
         model: graph,
-        width: 2500,
+        width: 3500,
         height: 1000,
         gridSize: 5,
         drawGrid: false
@@ -179,7 +212,7 @@
         graph.clear();
         var selectedApplication = $("#applicationList").val();
 
-
+        $(".tap2").show();
         debugger;
         var val = JsonData.length > 1 ? 1 : null;
 
@@ -191,7 +224,7 @@
             data: JSON.stringify({ inputJsonModel: JsonData }),
             success: function (resp) {
 
-
+                $(".tap2").hide();
                 //for (var i in resp) {
                 //    JsonData.push(resp[i]);
                 //}
@@ -252,7 +285,15 @@
             }
 
             if (JsonData[i].Level == 4 && JsonData[i].shapeType != "Link") {
-                prevParentPositionY = 650;
+                prevParentPositionY = 850;
+                prevParentPositionX = prevParentPositionX + 150;
+                currlevel = JsonData[i].Level;
+
+            }
+
+
+            if (JsonData[i].Level == 5 && JsonData[i].shapeType != "Link") {
+                prevParentPositionY = 1000;
                 prevParentPositionX = prevParentPositionX + 150;
                 currlevel = JsonData[i].Level;
 
@@ -266,6 +307,7 @@
                 var controlName = JsonData[i].shapeControlName;
                 controlName = new joint.shapes.standard.Rectangle();
                 window[JsonData[i].shapeControlName] = controlName;
+                
 
 
 
@@ -320,7 +362,7 @@
                     source: { id: window[JsonData[i].linkSource].id },
                     target: { id: window[JsonData[i].linkTarget].id },
                     router: { name: 'manhattan' },
-                    connector: { name: 'rounded' }
+                    connector: { name: 'normal' }
                 });
                 controlName.addTo(graph);
             }
@@ -332,20 +374,22 @@
     }
 
 
-    paper.on('cell:pointerclick', function (cellView) {
+    paper.on('cell:pointerdblclick', function (cellView) {
 
         if (!cellView.model.isClicked) {
             cellView.model.isClicked = true;
-            var isElement = cellView.model.isElement();
-            var message = (isElement ? 'Element' : 'Link') + ' clicked';
-            var currentElement = cellView.model;
-            clickedElementName = currentElement.attributes.attrs.label.text
-            //get clicked element level
-            var currentLevel = getCurrentLevel(clickedElementName, JsonData);
-            //call complete graph ajax request and draw graph
-            getCompleteGraph(currentLevel, clickedElementName);
-            // count = count + 1;
-            // prevParentPositionX = 250;
+            if (cellView.model.isClicked) {
+                var isElement = cellView.model.isElement();
+                var message = (isElement ? 'Element' : 'Link') + ' clicked';
+                var currentElement = cellView.model;
+                clickedElementName = currentElement.attributes.attrs.label.text
+                //get clicked element level
+                var currentLevel = getCurrentLevel(clickedElementName, JsonData);
+                //call complete graph ajax request and draw graph
+                getCompleteGraph(currentLevel, clickedElementName);            
+                cellView.model.isClicked = false;
+            }
+            
         }
     });
 
@@ -355,68 +399,17 @@
         graph.clear();
         bindData();
         $("#btnLoad").show();
+        
     });
 
     $("#btnLoad").click(function () {
         //bindData();
-        LoadSubSytem();
-        var rectangle1 = new joint.shapes.standard.Rectangle();
-        rectangle1.position(200, 40);
-        rectangle1.resize(120, 60);
-        rectangle1.attr({
-            body: {
-                fill: 'lightblue',
-                stroke: 'black',
-                strokeWidth: 2
-            },
-            label: {
-                text: "SubSystem-App-I",
-                fill: 'black'
-            }
-        });
-        rectangle1.addTo(graph);
-
-
-        var rectangle2 = new joint.shapes.standard.Rectangle();
-        rectangle2.position(200, 150);
-        rectangle2.resize(120, 60);
-        rectangle2.attr({
-            body: {
-                fill: 'lightblue',
-                stroke: 'black',
-                strokeWidth: 2
-            },
-            label: {
-                text: "SubSystem-App-II",
-                fill: 'black'
-            }
-        });
-        rectangle2.addTo(graph);
-
-        var link = new joint.shapes.standard.Link({
-
-            source: { id: window['AAAAA'].id },
-            target: { id: rectangle1.id },
-            router: { name: 'manhattan' },
-            connector: { name: 'normal' }
-        });
-        link.addTo(graph);
-
-        //'Campaign Management'
-        var link = new joint.shapes.standard.Link({
-
-            source: { id: window['AAAAA'].id },
-            target: { id: rectangle2.id },
-            router: { name: 'manhattan' },
-            connector: { name: 'normal' }
-        });
-        link.addTo(graph);
-
-
+        LoadSubSytem();      
     });
 
     function LoadSubSytem() {
-        //alert();
+        var leftChildPositionX = 200;
+        var leftChildPositionY = 50;
         $.ajax({
             type: 'GET',
             url: '/Home/GetSubsystemApplications/' + $("#applicationList").val(),
@@ -424,8 +417,64 @@
             dataType: "json",
             //data: JSON.stringify({ inputJsonModel: JsonData }),
             success: function (response) {
-                console.log(response)
+                debugger;
+                var leftChildJson = [];
+                leftChildJson = JSON.parse(JSON.stringify(response));
+
+
+
+
+
+
+                for (var i in leftChildJson) {
+                    if (leftChildJson[i].shapeType == "Rectangle" && leftChildJson[i].shapeType != "Link") {
+                        var controlName = leftChildJson[i].shapeControlName;
+                        controlName = new joint.shapes.standard.Rectangle();
+                        window[leftChildJson[i].shapeControlName] = controlName;
+                        controlName.position(leftChildPositionX, leftChildPositionY);
+                        leftChildPositionY = leftChildPositionY + 100;
+                        controlName.resize(140, 60);
+                        controlName.attr({
+                            body: {
+                                fill: 'lightblue',
+                                stroke: 'black',
+                                strokeWidth: 2
+                            },
+                            label: {
+                                text: leftChildJson[i].shapeLabel,
+                                fill: 'black'
+                            }
+                        });
+                        controlName.addTo(graph);
+                    }
+                    if (leftChildJson[i].shapeType == "Cylinder" && leftChildJson[i].shapeType != "Link") {
+                        var controlName = leftChildJson[i].shapeControlName;
+                        controlName = new joint.shapes.standard.Cylinder();
+                        window[leftChildJson[i].shapeControlName] = controlName;
+                        controlName.resize(60, 60);
+                        controlName.position(leftChildPositionX, leftChildPositionY);
+                        leftChildPositionY = leftChildPositionY + 100;
+                        controlName.attr('root/title', 'joint.shapes.standard.Cylinder');
+                        controlName.attr('body/fill', 'lightblue');
+                        controlName.attr('top/fill', 'lightblue');
+                        controlName.attr('label/text', leftChildJson[i].shapeLabel);
+                        controlName.topRy('10%');
+                        controlName.addTo(graph);
+                    }
+                    if (leftChildJson[i].shapeType == "Link") {
+                        var controlName = leftChildJson[i].shapeControlName;
+                        controlName = new joint.shapes.standard.Link({
+                            source: { id: window[leftChildJson[i].linkSource].id },
+                            target: { id: window[leftChildJson[i].linkTarget].id },
+                            router: { name: 'manhattan' },
+                            connector: { name: 'rounded' }
+                        });
+                        controlName.addTo(graph);
+                    }
+                }
             }
         });
     }
+
+
 </script>
