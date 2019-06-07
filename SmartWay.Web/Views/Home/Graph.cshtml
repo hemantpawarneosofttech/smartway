@@ -215,13 +215,13 @@
     function drawLeftChild(currentLevel,isApp) {
 
 
-        var leftChildPositionX = 250;
+        var leftChildPositionX = 100;
         var leftChildPositionY = 200;
 
 
         if (currentLevel == 1) {
             //prevParentPositionY = 250;
-            leftChildPositionX = leftChildPositionX + 250;
+            leftChildPositionX = leftChildPositionX + 0;
             leftChildPositionY = 200;
         }
 
@@ -283,7 +283,7 @@
                         window[leftChildJson[i].shapeControlName] = controlName;
                        
                         controlName.position(leftChildPositionX, leftChildPositionY);
-                        leftChildPositionX = leftChildPositionX + 150;
+                        leftChildPositionY = leftChildPositionY + 150;
                         //leftChildPositionX = leftChildPositionX + 100;
                         controlName.resize(140, 60);
                         controlName.attr({
@@ -305,7 +305,7 @@
                         window[leftChildJson[i].shapeControlName] = controlName;
                         controlName.resize(60, 60);
                         controlName.position(leftChildPositionX, leftChildPositionY);
-                        leftChildPositionX = leftChildPositionX + 150;
+                        leftChildPositionY = leftChildPositionY + 150;
                         // leftChildPositionX = leftChildPositionX + 100;
                         controlName.attr('root/title', 'joint.shapes.standard.Cylinder');
                         controlName.attr('body/fill', 'lightblue');
