@@ -36,11 +36,11 @@ namespace SmartWay.Web.Controllers
         /// </remarks>
         /// <returns></returns>
         [HttpPost]
-        public JsonResult GetCompletGraph(string shapeLabel, int? itemid, int? selectedParentId, List<JsonModel> inputJsonModel)
+        public JsonResult GetCompletGraph(GraphInputModel graphInput, List<JsonModel> inputJsonModel)
         {
-            if (itemid == null)
+            if (graphInput.itemid == null)
             {
-                var list = applicationRepository.GetApplicationChild(Convert.ToInt32(selectedParentId));
+                var list = applicationRepository.GetApplicationChild(Convert.ToInt32(graphInput.selectedParentId));
                 //append list to inputjsonModel
                 inputJsonModel.AddRange(list);
 
@@ -49,10 +49,10 @@ namespace SmartWay.Web.Controllers
             }
             else
             {
-                var isApplication = inputJsonModel.Where(x => x.shapeLabel == shapeLabel).FirstOrDefault().IsApplication;
+                var isApplication = inputJsonModel.Where(x => x.shapeLabel == graphInput.shapeLabel).FirstOrDefault().IsApplication;
 
 
-                long idFromLabel = applicationRepository.GetItemIdFromName(shapeLabel, isApplication);//get id from label ie.currently passed item name's id
+                long idFromLabel = applicationRepository.GetItemIdFromName(graphInput.shapeLabel, isApplication);//get id from label ie.currently passed item name's id
 
                 if (idFromLabel <= 0)
                 {
@@ -108,7 +108,7 @@ namespace SmartWay.Web.Controllers
                 else
                 {
                     //application child
-                    var applicationChildList = applicationRepository.GetItemsApplication(Convert.ToInt64(idFromLabel), Convert.ToInt32(selectedParentId));
+                    var applicationChildList = applicationRepository.GetItemsApplication(Convert.ToInt64(idFromLabel), Convert.ToInt32(graphInput.selectedParentId));
 
                     //remove all child of current Level from inputJsonModel list
                     inputJsonModel.RemoveAll(x => x.Level >= currentLevel);
@@ -136,10 +136,26 @@ namespace SmartWay.Web.Controllers
         /// Used for getting sub system data 
         /// </remarks>
         /// <returns></returns>
-        [HttpGet]
-        public JsonResult GetSubsystemApplications(int id)
+        //[HttpGet]
+        //public JsonResult GetSubsystemApplications(int id)
+        //{
+        //    var subSystemList = applicationRepository.GetSubsystemApplications(id);
+
+        //    return Json(subSystemList, JsonRequestBehavior.AllowGet);
+        //}
+
+        [HttpPost]
+        public JsonResult GetSubsystemApplications(SubSystemInputModel model)
         {
-            var subSystemList = applicationRepository.GetSubsystemApplications(id);
+            long idFromLabel = applicationRepository.GetItemIdFromName(model.shapeLabel, model.isApplication);//get id from label ie.currently passed item name's id
+
+            if (idFromLabel <= 0)
+            {
+                return Json(null, JsonRequestBehavior.AllowGet);
+            }
+
+            var subSystemList = applicationRepository.GetSubsystemApplications(Convert.ToInt32(idFromLabel));
+
 
             return Json(subSystemList, JsonRequestBehavior.AllowGet);
         }

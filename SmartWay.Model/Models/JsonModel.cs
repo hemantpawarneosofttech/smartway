@@ -45,4 +45,17 @@ namespace SmartWay.Model.Models
     //    public string inputSelectedParentId { get; set; }
 
     //}
+
+    public class SubSystemInputModel {
+        public string shapeLabel { get; set; }
+        public bool isApplication { get; set; }
+    }
+
+    public class GraphInputModel
+    {
+        public string shapeLabel { get; set; }
+        public int? itemid { get; set; }
+        public int? selectedParentId { get; set; }
+    }
+    //string shapeLabel, int? itemid, int? selectedParentId
 }

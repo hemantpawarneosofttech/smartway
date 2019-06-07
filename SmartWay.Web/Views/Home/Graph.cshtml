@@ -102,9 +102,9 @@
                     <img src="~/Content/805.gif"  />
                 </div>
                 <div class="row">
-                    <button type="button" id="btnLoad" class="btn btn-primary" style="margin-left:190px;">
+                    @*<button type="button" id="btnLoad" class="btn btn-primary" style="margin-left:190px;">
                         Load Sub-System
-                    </button>
+                    </button>*@
                     <div id="myholder"></div>
                 </div>
 
@@ -136,7 +136,7 @@
         el: document.getElementById('myholder'),
         model: graph,
         width: 3500,
-        height: 1000,
+        height: 1400,
         gridSize: 5,
         drawGrid: false
         //background: {
@@ -144,7 +144,7 @@
         //}
     });
 
-
+   
     var getUrl = window.location;
     var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
     var documentWidth = document.getElementById('myholder').scrollWidth;
@@ -166,7 +166,15 @@
 
 
     var parent = $("#applicationList option:selected").text();
-
+    function checkIsApplication(shapeLabel, JsonData) {
+        debugger;
+        var levelData = $.grep(JsonData, function (el) {
+            return el.shapeLabel == shapeLabel;
+        });
+        return levelData[0].IsApplication;
+    }
+    
+   
     function bindData() {
 
         JsonData = [];
@@ -175,7 +183,7 @@
         var a = $("#applicationList option:selected").text();
 
 
-        var FirstNodeJsonData = JSON.parse('{"id": 1,"shapeType": "Rectangle","shapeControlName":"' + a + '","shapeLabel": "' + a + '","linkSource": null,"linkTarget": null,"parent":null,"IsLeaf":false,"IsBase": false,"IsApplication": false,"Level": 1}');
+        var FirstNodeJsonData = JSON.parse('{"id": 1,"shapeType": "Rectangle","shapeControlName":"' + a + '","shapeLabel": "' + a + '","linkSource": null,"linkTarget": null,"parent":null,"IsLeaf":false,"IsBase": false,"IsApplication": true,"Level": 1}');
         JsonData.push(JSON.parse(JSON.stringify(FirstNodeJsonData)));
 
         console.log('After ' + JSON.stringify(JsonData));
@@ -204,24 +212,147 @@
 
     }
 
+    function drawLeftChild(currentLevel,isApp) {
 
+
+        var leftChildPositionX = 250;
+        var leftChildPositionY = 200;
+
+
+        if (currentLevel == 1) {
+            //prevParentPositionY = 250;
+            leftChildPositionX = leftChildPositionX + 250;
+            leftChildPositionY = 200;
+        }
+
+        if (currentLevel == 2) {
+            leftChildPositionY = 500;
+            leftChildPositionX = leftChildPositionX + 250;
+
+
+        }
+
+        if (currentLevel == 3) {
+            leftChildPositionY = 800;
+            leftChildPositionX = leftChildPositionX + 250;
+
+
+        }
+
+        if (currentLevel == 4) {
+            leftChildPositionY = 750;
+            leftChildPositionX = leftChildPositionX + 250;
+
+
+        }
+
+
+        if (!isApp) {
+            return;
+        }
+
+        var LeftChildInputModel = {
+            shapeLabel: clickedElementName,
+            isApplication: isApp
+        }
+
+        $.ajax({
+            type: 'POST',
+            url: '/Home/GetSubsystemApplications',
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: JSON.stringify({ model: LeftChildInputModel }),
+            //url: '/Home/GetSubsystemApplicationByName?shapeLabel=' + name + '', //name of your json file                                                           
+            success: function (response) {
+
+              
+                //for (var i in response) {
+
+                //    leftChildJson.find(response[i])
+                //    leftChildJson.push(response[i]);
+                //    alert(JSON.stringify(response[i]));
+                //}
+
+                var leftChildJson = [];
+                leftChildJson=JSON.parse(JSON.stringify(response));
+                //load leftchild for clicked item
+                for (var i in leftChildJson) {
+                    if (leftChildJson[i].shapeType == "Rectangle" && leftChildJson[i].shapeType != "Link") {
+                        var controlName = leftChildJson[i].shapeControlName;
+                        controlName = new joint.shapes.standard.Rectangle();
+                        window[leftChildJson[i].shapeControlName] = controlName;
+                       
+                        controlName.position(leftChildPositionX, leftChildPositionY);
+                        leftChildPositionX = leftChildPositionX + 150;
+                        //leftChildPositionX = leftChildPositionX + 100;
+                        controlName.resize(140, 60);
+                        controlName.attr({
+                            body: {
+                                fill: 'lightblue',
+                                stroke: 'black',
+                                strokeWidth: 2
+                            },
+                            label: {
+                                text: leftChildJson[i].shapeLabel,
+                                fill: 'black'
+                            }
+                        });
+                        controlName.addTo(graph);
+                    }
+                    if (leftChildJson[i].shapeType == "Cylinder" && leftChildJson[i].shapeType != "Link") {
+                        var controlName = leftChildJson[i].shapeControlName;
+                        controlName = new joint.shapes.standard.Cylinder();
+                        window[leftChildJson[i].shapeControlName] = controlName;
+                        controlName.resize(60, 60);
+                        controlName.position(leftChildPositionX, leftChildPositionY);
+                        leftChildPositionX = leftChildPositionX + 150;
+                        // leftChildPositionX = leftChildPositionX + 100;
+                        controlName.attr('root/title', 'joint.shapes.standard.Cylinder');
+                        controlName.attr('body/fill', 'lightblue');
+                        controlName.attr('top/fill', 'lightblue');
+                        controlName.attr('label/text', leftChildJson[i].shapeLabel);
+                        controlName.topRy('10%');
+                        controlName.addTo(graph);
+                    }
+                    if (leftChildJson[i].shapeType == "Link") {
+                        var controlName = leftChildJson[i].shapeControlName;
+                        controlName = new joint.shapes.standard.Link({
+                            source: { id: window[leftChildJson[i].linkSource].id },
+                            target: { id: window[leftChildJson[i].linkTarget].id },
+                            router: { name: 'manhattan' },
+                            connector: { name: 'normal' }
+                        });
+                        controlName.addTo(graph);
+                    }
+                }
+
+            }
+        });
+    }
 
     function getCompleteGraph(currentLevel, name) {
-
+        
         //JsonDataMainNew = JSON.parse(JSON.stringify(JsonDataMain));
         graph.clear();
         var selectedApplication = $("#applicationList").val();
 
         $(".tap2").show();
-        debugger;
+        
         var val = JsonData.length > 1 ? 1 : null;
+
+        var graphInputModel = {
+            shapeLabel: name,
+            itemid: val,
+            selectedParentId: parseInt(selectedApplication)
+        }
 
         $.ajax({
             type: 'POST',
-            url: '/Home/GetCompletGraph?shapeLabel=' + name + '&itemid=' + val + '&selectedParentId=' + parseInt(selectedApplication) + '', //name of your json file
+            //url: '/Home/GetCompletGraph?shapeLabel=' + name + '&itemid=' + val + '&selectedParentId=' + parseInt(selectedApplication) + '', //name of your json file
+            url: '/Home/GetCompletGraph', //name of your json file
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            data: JSON.stringify({ inputJsonModel: JsonData }),
+            data: JSON.stringify({ graphInput: graphInputModel,inputJsonModel: JsonData }),
             success: function (resp) {
 
                 $(".tap2").hide();
@@ -232,9 +363,11 @@
 
                 JsonData = resp;
 
+                
                 drawGraph(currentLevel, JsonData);
 
-                //prevParentPositionX = 250;
+
+                
             }
         });
     }
@@ -255,6 +388,8 @@
         var currlevel = 1;
 
         prevParentPositionX = 250;
+
+        
 
         for (var i in JsonData) {
             if (JsonData[i].Level != currlevel)
@@ -278,14 +413,14 @@
             }
 
             if (JsonData[i].Level == 3 && JsonData[i].shapeType != "Link") {
-                prevParentPositionY = 550;
+                prevParentPositionY = 650;
                 prevParentPositionX = prevParentPositionX + 150;
                 currlevel = JsonData[i].Level;
 
             }
 
             if (JsonData[i].Level == 4 && JsonData[i].shapeType != "Link") {
-                prevParentPositionY = 850;
+                prevParentPositionY = 950;
                 prevParentPositionX = prevParentPositionX + 150;
                 currlevel = JsonData[i].Level;
 
@@ -293,7 +428,7 @@
 
 
             if (JsonData[i].Level == 5 && JsonData[i].shapeType != "Link") {
-                prevParentPositionY = 1000;
+                prevParentPositionY = 1250;
                 prevParentPositionX = prevParentPositionX + 150;
                 currlevel = JsonData[i].Level;
 
@@ -306,18 +441,8 @@
 
                 var controlName = JsonData[i].shapeControlName;
                 controlName = new joint.shapes.standard.Rectangle();
-                window[JsonData[i].shapeControlName] = controlName;
-                
-
-
-
-
-
-                //alert('X' + (prevParentPositionX + 150) + 'Y' + prevParentPositionY);
+                window[JsonData[i].shapeControlName] = controlName;                                
                 controlName.position(prevParentPositionX + 150, prevParentPositionY);
-
-
-
                 controlName.resize(140, 60);
                 controlName.attr({
                     body: {
@@ -331,6 +456,8 @@
                     }
                 });
                 controlName.addTo(graph);
+
+              
             }
 
             if (JsonData[i].shapeType == "Cylinder" && JsonData[i].shapeType != "Link") {
@@ -339,38 +466,32 @@
                 controlName = new joint.shapes.standard.Cylinder();
                 window[JsonData[i].shapeControlName] = controlName;
                 controlName.resize(60, 60);
-
-
-
-
                 controlName.position(prevParentPositionX + 150, prevParentPositionY);
-
-
                 controlName.attr('root/title', 'joint.shapes.standard.Cylinder');
                 controlName.attr('body/fill', 'lightgray');
                 controlName.attr('top/fill', 'gray');
                 controlName.attr('label/text', JsonData[i].shapeLabel);
                 controlName.topRy('10%');
                 controlName.addTo(graph);
+
+                
             }
             if (JsonData[i].shapeType == "Link") {
-
                 var controlName = JsonData[i].shapeControlName;
-
                 controlName = new joint.shapes.standard.Link({
-
                     source: { id: window[JsonData[i].linkSource].id },
                     target: { id: window[JsonData[i].linkTarget].id },
                     router: { name: 'manhattan' },
-                    connector: { name: 'normal' }
+                    connector: { name: 'rounded' }
                 });
                 controlName.addTo(graph);
             }
 
         }
 
-
-
+        var isApp = checkIsApplication(clickedElementName, JsonData);
+        console.log(isApp);
+        drawLeftChild(currentLevel, isApp);
     }
 
 
@@ -385,8 +506,16 @@
                 clickedElementName = currentElement.attributes.attrs.label.text
                 //get clicked element level
                 var currentLevel = getCurrentLevel(clickedElementName, JsonData);
+                if (currentLevel == 4) {
+                    return;
+                }
+
+               
                 //call complete graph ajax request and draw graph
-                getCompleteGraph(currentLevel, clickedElementName);            
+                getCompleteGraph(currentLevel, clickedElementName);         
+
+               
+
                 cellView.model.isClicked = false;
             }
             
@@ -417,7 +546,7 @@
             dataType: "json",
             //data: JSON.stringify({ inputJsonModel: JsonData }),
             success: function (response) {
-                debugger;
+                
                 var leftChildJson = [];
                 leftChildJson = JSON.parse(JSON.stringify(response));
 
