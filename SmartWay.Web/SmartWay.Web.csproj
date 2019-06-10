@@ -147,6 +147,7 @@
     <Content Include="Content\Css\bootstrap-base.min.css" />
     <Content Include="Content\Css\bootstrap.min.css" />
     <Content Include="Content\Css\joint.css" />
+    <Content Include="Content\Css\LoaderCustom.css" />
     <Content Include="Content\Css\select2.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -162,6 +163,7 @@
     <Content Include="Scripts\FILES\FILE1.json" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\FILES\JointJsCode.js" />
     <Content Include="Scripts\item.json" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

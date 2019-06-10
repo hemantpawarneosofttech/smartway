@@ -30,6 +30,7 @@ namespace SmartWay.Data.Repository
         public List<ApplicationViewModel> getAllParentApplications()
         {
             var applications = DbContext.Applications.Where(x => !x.IsSubsystem.Value && x.StatusID != 5).ToList();
+        //    var applications = DbContext.Applications.ToList();
             return Mapper.applicationViewModelMapper(applications);
         }
         #endregion getAllParentApplications
