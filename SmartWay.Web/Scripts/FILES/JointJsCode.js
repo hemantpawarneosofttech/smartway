@@ -206,11 +206,11 @@ function drawLeftChild(currentLevel, isApp) {
                     controlName = new joint.shapes.standard.Link({
                         source: { id: window[leftChildJson[i].linkSource].id },
                         target: { id: window[leftChildJson[i].linkTarget].id },
-                        //router: { name: 'manhattan' },
+                        router: { name: 'manhattan' },
                         //connector: { name: 'rounded' }
-                        router: {
-                            name: 'manhattan', args: { step: 100 }
-                        },
+                        //router: {
+                        //    name: 'manhattan', args: { step: 2 }
+                       // },
                         connector: { name: 'rounded' },
                     });
                     controlName.addTo(graph);
