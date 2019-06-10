@@ -1,0 +1,136 @@
+[
+
+  {
+    "id": 0,
+    "shapeType": "Rectangle",
+    "shapeControlName": "EBS",
+    "shapeLabel": "EBS",
+    "linkSource": null,
+    "linkTarget": null,
+    "parent": null,
+    "IsLeaf": false,
+    "IsBase": true
+  },
+  {
+    "id": 0,
+    "shapeType": "Cylinder",
+    "shapeControlName": "DBName",
+    "shapeLabel": "DBName",
+    "linkSource": null,
+    "linkTarget": null,
+    "parent": "QSWITCH",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 0,
+    "shapeType": "Rectangle",
+    "shapeControlName": "Server1",
+    "shapeLabel": "Server1",
+    "linkSource": null,
+    "linkTarget": null,
+    "parent": "QSWITCH",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 0,
+    "shapeType": "Rectangle",
+    "shapeControlName": "Server2",
+    "shapeLabel": "Server2",
+    "linkSource": null,
+    "linkTarget": null,
+    "parent": "QSWITCH",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 0,
+    "shapeType": "Rectangle",
+    "shapeControlName": "Server3",
+    "shapeLabel": "Server3",
+    "linkSource": null,
+    "linkTarget": null,
+    "parent": "QSWITCH",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 0,
+    "shapeType": "Rectangle",
+    "shapeControlName": "ACS-app",
+    "shapeLabel": "ACS-app",
+    "linkSource": null,
+    "linkTarget": null,
+    "parent": "Server3",
+    "IsLeaf": true,
+    "IsBase": false
+  },
+
+  {
+    "id": 0,
+    "shapeType": "Link",
+    "shapeControlName": "Link2",
+    "shapeLabel": "Link2",
+    "linkSource": "QSWITCH",
+    "linkTarget": "Server1",
+    "parent": null,
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 0,
+    "shapeType": "Link",
+    "shapeControlName": "Link2",
+    "shapeLabel": "Link2",
+    "linkSource": "QSWITCH",
+    "linkTarget": "Server2",
+    "parent": null,
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 0,
+    "shapeType": "Link",
+    "shapeControlName": "Link2",
+    "shapeLabel": "Link2",
+    "linkSource": "QSWITCH",
+    "linkTarget": "Server3",
+    "parent": null,
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 0,
+    "shapeType": "Link",
+    "shapeControlName": "Link2",
+    "shapeLabel": "Link2",
+    "linkSource": "QSWITCH",
+    "linkTarget": "DBName",
+    "parent": null,
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 0,
+    "shapeType": "Link",
+    "shapeControlName": "Link2",
+    "shapeLabel": "Link2",
+    "linkSource": "Server3",
+    "linkTarget": "ACS-app",
+    "parent": null,
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 0,
+    "shapeType": "Link",
+    "shapeControlName": "Link2",
+    "shapeLabel": "Link2",
+    "linkSource": "ACS-app",
+    "linkTarget": "DBName",
+    "parent": null,
+    "IsLeaf": false,
+    "IsBase": false
+  }
+]

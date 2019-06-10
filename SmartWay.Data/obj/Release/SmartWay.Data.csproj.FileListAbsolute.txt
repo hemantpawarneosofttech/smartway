@@ -1,0 +1,17 @@
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\bin\Release\SmartWay.Data.dll.config
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\bin\Release\SmartWay.Data.dll
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\bin\Release\SmartWay.Data.pdb
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\bin\Release\AutoMapper.dll
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\bin\Release\EntityFramework.dll
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\bin\Release\EntityFramework.SqlServer.dll
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\bin\Release\SmartWay.Model.dll
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\bin\Release\SmartWay.Model.pdb
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\bin\Release\AutoMapper.pdb
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\bin\Release\AutoMapper.xml
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\bin\Release\EntityFramework.xml
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\bin\Release\EntityFramework.SqlServer.xml
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\obj\Release\SmartWay.Data.csprojAssemblyReference.cache
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\obj\Release\SmartWay.Data.csproj.CoreCompileInputs.cache
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\obj\Release\SmartWay.Data.csproj.CopyComplete
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\obj\Release\SmartWay.Data.dll
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Data\obj\Release\SmartWay.Data.pdb

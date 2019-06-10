@@ -160,6 +160,7 @@
     <Content Include="Scripts\file3-child.json" />
     <Content Include="Scripts\dynamicJson1.json" />
     <Content Include="Scripts\FILES\FILE1.json" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\item.json" />
     <Content Include="Scripts\jquery-3.3.1.js" />

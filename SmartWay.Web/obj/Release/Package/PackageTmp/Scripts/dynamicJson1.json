@@ -1,0 +1,140 @@
+[
+  {
+    "id": 9,
+    "shapetype": "Rectangle",
+    "shapeControlName": "Campaign Management",
+    "shapeLabel": "Campaign Management",
+    "linkSource": "",
+    "linkTarget": "",
+    "parent": "",
+    "IsLeaf": false,
+    "IsBase": false
+  }
+  ,
+  {
+    "id": 6450,
+    "shapetype": "Cylinder",
+    "shapeControlName": "HHW-JRSESL01 scpurse",
+    "shapeLabel": "HHW-JRSESL01 scpurse",
+    "linkSource": "",
+    "linkTarget": "",
+    "parent": "Campaign Management",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+
+
+  {
+    "id": 6626,
+    "shapetype": "Rectangle",
+    "shapeControlName": "MYDEMO11",
+    "shapeLabel": "MYDEMO11",
+    "linkSource": "",
+    "linkTarget": "",
+    "parent": "Campaign Management",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+
+  {
+    "id": 6661,
+    "shapetype": "Rectangle",
+    "shapeControlName": "HHL-RGELDB01",
+    "shapeLabel": "HHL-RGELDB01",
+    "linkSource": "",
+    "linkTarget": "",
+    "parent": "Campaign Management",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+
+  {
+    "id": 97679,
+    "shapetype": "Rectangle",
+    "shapeControlName": "qq",
+    "shapeLabel": "qq",
+    "linkSource": "",
+    "linkTarget": "",
+    "parent": "Campaign Management",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+
+  {
+    "id": 97684,
+    "shapetype": "Rectangle",
+    "shapeControlName": "Baby",
+    "shapeLabel": "Baby",
+    "linkSource": "",
+    "linkTarget": "",
+    "parent": "Campaign Management",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 6661,
+    "shapetype": "Link",
+    "shapeControlName": "HHL-RGELDB01",
+    "shapeLabel": "HHL-RGELDB01",
+    "linkSource": "Campaign Management",
+    "linkTarget": "HHL-RGELDB01",
+    "parent": "",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 97684,
+    "shapetype": "Link",
+    "shapeControlName": "Baby",
+    "shapeLabel": "Baby",
+    "linkSource": "Campaign Management",
+    "linkTarget": "Baby",
+    "parent": "",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 97679,
+    "shapetype": "Link",
+    "shapeControlName": "qq",
+    "shapeLabel": "qq",
+    "linkSource": "Campaign Management",
+    "linkTarget": "qq",
+    "parent": "",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 6626,
+    "shapetype": "Link",
+    "shapeControlName": "MYDEMO11",
+    "shapeLabel": "MYDEMO11",
+    "linkSource": "Campaign Management",
+    "linkTarget": "MYDEMO11",
+    "parent": "",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 6450,
+    "shapetype": "Link",
+    "shapeControlName": "HHW-JRSESL01 scpurse",
+    "shapeLabel": "HHW-JRSESL01 scpurse",
+    "linkSource": "Campaign Management",
+    "linkTarget": "HHW-JRSESL01 scpurse",
+    "parent": "Campaign Management",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+  {
+    "id": 6450,
+    "shapetype": "Link",
+    "shapeControlName": "HHW-JRSESL01 scpurse",
+    "shapeLabel": "HHW-JRSESL01 scpurse",
+    "linkSource": "HHL-RGELDB01",
+    "linkTarget": "HHW-JRSESL01 scpurse",
+    "parent": "Campaign Management",
+    "IsLeaf": false,
+    "IsBase": false
+  }
+]

@@ -1,0 +1,28 @@
+[
+
+
+  {
+    "id": 0,
+    "shapeType": "Cylinder",
+    "shapeControlName": "Custom",
+    "shapeLabel": "Custom",
+    "linkSource": null,
+    "linkTarget": null,
+    "parent": "Server3",
+    "IsLeaf": false,
+    "IsBase": false
+  },
+
+  {
+    "id": 0,
+    "shapeType": "Link",
+    "shapeControlName": "LinkNew",
+    "shapeLabel": "LinkNew",
+    "linkSource": "Server3",
+    "linkTarget": "Custom",
+    "parent": null,
+    "IsLeaf": false,
+    "IsBase": false
+  }
+
+]

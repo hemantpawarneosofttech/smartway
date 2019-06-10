@@ -1,0 +1,6 @@
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Model\bin\Release\SmartWay.Model.dll
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Model\bin\Release\SmartWay.Model.pdb
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Model\obj\Release\SmartWay.Model.csprojAssemblyReference.cache
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Model\obj\Release\SmartWay.Model.csproj.CoreCompileInputs.cache
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Model\obj\Release\SmartWay.Model.dll
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Model\obj\Release\SmartWay.Model.pdb
