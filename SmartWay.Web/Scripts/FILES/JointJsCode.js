@@ -155,7 +155,7 @@ function drawLeftChild(currentLevel, isApp) {
 
             
             var hgt = JsonData.length;
-            paper.setDimensions(paper.width, parseInt(hgt*200, 10));
+            paper.setDimensions(paper.width, parseInt(hgt*400, 10));
           
             leftChildJson = JSON.parse(JSON.stringify(response));
             //load leftchild for clicked item
@@ -204,17 +204,18 @@ function drawLeftChild(currentLevel, isApp) {
                     controlName = new joint.shapes.standard.Link({
                         source: { id: window[leftChildJson[i].linkSource].id },
                         target: { id: window[leftChildJson[i].linkTarget].id },
-                        router: { name: 'manhattan' },
-                        //connector: { name: 'rounded' }
-                        //router: {
-                        //    name: 'manhattan', args: { step: 2 }
-                       // },
+                        //router: { name: 'manhattan' },
                         connector: { name: 'rounded' },
+                        router: {
+                            name: 'manhattan', args: { step: 50 }
+                        },
+                        //connector: { name: 'rounded' },
                     });
                     controlName.addTo(graph);
                 }
             }
-            
+
+          
         }
     });
 }
@@ -282,7 +283,7 @@ function drawGraph(currentLevel, data) {
 
     
     var len = JsonData.length;  
-    paper.setDimensions(parseInt(len * 300, 10), parseInt(currentHeight * 300, 10));
+    paper.setDimensions(parseInt(len * 400, 10), parseInt(currentHeight * 400, 10));
 
     for (var i in JsonData) {
         if (JsonData[i].Level != currlevel)
