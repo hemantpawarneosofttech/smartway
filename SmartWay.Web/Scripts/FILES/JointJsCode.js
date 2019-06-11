@@ -1,39 +1,8 @@
-﻿
-
-$('#applicationList').select2({
-    placeholder: 'Select'
-});
-$(document).ready(function () {
-    $("#applicationList").select2();
-    $("#btnLoad").hide();
-    $(".tap2").hide();
-
-
-})
-var graph = new joint.dia.Graph;
-
-var paper = new joint.dia.Paper({
-    el: document.getElementById('myholder'),
-    model: graph,
-    width: 6000,
-    height: 2800,
-    gridSize: 10,
-    drawGrid: false
-    //background: {
-    //    color: 'rgba(255, 165, 0, 0.3)'
-    //}
-});
-
-
-
+﻿var currentWidth = 3000;
+var currentHeight = 3000;
 var getUrl = window.location;
 var baseUrl = getUrl.protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
-var documentWidth = 1000;//document.getElementById('myholder').scrollWidth;
-var documentHeight = 10000;//document.getElementById('myholder').scrollHeight;
-var documentX = (documentWidth * 20) / 100;
-var documentY = (documentHeight * 20) / 100;
-var documentWidthMid = (documentWidth / 2);
-var documentHeightMid = (documentHeight / 2);
+
 var prevPositionX = 0, prevPositionY = 0;
 var firstLeafPositionX = 0;
 var prevParentPositionX = 0, prevParentPositionY = 0;
@@ -44,6 +13,39 @@ var levelflag = false;
 var JsonDataMain = {};
 var JsonData = {}; var clickedElementName = ""; oldparent = "";
 var TempData = []; var JsonDataNew = {};
+
+
+var graph = new joint.dia.Graph;
+
+var paper = new joint.dia.Paper({
+    el: document.getElementById('myholder'),
+    model: graph,
+      width: 3000,
+     height: 1500,
+    //height: 100%,
+    //width: 100%,
+    gridSize: 10,
+    drawGrid: false
+    //background: {
+    //    color: 'rgba(255, 165, 0, 0.3)'
+    //}
+});
+
+
+
+$('#applicationList').select2({
+    placeholder: 'Select'
+});
+$(document).ready(function () {
+    $("#applicationList").select2();
+    $("#btnLoad").hide();
+    $(".tap2").hide();
+   
+    currentWidth = 1000;
+})
+
+
+
 
 
 var parent = $("#applicationList option:selected").text();
@@ -98,7 +100,7 @@ function bindData() {
 function drawLeftChild(currentLevel, isApp) {
 
 
-    var leftChildPositionX = 100;
+    var leftChildPositionX = 60;
     var leftChildPositionY = 200;
 
 
@@ -151,13 +153,9 @@ function drawLeftChild(currentLevel, isApp) {
         success: function (response) {
 
 
-            //for (var i in response) {
-
-            //    leftChildJson.find(response[i])
-            //    leftChildJson.push(response[i]);
-            //    alert(JSON.stringify(response[i]));
-            //}
-
+            
+            var hgt = JsonData.length;
+            paper.setDimensions(paper.width, parseInt(hgt*200, 10));
           
             leftChildJson = JSON.parse(JSON.stringify(response));
             //load leftchild for clicked item
@@ -170,7 +168,7 @@ function drawLeftChild(currentLevel, isApp) {
                     controlName.position(leftChildPositionX, leftChildPositionY);
                     leftChildPositionY = leftChildPositionY + 100;
                     //leftChildPositionX = leftChildPositionX + 100;
-                    controlName.resize(140, 60);
+                    controlName.resize(230, 60);
                     controlName.attr({
                         body: {
                             fill: 'lightblue',
@@ -216,7 +214,7 @@ function drawLeftChild(currentLevel, isApp) {
                     controlName.addTo(graph);
                 }
             }
-
+            
         }
     });
 }
@@ -282,13 +280,19 @@ function drawGraph(currentLevel, data) {
     prevParentPositionX = 250;
 
 
+    
+    var len = JsonData.length;  
+    paper.setDimensions(parseInt(len * 300, 10), parseInt(currentHeight * 300, 10));
 
     for (var i in JsonData) {
         if (JsonData[i].Level != currlevel)
             prevParentPositionX = 250;
 
 
-
+        
+     
+     
+        
 
         //alert(prevParentPositionX);
         //set first positioning
