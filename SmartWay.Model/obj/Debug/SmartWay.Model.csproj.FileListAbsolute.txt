@@ -9,3 +9,4 @@ D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Model\bin\Debug\SmartWay.M
 D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Model\obj\Debug\SmartWay.Model.csproj.CoreCompileInputs.cache
 D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Model\obj\Debug\SmartWay.Model.dll
 D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Model\obj\Debug\SmartWay.Model.pdb
+D:\Hemant Pawar\Current\SmartWayGit\smartway\SmartWay.Model\obj\Debug\SmartWay.Model.csprojAssemblyReference.cache

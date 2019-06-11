@@ -154,8 +154,7 @@ namespace SmartWay.Web.Controllers
                 return Json(null, JsonRequestBehavior.AllowGet);
             }
 
-            var subSystemList = applicationRepository.GetSubsystemApplications(Convert.ToInt32(idFromLabel));
-           
+            var subSystemList = applicationRepository.GetSubsystemApplications(Convert.ToInt32(idFromLabel));                    
             return Json(subSystemList, JsonRequestBehavior.AllowGet);
         }
 

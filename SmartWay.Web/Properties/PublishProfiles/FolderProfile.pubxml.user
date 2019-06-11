@@ -193,10 +193,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/10/2019 10:28:56</publishTime>
     </File>
     <File Include="bin/SmartWay.Web.dll">
-      <publishTime>06/11/2019 14:40:21</publishTime>
+      <publishTime>06/11/2019 18:07:21</publishTime>
     </File>
     <File Include="bin/SmartWay.Web.pdb">
-      <publishTime>06/11/2019 14:40:21</publishTime>
+      <publishTime>06/11/2019 18:07:21</publishTime>
     </File>
     <File Include="bin/System.Diagnostics.DiagnosticSource.dll">
       <publishTime>07/19/2017 10:01:30</publishTime>
@@ -316,7 +316,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/27/2019 18:16:25</publishTime>
     </File>
     <File Include="Scripts/FILES/JointJsCode.js">
-      <publishTime>06/11/2019 14:34:42</publishTime>
+      <publishTime>06/11/2019 17:54:13</publishTime>
     </File>
     <File Include="Scripts/item.json">
       <publishTime>05/24/2019 17:58:40</publishTime>
