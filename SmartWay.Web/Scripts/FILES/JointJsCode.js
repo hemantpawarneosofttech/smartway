@@ -464,6 +464,7 @@ function drawGraph(currentLevel, data) {
             controlName.attr('root/title', 'joint.shapes.standard.Image');
             controlName.attr('label/text', JsonData[i].shapeLabel);
             controlName.attr('image/xlinkHref', '/Content/database.png');
+
             controlName.addTo(graph);
 
             //var controlName = JsonData[i].shapeControlName;
