@@ -40,7 +40,7 @@ $(document).ready(function () {
     $("#applicationList").select2();
     $("#btnLoad").hide();
     $(".tap2").hide();
-
+    //$("#btnClear").hide();
     currentWidth = 1000;
 })
 
@@ -302,7 +302,7 @@ function getCompleteGraph(currentLevel, name) {
         data: JSON.stringify({ graphInput: graphInputModel, inputJsonModel: JsonData }),
         success: function (resp) {
 
-            $(".tap2").hide();
+           
             //for (var i in resp) {
             //    JsonData.push(resp[i]);
             //}
@@ -313,7 +313,7 @@ function getCompleteGraph(currentLevel, name) {
 
             drawGraph(currentLevel, JsonData);
 
-
+            $(".tap2").hide();
 
         }
     });
@@ -536,13 +536,20 @@ paper.on('cell:pointerdblclick', function (cellView) {
     }
 });
 
-$("#applicationList").change(function () {
+$("#btnShow").click(function () {
     count = 0;
     JsonData = [];
     graph.clear();
     bindData();
-    $("#btnLoad").show();
+  
 
+});
+
+$("#btnClear").click(function () {
+    
+    JsonData = [];
+    graph.clear();
+      
 });
 
 

@@ -52,19 +52,24 @@
                 <div class="panel-heading"></div>
                 <div class="panel-body">
                     <form class="form-inline">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <div class="form-group col-md-3">
-                                <label for="email">Select Application:</label>
+                                
+                                <label for="email" class="pull-right">Select Application:</label>
 
                             </div>
 
                             @*<div class="col-md-3">  <label for="email">Select Application</label></div>*@
 
-
-                            <div class="col-md-6">
-                                @Html.DropDownListFor(m => m.applicationList, new SelectList(Model.applicationList, "Id", "Name"), "--Select--", new { @class = "form-control" })
-                                @*<button type="button" id="btnShow" class="btn btn-primary">Show</button>
-                                    <button type="button" id="btnClear" class="btn btn-primary">Clear</button>*@
+                            <div class="col-md-8">
+                                <div class="col-md-4">
+                                    @Html.DropDownListFor(m => m.applicationList, new SelectList(Model.applicationList, "Id", "Name"), "--Select--", new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-2">
+                                    <button type="button" id="btnShow" class="btn btn-primary" style="border-radius: 20%;">Show Details</button>
+                                </div>    <div class="col-md-1">
+                                    <button type="button" id="btnClear" class="btn btn-danger" style="border-radius: 20%;">Reset</button>
+                                </div>
                             </div>
 
                         </div>
@@ -90,8 +95,8 @@
             <div class="panel-heading">JointJs Graph</div>
             <div class="panel-body">
                 @*<div style="float:left;">
-                    <img src="http://icons.iconarchive.com/icons/icojam/blue-bits/16/symbol-delete-icon.png" height="300px" width="150px" />
-                </div>*@
+                        <img src="http://icons.iconarchive.com/icons/icojam/blue-bits/16/symbol-delete-icon.png" height="300px" width="150px" />
+                    </div>*@
                 <div class="tap2">
                     <img src="~/Content/805.gif" />
                 </div>
