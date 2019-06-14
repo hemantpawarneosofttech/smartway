@@ -20,8 +20,8 @@ var graph = new joint.dia.Graph;
 var paper = new joint.dia.Paper({
     el: document.getElementById('myholder'),
     model: graph,
-      width: 3000,
-     height: 1500,
+    width: 3000,
+    height: 1500,
     //height: 100%,
     //width: 100%,
     gridSize: 10,
@@ -40,7 +40,7 @@ $(document).ready(function () {
     $("#applicationList").select2();
     $("#btnLoad").hide();
     $(".tap2").hide();
-   
+
     currentWidth = 1000;
 })
 
@@ -52,7 +52,7 @@ var parent = $("#applicationList option:selected").text();
 var leftChildJson = [];
 
 function checkIsApplication(shapeLabel, JsonData) {
-    
+
     var levelData = $.grep(JsonData, function (el) {
         return el.shapeLabel == shapeLabel;
     });
@@ -74,7 +74,7 @@ function bindData() {
     console.log('After ' + JSON.stringify(JsonData));
 
 
-     var controlName = $("#applicationList option:selected").text();
+    var controlName = $("#applicationList option:selected").text();
     controlName = new joint.shapes.standard.Image();
     window[a] = controlName;
     window[parent] = controlName;
@@ -82,8 +82,8 @@ function bindData() {
     controlName.position(550, 0);
     prevParentPositionX = 200;
     prevParentPositionY = 100;
-    controlName.resize(230, 100);
-    
+    controlName.resize(80, 50);
+
 
     controlName.attr('root/title', 'joint.shapes.standard.Image');
     controlName.attr('label/text', $("#applicationList option:selected").text());
@@ -164,15 +164,15 @@ function drawLeftChild(currentLevel, isApp) {
         url: url1,//'@Url.Action("GetSubsystemApplications", "Home")',
         contentType: "application/json; charset=utf-8",
         dataType: "json",
-        data: JSON.stringify({ model: LeftChildInputModel}),
+        data: JSON.stringify({ model: LeftChildInputModel }),
         //url: '/Home/GetSubsystemApplicationByName?shapeLabel=' + name + '', //name of your json file
         success: function (response) {
 
 
-            
+
             var hgt = JsonData.length;
-            paper.setDimensions(paper.width, parseInt(hgt*400, 10));
-          
+            paper.setDimensions(paper.width, parseInt(hgt * 400, 10));
+
             leftChildJson = JSON.parse(JSON.stringify(response));
             //load leftchild for clicked item
             for (var i in leftChildJson) {
@@ -181,15 +181,16 @@ function drawLeftChild(currentLevel, isApp) {
                     var controlName = JsonData[i].shapeControlName;
                     controlName = new joint.shapes.standard.Image();
                     window[leftChildJson[i].shapeControlName] = controlName;
-                    controlName.resize(230, 100);
+                    controlName.resize(80, 100);
 
                     controlName.position(leftChildPositionX, leftChildPositionY);
-                     leftChildPositionY = leftChildPositionY + 150;
+                    leftChildPositionY = leftChildPositionY + 150;
                     //leftChildPositionX = leftChildPositionX + 100;
 
                     controlName.attr('root/title', 'joint.shapes.standard.Image');
                     controlName.attr('label/text', leftChildJson[i].shapeLabel);
                     controlName.attr('image/xlinkHref', '/Content/Subsystem.png');
+                    controlName.attr('line/stroke', '#16459e');
                     controlName.addTo(graph);
 
                     //var controlName = leftChildJson[i].shapeControlName;
@@ -219,7 +220,7 @@ function drawLeftChild(currentLevel, isApp) {
                     var controlName = JsonData[i].shapeControlName;
                     controlName = new joint.shapes.standard.Image();
                     window[leftChildJson[i].shapeControlName] = controlName;
-                    controlName.resize(230, 100);
+                    controlName.resize(80, 100);
 
                     controlName.position(leftChildPositionX, leftChildPositionY);
                     leftChildPositionY = leftChildPositionY + 130;
@@ -240,7 +241,7 @@ function drawLeftChild(currentLevel, isApp) {
                     //controlName.attr('root/title', 'joint.shapes.standard.Cylinder');
                     //controlName.attr('body/fill', 'lightblue');
                     //controlName.attr('top/fill', 'lightblue');
-                  
+
 
                     //controlName.attr('label/text', leftChildJson[i].shapeLabel);
                     //controlName.topRy('10%');
@@ -258,11 +259,19 @@ function drawLeftChild(currentLevel, isApp) {
                         },
                         //connector: { name: 'rounded' },
                     });
-                    controlName.addTo(graph);
+                    controlName.attr('line/stroke', '#16459e'),
+                        
+                        //controlName.attr(targetMarker: { // minute hand
+                        //    'type': 'path',
+                        //    'stroke': 'green',
+                        //    'stroke-width': 2,
+                        //    'd': 'M 20 -10 0 0 20 10 Z'
+                        //}),
+                        controlName.addTo(graph);
                 }
             }
 
-          
+
         }
     });
 }
@@ -283,7 +292,7 @@ function getCompleteGraph(currentLevel, name) {
         selectedParentId: parseInt(selectedApplication)
     }
 
-    
+
     $.ajax({
         type: 'POST',
         //url: 'Home/GetCompletGraph', //name of your json file
@@ -328,8 +337,8 @@ function drawGraph(currentLevel, data) {
     prevParentPositionX = 250;
 
 
-    
-    var len = JsonData.length;  
+
+    var len = JsonData.length;
     paper.setDimensions(parseInt(len * 400, 10), parseInt(currentHeight * 400, 10));
 
     for (var i in JsonData) {
@@ -337,10 +346,10 @@ function drawGraph(currentLevel, data) {
             prevParentPositionX = 250;
 
 
-        
-     
-     
-        
+
+
+
+
 
         //alert(prevParentPositionX);
         //set first positioning
@@ -364,7 +373,7 @@ function drawGraph(currentLevel, data) {
 
         }
 
-        if (JsonData[i].Level == 3 && JsonData[i].shapeType != "Link" && JsonData[i].shapeType != "Cylinder" ) {
+        if (JsonData[i].Level == 3 && JsonData[i].shapeType != "Link" && JsonData[i].shapeType != "Cylinder") {
             prevParentPositionY = 650;
             prevParentPositionX = prevParentPositionX + 180;
             currlevel = JsonData[i].Level;
@@ -406,13 +415,13 @@ function drawGraph(currentLevel, data) {
             var controlName = JsonData[i].shapeControlName;
             controlName = new joint.shapes.standard.Image();
             window[JsonData[i].shapeControlName] = controlName;
-            controlName.resize(230, 100);
+            controlName.resize(80, 50);
 
             controlName.position(prevParentPositionX + 150, prevParentPositionY);
             controlName.attr('root/title', 'joint.shapes.standard.Image');
 
-            
-            controlName.attr('label/text', JsonData[i].shapeLabel);            
+
+            controlName.attr('label/text', JsonData[i].shapeLabel);
             if (JsonData[i].Level == 2) {
                 controlName.attr('image/xlinkHref', '/Content/server.png');
             }
@@ -440,7 +449,7 @@ function drawGraph(currentLevel, data) {
             //});
             //controlName.addTo(graph);
 
-           
+
         }
 
         if (JsonData[i].shapeType == "Cylinder" && JsonData[i].shapeType != "Link") {
@@ -448,9 +457,9 @@ function drawGraph(currentLevel, data) {
             var controlName = JsonData[i].shapeControlName;
             controlName = new joint.shapes.standard.Image();
             window[JsonData[i].shapeControlName] = controlName;
-            controlName.resize(230, 100);
+            controlName.resize(80, 50);
 
-            controlName.position(prevParentPositionX + 150, prevParentPositionY);                        
+            controlName.position(prevParentPositionX + 150, prevParentPositionY);
 
             controlName.attr('root/title', 'joint.shapes.standard.Image');
             controlName.attr('label/text', JsonData[i].shapeLabel);
@@ -472,7 +481,7 @@ function drawGraph(currentLevel, data) {
 
         }
         if (JsonData[i].shapeType == "Link") {
-            
+
             var controlName = JsonData[i].shapeControlName;
             controlName = new joint.shapes.standard.Link({
                 source: { id: window[JsonData[i].linkSource].id },
@@ -482,9 +491,10 @@ function drawGraph(currentLevel, data) {
                     name: 'manhattan', args: { step: 50 }
                 },
                 connector: { name: 'rounded' },
-                //args: { step: 500 }
-            
+
+
             });
+            controlName.attr('line/stroke', '#16459e');
             controlName.addTo(graph);
 
 

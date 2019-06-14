@@ -31,7 +31,17 @@
 
 
 </script>
+<style>
+    .container1 {
+        position: fixed;
+    }
 
+        .container1 img {
+            position: fixed;
+            top: 0px;
+            right: 0px;
+        }
+</style>
 
 
 
@@ -72,11 +82,16 @@
 
         </div>
     </div>
+
     <div class="row">
+
         @*<div class="col-md-12">*@
         <div class="panel panel-info">
             <div class="panel-heading">JointJs Graph</div>
             <div class="panel-body">
+                @*<div style="float:left;">
+                    <img src="http://icons.iconarchive.com/icons/icojam/blue-bits/16/symbol-delete-icon.png" height="300px" width="150px" />
+                </div>*@
                 <div class="tap2">
                     <img src="~/Content/805.gif" />
                 </div>
@@ -86,15 +101,13 @@
                         </button>*@
                     <div id="myholder" style="overflow-y: auto; overflow-x: auto;"></div>
                 </div>
-
-
-
-
             </div>
         </div>
 
     </div>
-    @*</div>*@
+
+
+
 </div>
 
 <script src="~/Scripts/FILES/JointJsCode.js"></script>
