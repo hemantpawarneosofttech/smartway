@@ -537,6 +537,10 @@ paper.on('cell:pointerdblclick', function (cellView) {
 });
 
 $("#btnShow").click(function () {
+
+    if( ("#applicationList").val() == ""){
+        return;
+}
     count = 0;
     JsonData = [];
     graph.clear();
