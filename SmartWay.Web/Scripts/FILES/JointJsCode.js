@@ -125,24 +125,24 @@ function GetDatabasesData(currentLevel, isApp) {
     });
 }
 
+var rightChildPositionY = 200;
 function DrawRightChildGraph(rightChildData) {
+    
 
-    var leftChildPositionX = 1150;
-    var leftChildPositionY = 200;
-
-    paper.setDimensions(paper.width, parseInt(currentHeight * 5, 10));
-
+    
     //load rightchilds for clicked item
     for (var i in rightChildData) {
-        if (rightChildData[i].shapeType == "Cylinder" && rightChildData[i].shapeType != "Link") {
+                      
+        if (rightChildData[i].shapeType == "Cylinder") {
 
             var controlName = JsonData[i].shapeControlName;
             controlName = new joint.shapes.standard.Image();
             window[rightChildData[i].shapeControlName] = controlName;
             controlName.resize(80, 50);
 
-            controlName.position(leftChildPositionX, leftChildPositionY);
-            leftChildPositionY = leftChildPositionY + 85;
+            
+            controlName.position(1150, rightChildPositionY);
+            rightChildPositionY = rightChildPositionY + 90;
 
             controlName.attr('root/title', 'joint.shapes.standard.Image');
             controlName.attr('label/text', rightChildData[i].shapeLabel);
@@ -160,19 +160,46 @@ function DrawRightChildGraph(rightChildData) {
                 router: {
                     name: 'manhattan', args: { step: 25 }
                 },
+                //router: {
+                //    name: 'manhattan', args: {
+                //       // startDirections: ['bottom'],
+                //        endDirections: ['right'],
+                //        step: 10,
+                //    }
+                //},
             });
             controlName.attr('line/stroke', '#16459e'),
                 controlName.addTo(graph);
         }
     }
 }
+
+
+
+var leftChildPositionX = 150;
+var leftChildPositionY = 200;
+
 function DrawLeftChildGraph(leftchilddata) {
 
-    var leftChildPositionX = 90;
-    var leftChildPositionY = 200;
+    if (window['currentLevel'] == 1) {
+        leftChildPositionX = 150;
+        leftChildPositionY = 200;
+    }
 
-    paper.setDimensions(paper.width, parseInt(currentHeight * 5, 10));
+    if (window['currentLevel'] == 2) {
+        return;
+    }
 
+    //if (window['currentLevel'] == 3) {
+    //    leftChildPositionX = leftChildPositionX;
+    //    leftChildPositionY = leftChildPositionY+200;
+    //}
+
+    //if (window['currentLevel'] == 4) {
+    //    return;
+    //}
+
+   
     //load leftchild for clicked item
     for (var i in leftchilddata) {
         if (leftchilddata[i].shapeType == "Rectangle" && leftchilddata[i].shapeType != "Link") {
@@ -182,8 +209,8 @@ function DrawLeftChildGraph(leftchilddata) {
             window[leftchilddata[i].shapeControlName] = controlName;
             controlName.resize(80, 50);
 
-            controlName.position(leftChildPositionX, leftChildPositionY);
-            leftChildPositionY = leftChildPositionY + 150;
+            controlName.position(150, leftChildPositionY);
+            leftChildPositionY = leftChildPositionY + 90;
 
             controlName.attr('root/title', 'joint.shapes.standard.Image');
             controlName.attr('label/text', leftchilddata[i].shapeLabel);
@@ -198,8 +225,15 @@ function DrawLeftChildGraph(leftchilddata) {
                 source: { id: window[leftchilddata[i].linkSource].id },
                 target: { id: window[leftchilddata[i].linkTarget].id },
                 connector: { name: 'rounded' },
+                //router: {
+                //    name: 'manhattan', args: { step: 25 }
+                //},
                 router: {
-                    name: 'manhattan', args: { step: 25 }
+                    name: 'manhattan', args: {
+                        //startDirections: ['left'],                        
+                        //endDirections: ['left'],
+                        step: 60,
+                    }
                 },
             });
             controlName.attr('line/stroke', '#16459e'),
@@ -232,8 +266,16 @@ function getCompleteGraph(currentLevel, name) {
         success: function (resp) {
             JsonData = resp;
             drawGraph(currentLevel, JsonData);
-            DrawLeftChildGraph(leftChildJson);
-            DrawRightChildGraph(databasesJson)
+
+            if (currentLevel != 2) {
+                DrawLeftChildGraph(leftChildJson);
+            }
+        
+
+            if (currentLevel != 2) {
+                DrawRightChildGraph(databasesJson)
+            }
+           
             $(".tap2").hide();
         }, error: function (exp) {
             $(".tap2").hide();
@@ -257,45 +299,63 @@ function drawGraph(currentLevel, data) {
     prevParentPositionX = 50;
 
     var len = JsonData.length;
-    paper.setDimensions(parseInt(len * 400, 10), parseInt(currentHeight * 5, 10));
+   
 
     for (var i in JsonData) {
-        if (JsonData[i].Level != currlevel)
-            prevParentPositionX = 500;
+        //if (JsonData[i].Level != currlevel)
+        //    prevParentPositionX = 500;
 
         //set first positioning
-        if (JsonData[i].Level == 1 && JsonData[i].shapeType != "Link") {
-            //prevParentPositionY = 250;
-            prevParentPositionX = 500;
+        if (JsonData[i].Level == 1 ) {     
+            prevParentPositionX = 650;
             currlevel = JsonData[i].Level;
         }
-
-        else if (JsonData[i].Level == 2 && JsonData[i].shapeType != "Link" && JsonData[i].shapeType == "Rectangle") {
+        else if (JsonData[i].Level == 2  && JsonData[i].shapeType == "Rectangle") {
             if (prevParentPositionY == 0) {
-                prevParentPositionY = 100;
+                prevParentPositionY = 90;
             }
-            if (counter % 5 == 0) {
-                prevParentPositionX = 100;
+            if (counter % 6 == 0) {
+                prevParentPositionX = 230;
                 prevParentPositionY = prevParentPositionY + 90;
             }
-
-            prevParentPositionX = prevParentPositionX + 130;
+            prevParentPositionX = prevParentPositionX + 120;
             currlevel = JsonData[i].Level;
             counter++;
         }
-
-        if (JsonData[i].shapeType == "Rectangle" && JsonData[i].shapeType != "Link") {
+        else if (JsonData[i].Level == 3 && JsonData[i].shapeType == "Rectangle") {
+            if (prevParentPositionY == 0) {
+                prevParentPositionY = 100;
+            }
+            if (counter % 6 == 0) {
+                prevParentPositionX = 228;
+                prevParentPositionY = prevParentPositionY + 180;
+            }
+            prevParentPositionX = prevParentPositionX + 120;
+            currlevel = JsonData[i].Level;
+            counter++;
+        }
+        else if (JsonData[i].Level == 4 && JsonData[i].shapeType == "Rectangle") {            
+            if (prevParentPositionY == 0) {
+                prevParentPositionY = 100;
+            }
+            if (counter % 6 == 0) {
+                prevParentPositionX = 90;
+                prevParentPositionY = prevParentPositionY + 180;
+            }
+            prevParentPositionX = prevParentPositionX + 120;
+            currlevel = JsonData[i].Level;
+            counter++;
+        }
+        if (JsonData[i].shapeType == "Rectangle" ) {
             var controlName = JsonData[i].shapeControlName;
             controlName = new joint.shapes.standard.Image();
             window[JsonData[i].shapeControlName] = controlName;
-            controlName.resize(80, 50);
-            //debugger
-
-            controlName.position(prevParentPositionX + 150, prevParentPositionY);
+            controlName.resize(80, 50);            
+            controlName.position(prevParentPositionX , prevParentPositionY);
             controlName.attr('root/title', 'joint.shapes.standard.Image');
-
-
             controlName.attr('label/text', JsonData[i].shapeLabel);
+            controlName.attr('cursor', 'pointer');
+        
             if (JsonData[i].Level == 2) {
                 controlName.attr('image/xlinkHref', '/Content/server.png');
             }
@@ -305,31 +365,19 @@ function drawGraph(currentLevel, data) {
             controlName.addTo(graph);
         }
 
-        if (JsonData[i].shapeType == "Cylinder" && JsonData[i].shapeType != "Link") {
-
-            var controlName = JsonData[i].shapeControlName;
-            controlName = new joint.shapes.standard.Image();
-            window[JsonData[i].shapeControlName] = controlName;
-            controlName.resize(80, 50);
-
-            controlName.position(prevParentPositionX + 150, prevParentPositionY);
-
-            controlName.attr('root/title', 'joint.shapes.standard.Image');
-            controlName.attr('label/text', JsonData[i].shapeLabel);
-            controlName.attr('image/xlinkHref', '/Content/database.png');
-
-            controlName.addTo(graph);
-        }
-
+      
         if (JsonData[i].shapeType == "Link") {
-
             var controlName = JsonData[i].shapeControlName;
             controlName = new joint.shapes.standard.Link({
                 source: { id: window[JsonData[i].linkSource].id },
                 target: { id: window[JsonData[i].linkTarget].id },
                 //router: { name: 'manhattan' },
                 router: {
-                    name: 'manhattan', args: { step: 10 }
+                    name: 'manhattan', args: {
+                        startDirections: ['left'],
+                        endDirections: ['bottom'],
+                        step: 15,
+                        }
                 },
                 connector: { name: 'rounded' },
             });
@@ -356,6 +404,7 @@ paper.on('cell:pointerdblclick', function (cellView) {
             if (currentLevel == 4) {
                 return;
             }
+            window['currentLevel'] = currentLevel;
             //call complete graph ajax request and draw graph
             getCompleteGraph(currentLevel, clickedElementName);
             cellView.model.isClicked = false;
