@@ -29,8 +29,8 @@ namespace SmartWay.Data.Repository
         #region getAllParentApplications
         public List<ApplicationViewModel> getAllParentApplications()
         {
-            var applications = DbContext.Applications.Where(x => !x.IsSubsystem.Value && x.StatusID != 5 && x.TypeID != 4).OrderBy(x=>x.Name).ToList();
-            ///var applications = DbContext.Applications.ToList();
+            var applications = DbContext.Applications.Where(x => !x.IsSubsystem.Value && x.StatusID != 5 && x.TypeID != 4).OrderBy(x => x.Name).ToList();
+            //var applications = DbContext.Applications.ToList();
             return Mapper.applicationViewModelMapper(applications);
         }
         #endregion getAllParentApplications
@@ -67,6 +67,36 @@ namespace SmartWay.Data.Repository
         }
 
         #endregion GetApplicationChild
+
+        /// <summary>
+        /// Get Application's Databases
+        /// </summary>
+        /// <param name="applicationId"></param>
+        /// <returns></returns>
+        public List<JsonModel> GetApplicationDatabases(int applicationId)
+        {
+            List<JsonModel> list = new List<JsonModel>();
+
+            try
+            {
+                SqlConnection conString = new SqlConnection(connectionString);
+                conString.Open();
+                SqlCommand cmdQuery = new SqlCommand("STP_GetApplicationDatabases", conString);
+                cmdQuery.Parameters.AddWithValue("@ID", applicationId);
+                cmdQuery.CommandType = CommandType.StoredProcedure;
+                SqlDataAdapter sda = new SqlDataAdapter(cmdQuery);
+                DataSet dsData = new DataSet();
+                sda.Fill(dsData);
+
+                list = CreateListFromTable(dsData);
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            return list;
+        }
 
         #region GetItemsApplication
         /// <summary>

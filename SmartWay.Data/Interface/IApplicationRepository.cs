@@ -20,5 +20,7 @@ namespace SmartWay.Data.Interface
         long GetItemIdFromName(string labelName, bool isApplication);
 
         List<JsonModel> GetSubsystemApplications(int applicationId);
+
+        List<JsonModel> GetApplicationDatabases(int applicationId);
     }
 }

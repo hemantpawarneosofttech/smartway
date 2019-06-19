@@ -1,0 +1,118 @@
+﻿
+.custom-btn {
+    border: 1px solid #0353b4;
+    background: #0353b4;
+    color: #fff;
+    border-radius: 25px;
+    padding-right: 18px;
+    font-size: 14px;
+    padding-left: 18px;
+    font-weight: bold;
+}
+    .custom-btn.btn.focus, .custom-btn.btn:focus, .custom-btn.btn:hover {
+        color: #fff;
+        text-decoration: none;
+        /* box-shadow: none !important; */
+    }
+        .custom-btn.btn:focus{
+            outline:none !important;
+        }
+
+        .custom-btn:hover {
+            color: #fff;
+        }
+
+.btn-red {
+    background: #dc3545;
+    border: 1px solid #dc3545;
+}
+
+.tilte {
+    border: 1px solid #0353b4;
+    background: #0353b4;
+    color: #fff;
+    border-radius: 50px;
+    width: 100%;
+    padding: 8px;
+    
+}
+
+    .tilte h3 {
+        margin: 0;
+        padding-left: 30px;
+        font-size: 19px;
+    }
+
+.select2-container--default .select2-selection--single {
+    background-color: #eef2f5;
+    border-bottom: 1px solid #ccc !important;
+    border-top: none !important;
+    border-right: none !important;
+    padding-bottom: 9px !important;
+    border-left: none !important;
+    border-radius: 0px !important;
+}
+
+    .select2-container--default .select2-selection--single .select2-selection__rendered {
+        color: #0353b4 !important;
+        line-height: 28px;
+    }
+
+.select2-container--default .select2-results > .select2-results__options {
+}
+
+. select2-hidden-accessible.form-control:focus {
+    box-shadow: none !important;
+}
+
+.select2-container--default .select2-results__option[aria-selected=true] {
+    background-color: none !important;
+}
+
+.select2-results__option.select2-results__option--highlighted:hover {
+    background: #0353b4 !important;
+    color: #fff;
+}
+
+.select2-container--default .select2-results__option--highlighted[aria-selected] {
+    background-color: #0353b4 !important;
+    color: white !important;
+}
+
+.select2-results__option {
+    padding: 10px !important;
+}
+
+.select2-container--default .select2-search--dropdown .select2-search__field {
+    border: 1px solid #0353b4 !important;
+}
+
+.form-control.select2-hidden-accessible .select2-container--focus {
+    box-shadow: none !important;
+}
+
+.listImages {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 28px;
+}
+
+    .listImages li {
+        line-height: 21px;
+        display: block;
+    }
+
+        .listImages li img {
+            float: left;
+            margin-right: 10px;
+            margin-top: -3px;
+        }
+
+        .listImages li p {
+            font-size: 12px;
+            font-weight: bold;
+            color: 0353b4;
+        }
+
+

@@ -43,72 +43,89 @@
         }
 </style>
 
+<link href="~/Content/Css/graphstyle.css" rel="stylesheet" />
 
-
-<div class="container-fluid" style="margin-top:3%">
+<div class="container-fluid" style="padding:0px;">
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-info">
-                <div class="panel-heading"></div>
-                <div class="panel-body">
-                    <form class="form-inline">
-                        <div class="form-group col-md-6">
+            <div class="panel">
+                <div class=""></div>
+                <div class="panel-body" style="background: #eef2f5;">
+                    <form class="form-inline" style="margin-bottom: 10px;    margin-top: 11px;">
+                        <div class="form-group col-md-8">
                             <div class="form-group col-md-3">
                                 <label for="email">Select Application:</label>
-
                             </div>
-
-                            @*<div class="col-md-3">  <label for="email">Select Application</label></div>*@
-
-
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 @Html.DropDownListFor(m => m.applicationList, new SelectList(Model.applicationList, "Id", "Name"), "--Select--", new { @class = "form-control" })
-                                @*<button type="button" id="btnShow" class="btn btn-primary">Show</button>
-                                    <button type="button" id="btnClear" class="btn btn-primary">Clear</button>*@
                             </div>
-
+                            <div class="col-sm-2">
+                                <button type="button" id="btnShow" class="btn custom-btn">Show Details</button>
+                            </div>
+                            <div class="col-sm-3">
+                                <button type="button" id="btnClear" class="btn btn-red custom-btn ">Reset</button>
+                            </div>
                         </div>
-
-
-
                     </form>
                 </div>
             </div>
-
-
-
-
-
-
         </div>
     </div>
+    <!--Old div for loading graph -->
+    @*<div class="row">
+            <div class="panel panel-info">
+                <div class="panel-heading">JointJs Graph</div>
+                <div class="panel-body">
 
-    <div class="row">
-
-        @*<div class="col-md-12">*@
-        <div class="panel panel-info">
-            <div class="panel-heading">JointJs Graph</div>
-            <div class="panel-body">
-                @*<div style="float:left;">
-                    <img src="http://icons.iconarchive.com/icons/icojam/blue-bits/16/symbol-delete-icon.png" height="300px" width="150px" />
-                </div>*@
-                <div class="tap2">
-                    <img src="~/Content/805.gif" />
-                </div>
-                <div class="row">
-                    @*<button type="button" id="btnLoad" class="btn btn-primary" style="margin-left:190px;">
-                            Load Sub-System
-                        </button>*@
-                    <div id="myholder" style="overflow-y: auto; overflow-x: auto;"></div>
+                    <div class="tap2">
+                        <img src="~/Content/805.gif" />
+                    </div>
+                    <div class="row">
+                        <div id="myholder" style="overflow-y: auto; overflow-x: auto;"></div>
+                    </div>
                 </div>
             </div>
+
+        </div>*@
+
+    <!--End-->
+    <!--New div for loading graph -->
+    <div class="row">
+
+        <div class="col-sm-12">
+            <div class="panel " style="padding:20px;background: #eef2f5;">
+                <div class="tilte">  <h3>Title</h3> </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <ul class="listImages">
+                            <li><img src="~/Content/images/4.png"><p>System</p></li>
+                            <li><img src="~/Content/images/3.png"><p>Subsystem</p></li>
+                            <li><img src="~/Content/images/2.png"><p>Server</p></li>
+                            <li><img src="~/Content/images/1.png"><p>Database</p></li>
+
+                        </ul>
+                    </div>
+
+                    <div class="col-sm-10">
+                        <div class="panel-body" style=" padding-top: 40px;width: 2800px;overflow-x: scroll;"> 
+                            <div class="tap2">
+                                <img src="~/Content/805.gif" />
+                            </div>
+                            <div class="row">
+                                @* <div class="" style="overflow: scroll;width: 1200px;">
+                                    <img src="https://i.ytimg.com/vi/Ai4Xi8GWSgM/maxresdefault.jpg" />
+                                </div>*@
+                                <div id="myholder" style="overflow-y: auto; overflow-x: auto; background-color: #eef2f5;"></div>
+                            </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--End-->
         </div>
 
-    </div>
-
-
-
-</div>
-
-<script src="~/Scripts/FILES/JointJsCode.js"></script>
+        <script src="~/Scripts/FILES/JointJsCode.js"></script>
 

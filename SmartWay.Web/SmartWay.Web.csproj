@@ -146,9 +146,14 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Css\bootstrap-base.min.css" />
     <Content Include="Content\Css\bootstrap.min.css" />
+    <Content Include="Content\Css\graphstyle.css" />
     <Content Include="Content\Css\joint.css" />
     <Content Include="Content\Css\LoaderCustom.css" />
     <Content Include="Content\Css\select2.min.css" />
+    <Content Include="Content\images\1.png" />
+    <Content Include="Content\images\2.png" />
+    <Content Include="Content\images\3.png" />
+    <Content Include="Content\images\4.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

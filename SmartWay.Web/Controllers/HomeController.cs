@@ -160,6 +160,33 @@ namespace SmartWay.Web.Controllers
 
         #endregion GetSubsystemApplications
 
+        #region GetApplicationDatabases
+
+        /// <summary>
+        /// Get Applications Subsystem 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <remarks>
+        /// Used for getting sub system data 
+        /// </remarks>
+        /// <returns></returns>
+
+        [HttpPost]
+        public JsonResult GetApplicationDatabases(SubSystemInputModel model)
+        {
+            long idFromLabel = applicationRepository.GetItemIdFromName(model.shapeLabel, model.isApplication);//get id from label ie.currently passed item name's id
+
+            if (idFromLabel <= 0)
+            {
+                return Json(null, JsonRequestBehavior.AllowGet);
+            }
+
+            var databasesList = applicationRepository.GetApplicationDatabases(Convert.ToInt32(idFromLabel));
+            return Json(databasesList, JsonRequestBehavior.AllowGet);
+        }
+
+        #endregion GetApplicationDatabases
+
         #region Private Methods
         private List<JsonModel> CombineList(List<JsonModel> firstList, List<JsonModel> secondList)
         {
