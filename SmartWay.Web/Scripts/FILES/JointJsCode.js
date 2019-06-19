@@ -52,14 +52,11 @@ function bindData() {
     var FirstNodeJsonData = JSON.parse('{"id": 1,"shapeType": "Rectangle","shapeControlName":"' + a + '","shapeLabel": "' + a + '","linkSource": null,"linkTarget": null,"parent":null,"IsLeaf":false,"IsBase": false,"IsApplication": true,"Level": 1}');
     JsonData.push(JSON.parse(JSON.stringify(FirstNodeJsonData)));
 
-    //var controlName = $("#applicationList option:selected").text();
     var controlName = new joint.shapes.standard.Image();
     window[a] = controlName;
     window[parent] = controlName;
 
-    controlName.position(350, 0);
-    prevParentPositionX = 150;
-    prevParentPositionY = 100;
+    controlName.position(650, 0);
     controlName.resize(80, 50);
 
     controlName.attr('root/title', 'joint.shapes.standard.Image');
@@ -86,21 +83,19 @@ function GetLeftSubsystemData(currentLevel, isApp) {
         data: JSON.stringify({ model: LeftChildInputModel }),
         success: function (response) {
             if (leftChildJson.length != 0) {
-                //for (var i = 0; i <= response.length; i++) {
-                //    leftChildJson.push(response[i]);
-                //}
-                DrawLeftChildGraph(currentLevel, response)
+                DrawLeftChildGraph(response)
 
             } else {
                 leftChildJson = JSON.parse(JSON.stringify(response));
                 //Calling draw left childs method.
-                DrawLeftChildGraph(1, leftChildJson)
+                DrawLeftChildGraph(leftChildJson)
             }
         }
     });
 }
 
 function GetDatabasesData(currentLevel, isApp) {
+
     if (!isApp) {
         return;
     }
@@ -117,58 +112,65 @@ function GetDatabasesData(currentLevel, isApp) {
         dataType: "json",
         data: JSON.stringify({ model: LeftChildInputModel }),
         success: function (response) {
+
             if (databasesJson.length != 0) {
-                DrawLeftChildGraph(currentLevel, response, false)
+                DrawRightChildGraph(response)
 
             } else {
                 databasesJson = JSON.parse(JSON.stringify(response));
-                //Calling draw left childs method.
-                DrawLeftChildGraph(1, databasesJson, false)
+                //Calling draw right childs method.
+                DrawRightChildGraph(databasesJson)
             }
         }
     });
 }
 
-function DrawLeftChildGraph(currentLevel, leftchilddata, IsSubsystem) {
+function DrawRightChildGraph(rightChildData) {
 
-    var leftChildPositionX = 0;
+    var leftChildPositionX = 1150;
     var leftChildPositionY = 200;
-    if (IsSubsystem) {
-        if (currentLevel == 1) {
-            //leftChildPositionX = leftChildPositionX;
-            leftChildPositionY = 300;
+
+    paper.setDimensions(paper.width, parseInt(currentHeight * 5, 10));
+
+    //load rightchilds for clicked item
+    for (var i in rightChildData) {
+        if (rightChildData[i].shapeType == "Cylinder" && rightChildData[i].shapeType != "Link") {
+
+            var controlName = JsonData[i].shapeControlName;
+            controlName = new joint.shapes.standard.Image();
+            window[rightChildData[i].shapeControlName] = controlName;
+            controlName.resize(80, 50);
+
+            controlName.position(leftChildPositionX, leftChildPositionY);
+            leftChildPositionY = leftChildPositionY + 85;
+
+            controlName.attr('root/title', 'joint.shapes.standard.Image');
+            controlName.attr('label/text', rightChildData[i].shapeLabel);
+            controlName.attr('image/xlinkHref', '/Content/Database.png');
+            controlName.attr('line/stroke', '#16459e');
+            controlName.addTo(graph);
         }
-        //if (currentLevel == 2) {
-        //    leftChildPositionY = 500;
-        //    leftChildPositionX = leftChildPositionX + 250;
-        //}
-        if (currentLevel == 3) {
-            leftChildPositionY = 800;
-            leftChildPositionX = leftChildPositionX + 250;
+
+        if (rightChildData[i].shapeType == "Link") {
+            var controlName = rightChildData[i].shapeControlName;
+            controlName = new joint.shapes.standard.Link({
+                source: { id: window[rightChildData[i].linkSource].id },
+                target: { id: window[rightChildData[i].linkTarget].id },
+                connector: { name: 'rounded' },
+                router: {
+                    name: 'manhattan', args: { step: 25 }
+                },
+            });
+            controlName.attr('line/stroke', '#16459e'),
+                controlName.addTo(graph);
         }
-        //if (currentLevel == 4) {
-        //    leftChildPositionY = 750;
-        //    leftChildPositionX = leftChildPositionX + 250;
-        //}
     }
-    else {
-        //if (currentLevel == 1) {
-        //    leftChildPositionX = leftChildPositionX + 0;
-        //    leftChildPositionY = 300;
-        //}
-        if (currentLevel == 2) {
-            leftChildPositionY = 300;
-            leftChildPositionX = 600;
-        }
-        //if (currentLevel == 3) {
-        //    leftChildPositionY = 800;
-        //    leftChildPositionX = leftChildPositionX + 250;
-        //}
-        if (currentLevel == 4) {
-            leftChildPositionY = 750;
-            leftChildPositionX = leftChildPositionX + 50;
-        }
-    }
+}
+function DrawLeftChildGraph(leftchilddata) {
+
+    var leftChildPositionX = 90;
+    var leftChildPositionY = 200;
+
     paper.setDimensions(paper.width, parseInt(currentHeight * 5, 10));
 
     //load leftchild for clicked item
@@ -197,7 +199,7 @@ function DrawLeftChildGraph(currentLevel, leftchilddata, IsSubsystem) {
                 target: { id: window[leftchilddata[i].linkTarget].id },
                 connector: { name: 'rounded' },
                 router: {
-                    name: 'manhattan', args: { step: 50 }
+                    name: 'manhattan', args: { step: 25 }
                 },
             });
             controlName.attr('line/stroke', '#16459e'),
@@ -230,8 +232,8 @@ function getCompleteGraph(currentLevel, name) {
         success: function (resp) {
             JsonData = resp;
             drawGraph(currentLevel, JsonData);
-            DrawLeftChildGraph(1, leftChildJson, true);
-            DrawLeftChildGraph(1, databasesJson, false);
+            DrawLeftChildGraph(leftChildJson);
+            DrawRightChildGraph(databasesJson)
             $(".tap2").hide();
         }, error: function (exp) {
             $(".tap2").hide();
@@ -246,36 +248,35 @@ function getCurrentLevel(shapeLabel, JsonData) {
     return levelData[0].Level;
 }
 
+
 function drawGraph(currentLevel, data) {
     var counter = 0;
-    //debugger
     var currentLevel = currentLevel;
     prevParentPositionY = 0;
     var currlevel = 1;
-    prevParentPositionX = 200;
+    prevParentPositionX = 50;
 
     var len = JsonData.length;
     paper.setDimensions(parseInt(len * 400, 10), parseInt(currentHeight * 5, 10));
 
     for (var i in JsonData) {
         if (JsonData[i].Level != currlevel)
-            prevParentPositionX = 80;
+            prevParentPositionX = 500;
 
         //set first positioning
         if (JsonData[i].Level == 1 && JsonData[i].shapeType != "Link") {
             //prevParentPositionY = 250;
-            prevParentPositionX = prevParentPositionX;
+            prevParentPositionX = 500;
             currlevel = JsonData[i].Level;
         }
 
         else if (JsonData[i].Level == 2 && JsonData[i].shapeType != "Link" && JsonData[i].shapeType == "Rectangle") {
             if (prevParentPositionY == 0) {
-                prevParentPositionY = 280;
+                prevParentPositionY = 100;
             }
-            if (counter % 4 == 0) {
+            if (counter % 5 == 0) {
                 prevParentPositionX = 100;
-                prevParentPositionY = prevParentPositionY + 115;
-                console.log(prevParentPositionY);
+                prevParentPositionY = prevParentPositionY + 90;
             }
 
             prevParentPositionX = prevParentPositionX + 130;
@@ -283,37 +284,13 @@ function drawGraph(currentLevel, data) {
             counter++;
         }
 
-        //else if (JsonData[i].Level == 2 && JsonData[i].shapeType != "Link" && JsonData[i].shapeType == "Cylinder") {
-        //    prevParentPositionY = 300;
-        //    prevParentPositionX = prevParentPositionX + 250;
-        //    currlevel = JsonData[i].Level;
-        //}
-
-        else if (JsonData[i].Level == 3 && JsonData[i].shapeType != "Link" && JsonData[i].shapeType == "Rectangle") {
-            prevParentPositionY = 600;
-            prevParentPositionX = prevParentPositionX + 180;
-            currlevel = JsonData[i].Level;
-        }
-
-        else if (JsonData[i].Level == 4 && JsonData[i].shapeType != "Link" && JsonData[i].shapeType == "Rectangle") {
-            prevParentPositionY = 900;
-            prevParentPositionX = prevParentPositionX + 180;
-            currlevel = JsonData[i].Level;
-        }
-
-        //else if (JsonData[i].Level == 4 && JsonData[i].shapeType != "Link" && JsonData[i].shapeType == "Cylinder") {
-        //    prevParentPositionY = 900;
-        //    prevParentPositionX = prevParentPositionX + 250;
-        //    currlevel = JsonData[i].Level;
-        //}
-
-
         if (JsonData[i].shapeType == "Rectangle" && JsonData[i].shapeType != "Link") {
             var controlName = JsonData[i].shapeControlName;
             controlName = new joint.shapes.standard.Image();
             window[JsonData[i].shapeControlName] = controlName;
             controlName.resize(80, 50);
             //debugger
+
             controlName.position(prevParentPositionX + 150, prevParentPositionY);
             controlName.attr('root/title', 'joint.shapes.standard.Image');
 
@@ -352,7 +329,7 @@ function drawGraph(currentLevel, data) {
                 target: { id: window[JsonData[i].linkTarget].id },
                 //router: { name: 'manhattan' },
                 router: {
-                    name: 'manhattan', args: { step: 50 }
+                    name: 'manhattan', args: { step: 10 }
                 },
                 connector: { name: 'rounded' },
             });
@@ -363,7 +340,7 @@ function drawGraph(currentLevel, data) {
 
     var isApp = checkIsApplication(clickedElementName, JsonData);
     GetLeftSubsystemData(currentLevel, isApp);
-    //GetDatabasesData(currentLevel, isApp);
+    GetDatabasesData(currentLevel, isApp);
 }
 
 paper.on('cell:pointerdblclick', function (cellView) {
