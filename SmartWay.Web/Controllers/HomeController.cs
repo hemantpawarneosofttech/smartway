@@ -17,7 +17,7 @@ namespace SmartWay.Web.Controllers
         public ActionResult Graph()
         {
             var model = new ParentModel();
-            model.applicationList = applicationRepository.getAllParentApplications().Where(x=>x.Name=="AAAAA").ToList();
+            model.applicationList = applicationRepository.getAllParentApplications();
             return View(model);
         }
 

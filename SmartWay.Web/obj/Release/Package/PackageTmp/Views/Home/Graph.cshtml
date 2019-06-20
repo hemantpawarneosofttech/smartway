@@ -6,8 +6,6 @@
     Layout = null;
 }
 
-
-
 <link href="~/Content/Css/LoaderCustom.css" rel="stylesheet" />
 <link href="~/Content/Css/bootstrap-base.min.css" rel="stylesheet" />
 <link href="~/Content/Css/bootstrap.min.css" rel="stylesheet" />
@@ -25,11 +23,9 @@
 
 <script type="text/javascript">
 
-    var url1 =  "@Url.Action("GetSubsystemApplications", "Home")";
-    var url2 = "@Url.Action("GetCompletGraph", "Home")";
-
-
-
+    var GetSubsystemApplications =  "@Url.Action("GetSubsystemApplications", "Home")";
+    var GetCompletGraph = "@Url.Action("GetCompletGraph", "Home")";
+    var GetApplicationDatabases = "@Url.Action("GetApplicationDatabases", "Home")";
 </script>
 <style>
     .container1 {
@@ -45,13 +41,14 @@
 
 <link href="~/Content/Css/graphstyle.css" rel="stylesheet" />
 
-<div class="container-fluid" style="padding:0px;">
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12" style="padding:0px;">
             <div class="panel">
                 <div class=""></div>
                 <div class="panel-body" style="background: #eef2f5;">
-                    <form class="form-inline" style="margin-bottom: 10px;    margin-top: 11px;">
+                    <form class="form-inline" style="margin-bottom: 10px; margin-top: 11px;">
+                        <div class="col-md-2"></div>
                         <div class="form-group col-md-8">
                             <div class="form-group col-md-3">
                                 <label for="email">Select Application:</label>
@@ -92,12 +89,24 @@
     <!--New div for loading graph -->
     <div class="row">
 
-        <div class="col-sm-12">
+        <div class="col-sm-12" style="padding:0px;">
             <div class="panel " style="padding:20px;background: #eef2f5;">
-                <div class="tilte">  <h3>Title</h3> </div>
+                <div class="tilte">  <h3></h3> </div>
                 <div class="row">
-                    <div class="col-md-2">
-                        <ul class="listImages">
+                    <div class="col-sm-12">
+
+                        <div class="panel-body" style=" padding-top: 150px;position:relative;">
+                            <div class="tap2">
+                                <img src="~/Content/805.gif" />
+                            </div>
+                            <div class="row">
+                                @* <div class="" style="overflow: scroll;width: 1200px;">
+                                        <img src="https://i.ytimg.com/vi/Ai4Xi8GWSgM/maxresdefault.jpg" />
+                                    </div>*@
+                                <div id="myholder" style="overflow-y: auto; overflow-x: auto; background-color: #eef2f5;"></div>
+                            </div>
+                        </div>
+                        <ul class="listImages" style="position:absolute;top:0;left:22px;">
                             <li><img src="~/Content/images/4.png"><p>System</p></li>
                             <li><img src="~/Content/images/3.png"><p>Subsystem</p></li>
                             <li><img src="~/Content/images/2.png"><p>Server</p></li>
@@ -105,27 +114,13 @@
 
                         </ul>
                     </div>
-
-                    <div class="col-sm-10">
-                        <div class="panel-body" style=" padding-top: 40px;width: 2800px;overflow-x: scroll;"> 
-                            <div class="tap2">
-                                <img src="~/Content/805.gif" />
-                            </div>
-                            <div class="row">
-                                @* <div class="" style="overflow: scroll;width: 1200px;">
-                                    <img src="https://i.ytimg.com/vi/Ai4Xi8GWSgM/maxresdefault.jpg" />
-                                </div>*@
-                                <div id="myholder" style="overflow-y: auto; overflow-x: auto; background-color: #eef2f5;"></div>
-                            </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-
             </div>
-            <!--End-->
         </div>
 
-        <script src="~/Scripts/FILES/JointJsCode.js"></script>
+    </div>
+    <!--End-->
+</div>
+
+<script src="~/Scripts/FILES/JointJsCode.js"></script>
 

@@ -127,12 +127,12 @@ function GetDatabasesData(currentLevel, isApp) {
 
 var rightChildPositionY = 200;
 function DrawRightChildGraph(rightChildData) {
-    
 
-    
+
+
     //load rightchilds for clicked item
     for (var i in rightChildData) {
-                      
+
         if (rightChildData[i].shapeType == "Cylinder") {
 
             var controlName = JsonData[i].shapeControlName;
@@ -140,7 +140,7 @@ function DrawRightChildGraph(rightChildData) {
             window[rightChildData[i].shapeControlName] = controlName;
             controlName.resize(80, 50);
 
-            
+
             controlName.position(1150, rightChildPositionY);
             rightChildPositionY = rightChildPositionY + 90;
 
@@ -199,7 +199,7 @@ function DrawLeftChildGraph(leftchilddata) {
     //    return;
     //}
 
-   
+
     //load leftchild for clicked item
     for (var i in leftchilddata) {
         if (leftchilddata[i].shapeType == "Rectangle" && leftchilddata[i].shapeType != "Link") {
@@ -270,12 +270,12 @@ function getCompleteGraph(currentLevel, name) {
             if (currentLevel != 2) {
                 DrawLeftChildGraph(leftChildJson);
             }
-        
+
 
             if (currentLevel != 2) {
                 DrawRightChildGraph(databasesJson)
             }
-           
+
             $(".tap2").hide();
         }, error: function (exp) {
             $(".tap2").hide();
@@ -299,18 +299,18 @@ function drawGraph(currentLevel, data) {
     prevParentPositionX = 50;
 
     var len = JsonData.length;
-   
+
 
     for (var i in JsonData) {
         //if (JsonData[i].Level != currlevel)
         //    prevParentPositionX = 500;
 
         //set first positioning
-        if (JsonData[i].Level == 1 ) {     
+        if (JsonData[i].Level == 1) {
             prevParentPositionX = 650;
             currlevel = JsonData[i].Level;
         }
-        else if (JsonData[i].Level == 2  && JsonData[i].shapeType == "Rectangle") {
+        else if (JsonData[i].Level == 2 && JsonData[i].shapeType == "Rectangle") {
             if (prevParentPositionY == 0) {
                 prevParentPositionY = 90;
             }
@@ -334,7 +334,7 @@ function drawGraph(currentLevel, data) {
             currlevel = JsonData[i].Level;
             counter++;
         }
-        else if (JsonData[i].Level == 4 && JsonData[i].shapeType == "Rectangle") {            
+        else if (JsonData[i].Level == 4 && JsonData[i].shapeType == "Rectangle") {
             if (prevParentPositionY == 0) {
                 prevParentPositionY = 100;
             }
@@ -346,16 +346,16 @@ function drawGraph(currentLevel, data) {
             currlevel = JsonData[i].Level;
             counter++;
         }
-        if (JsonData[i].shapeType == "Rectangle" ) {
+        if (JsonData[i].shapeType == "Rectangle") {
             var controlName = JsonData[i].shapeControlName;
             controlName = new joint.shapes.standard.Image();
             window[JsonData[i].shapeControlName] = controlName;
-            controlName.resize(80, 50);            
-            controlName.position(prevParentPositionX , prevParentPositionY);
+            controlName.resize(80, 50);
+            controlName.position(prevParentPositionX, prevParentPositionY);
             controlName.attr('root/title', 'joint.shapes.standard.Image');
             controlName.attr('label/text', JsonData[i].shapeLabel);
             controlName.attr('cursor', 'pointer');
-        
+
             if (JsonData[i].Level == 2) {
                 controlName.attr('image/xlinkHref', '/Content/server.png');
             }
@@ -365,7 +365,7 @@ function drawGraph(currentLevel, data) {
             controlName.addTo(graph);
         }
 
-      
+
         if (JsonData[i].shapeType == "Link") {
             var controlName = JsonData[i].shapeControlName;
             controlName = new joint.shapes.standard.Link({
@@ -377,7 +377,7 @@ function drawGraph(currentLevel, data) {
                         startDirections: ['left'],
                         endDirections: ['bottom'],
                         step: 15,
-                        }
+                    }
                 },
                 connector: { name: 'rounded' },
             });
