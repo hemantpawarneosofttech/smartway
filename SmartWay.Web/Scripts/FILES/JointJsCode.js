@@ -674,7 +674,7 @@ function drawGraph(currentLevel, data) {
             if (prevParentPositionY == 0) {
                 prevParentPositionY = 100;
             }
-            if (counter % 6 == 0) {
+            if (counter % 5 == 0) {
                 prevParentPositionX = 225;
                 prevParentPositionY = prevParentPositionY + 180;
             }
