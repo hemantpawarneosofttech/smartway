@@ -696,8 +696,14 @@ function drawGraph(currentLevel, data) {
             if (JsonData[i].Level == 2) {
                 controlName.attr('image/xlinkHref', '/Content/server.png');
             }
-            else {
+            if (JsonData[i].Level == 3) {
                 controlName.attr('image/xlinkHref', '/Content/System.png');
+            }
+            if (JsonData[i].Level == 1) {
+                controlName.attr('image/xlinkHref', '/Content/System.png');
+            }
+            if (JsonData[i].Level == 4) {
+                controlName.attr('image/xlinkHref', '/Content/server.png');
             }
             controlName.addTo(graph);
         }
