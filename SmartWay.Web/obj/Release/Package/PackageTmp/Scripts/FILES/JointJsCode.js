@@ -59,9 +59,10 @@ function bindData() {
     controlName.position(650, 0);
     controlName.resize(80, 50);
 
-    controlName.attr('root/title', 'joint.shapes.standard.Image');
+    //controlName.attr('root/title', 'joint.shapes.standard.Image');
     controlName.attr('label/text', $("#applicationList option:selected").text());
     controlName.attr('image/xlinkHref', '/Content/system.png');
+    controlName.attr('cursor', 'default');
     controlName.addTo(graph);
 }
 
@@ -82,14 +83,28 @@ function GetLeftSubsystemData(currentLevel, isApp) {
         dataType: "json",
         data: JSON.stringify({ model: LeftChildInputModel }),
         success: function (response) {
-            if (leftChildJson.length != 0) {
-                DrawLeftChildGraph(response)
+            //if (leftChildJson.length != 0) {
+            //    DrawLeftChildGraph(response, 3)
 
-            } else {
-                leftChildJson = JSON.parse(JSON.stringify(response));
-                //Calling draw left childs method.
-                DrawLeftChildGraph(leftChildJson)
+            //} else {
+            //    leftChildJson = JSON.parse(JSON.stringify(response));
+            //    //Calling draw left childs method.
+            //    DrawLeftChildGraph(leftChildJson, 1)
+            //}
+            console.log(JSON.stringify(response));
+            for (var i in response) {
+
+                if (leftChildJson.length != 0) {
+                    if (!leftChildJson.some(item => item.shapeControlName == response[i].shapeControlName && response[i].linkSource == "")) {
+                        leftChildJson.push(response[i]);
+                    }
+                }
+                else {
+                    leftChildJson.push(response[i]);
+                }
             }
+            console.log(JSON.stringify(leftChildJson));
+            DrawLeftChildGraph(leftChildJson)
         }
     });
 }
@@ -113,29 +128,194 @@ function GetDatabasesData(currentLevel, isApp) {
         data: JSON.stringify({ model: LeftChildInputModel }),
         success: function (response) {
 
-            if (databasesJson.length != 0) {
-                DrawRightChildGraph(response)
+            //if (databasesJson.length != 0) {
+            //    DrawRightChildGraph(response)
 
-            } else {
-                databasesJson = JSON.parse(JSON.stringify(response));
-                //Calling draw right childs method.
-                DrawRightChildGraph(databasesJson)
+            //} else {
+            //    databasesJson = JSON.parse(JSON.stringify(response));
+            //    //Calling draw right childs method.
+            //    DrawRightChildGraph(databasesJson)
+            //}
+
+            
+            for (var i in response) {
+
+                if (databasesJson.length != 0) {
+                    if (!databasesJson.some(item => item.shapeControlName == response[i].shapeControlName && response[i].linkSource == "")) {
+                        databasesJson.push(response[i]);
+                    }
+                }
+                else {
+                    databasesJson.push(response[i]);
+                }
             }
+            
+            DrawRightChildGraph(databasesJson)
         }
     });
 }
 
-var rightChildPositionY = 200;
 function DrawRightChildGraph(rightChildData) {
 
 
 
-    //load rightchilds for clicked item
+
+    var rightChildPositionY = 200;
+
+    if (window['currentLevel'] == 1) {
+
+        rightChildPositionY = 200;
+        //load rightchilds for clicked item
+        for (var i in rightChildData) {
+
+            if (rightChildData[i].shapeType == "Cylinder") {
+                //if (rightChildData[i].shapeType == "Rectangle" && rightChildData[i].Level == 2 && rightChildData[i].parent == $("#applicationList option:selected").text()) {
+
+                var controlName = rightChildData[i].shapeControlName;
+                controlName = new joint.shapes.standard.Image();
+                window[rightChildData[i].shapeControlName] = controlName;
+                controlName.resize(80, 50);
+
+
+                controlName.position(1150, rightChildPositionY);
+                rightChildPositionY = rightChildPositionY + 90;
+
+                //controlName.attr('root/title', 'joint.shapes.standard.Image');
+                controlName.attr('label/text', rightChildData[i].shapeLabel);
+                controlName.attr('image/xlinkHref', '/Content/Database.png');
+                controlName.attr('line/stroke', '#16459e');
+                controlName.addTo(graph);
+            }
+
+            if (rightChildData[i].shapeType == "Link") {
+                //if (rightChildData[i].shapeType == "Link" && rightChildData[i].Level == 2 && rightChildData[i].parent == $("#applicationList option:selected").text()) {
+                var controlName = rightChildData[i].shapeControlName;
+                controlName = new joint.shapes.standard.Link({
+                    source: { id: window[rightChildData[i].linkSource].id },
+                    target: { id: window[rightChildData[i].linkTarget].id },
+                    connector: { name: 'rounded' },
+                    router: {
+                        name: 'manhattan', args: { step: 25 }
+                    },
+                    //router: {
+                    //    name: 'manhattan', args: {
+                    //       // startDirections: ['bottom'],
+                    //        endDirections: ['right'],
+                    //        step: 10,
+                    //    }
+                    //},
+                });
+                controlName.attr('line/stroke', '#16459e'),
+                    controlName.addTo(graph);
+            }
+        }
+
+
+    }
+
+    else if (window['currentLevel'] == 2) {
+        debugger;
+        rightChildPositionY = 200;
+
+        //load leftchild for clicked item
+        for (var i in rightChildData) {
+
+            if (rightChildData[i].shapeType == "Cylinder" && rightChildData[i].Level == 2 && rightChildData[i].parent == $("#applicationList option:selected").text()) {
+
+                var controlName = rightChildData[i].shapeControlName;
+                controlName = new joint.shapes.standard.Image();
+                window[rightChildData[i].shapeControlName] = controlName;
+                controlName.resize(80, 50);
+
+
+                controlName.position(1150, rightChildPositionY);
+                rightChildPositionY = rightChildPositionY + 90;
+
+                //controlName.attr('root/title', 'joint.shapes.standard.Image');
+                controlName.attr('label/text', rightChildData[i].shapeLabel);
+                controlName.attr('image/xlinkHref', '/Content/database.png');
+                controlName.attr('line/stroke', '#16459e');
+                controlName.addTo(graph);
+            }
+
+            if (rightChildData[i].shapeType == "Link" && rightChildData[i].Level == 2 && rightChildData[i].parent == $("#applicationList option:selected").text()) {
+                var controlName = rightChildData[i].shapeControlName;
+                controlName = new joint.shapes.standard.Link({
+                    source: { id: window[rightChildData[i].linkSource].id },
+                    target: { id: window[rightChildData[i].linkTarget].id },
+                    connector: { name: 'rounded' },
+                    router: {
+                        name: 'manhattan', args: { step: 25 }
+                    },
+                    //router: {
+                    //    name: 'manhattan', args: {
+                    //        //startDirections: ['left'],                        
+                    //        //endDirections: ['left'],
+                    //        step: 60,
+                    //    }
+                    //},
+                });
+                controlName.attr('line/stroke', '#16459e'),
+                    controlName.addTo(graph);
+            }
+        }
+
+        return;
+    }
+
+    else {
+
+
+        rightChildPositionY = 200;
+        for (var i in rightChildData) {
+            if (rightChildData[i].shapeType == "Cylinder" && rightChildData[i].Level == 2 && rightChildData[i].parent == $("#applicationList option:selected").text()) {
+
+                var controlName = rightChildData[i].shapeControlName;
+                controlName = new joint.shapes.standard.Image();
+                window[rightChildData[i].shapeControlName] = controlName;
+                controlName.resize(80, 50);
+
+
+                controlName.position(1150, rightChildPositionY);
+                rightChildPositionY = rightChildPositionY + 90;
+
+                //controlName.attr('root/title', 'joint.shapes.standard.Image');
+                controlName.attr('label/text', rightChildData[i].shapeLabel);
+                controlName.attr('image/xlinkHref', '/Content/database.png');
+                controlName.attr('line/stroke', '#16459e');
+                controlName.addTo(graph);
+            }
+
+            if (rightChildData[i].shapeType == "Link" && rightChildData[i].Level == 2 && rightChildData[i].parent == $("#applicationList option:selected").text()) {
+                var controlName = rightChildData[i].shapeControlName;
+                controlName = new joint.shapes.standard.Link({
+                    source: { id: window[rightChildData[i].linkSource].id },
+                    target: { id: window[rightChildData[i].linkTarget].id },
+                    connector: { name: 'rounded' },
+                    //router: {
+                    //    name: 'manhattan', args: { step: 25 }
+                    //},
+                    router: {
+                        name: 'manhattan', args: {
+                            //startDirections: ['left'],                        
+                            //endDirections: ['right'],
+                            step: 15,
+                        }
+                    },
+                });
+                controlName.attr('line/stroke', '#16459e'),
+                    controlName.addTo(graph);
+            }
+        }
+    }
+
+
+
+    rightChildPositionY = rightChildPositionY + 150;
     for (var i in rightChildData) {
+        if (rightChildData[i].shapeType == "Cylinder" && rightChildData[i].Level == 2 && rightChildData[i].parent != $("#applicationList option:selected").text()) {
 
-        if (rightChildData[i].shapeType == "Cylinder") {
-
-            var controlName = JsonData[i].shapeControlName;
+            var controlName = rightChildData[i].shapeControlName;
             controlName = new joint.shapes.standard.Image();
             window[rightChildData[i].shapeControlName] = controlName;
             controlName.resize(80, 50);
@@ -144,14 +324,14 @@ function DrawRightChildGraph(rightChildData) {
             controlName.position(1150, rightChildPositionY);
             rightChildPositionY = rightChildPositionY + 90;
 
-            controlName.attr('root/title', 'joint.shapes.standard.Image');
+            //controlName.attr('root/title', 'joint.shapes.standard.Image');
             controlName.attr('label/text', rightChildData[i].shapeLabel);
-            controlName.attr('image/xlinkHref', '/Content/Database.png');
+            controlName.attr('image/xlinkHref', '/Content/database.png');
             controlName.attr('line/stroke', '#16459e');
             controlName.addTo(graph);
         }
 
-        if (rightChildData[i].shapeType == "Link") {
+        if (rightChildData[i].shapeType == "Link" && rightChildData[i].Level == 2 && rightChildData[i].parent != $("#applicationList option:selected").text()) {
             var controlName = rightChildData[i].shapeControlName;
             controlName = new joint.shapes.standard.Link({
                 source: { id: window[rightChildData[i].linkSource].id },
@@ -162,9 +342,9 @@ function DrawRightChildGraph(rightChildData) {
                 },
                 //router: {
                 //    name: 'manhattan', args: {
-                //       // startDirections: ['bottom'],
-                //        endDirections: ['right'],
-                //        step: 10,
+                //        startDirections: ['left'],
+                //        endDirections: ['bottom'],
+                //        step: 50,
                 //    }
                 //},
             });
@@ -172,74 +352,230 @@ function DrawRightChildGraph(rightChildData) {
                 controlName.addTo(graph);
         }
     }
+
+
+
+
+
 }
 
-
-
-var leftChildPositionX = 150;
-var leftChildPositionY = 200;
-
 function DrawLeftChildGraph(leftchilddata) {
+
+    //if (level == 1) {
+    //    leftChildPositionX = 150;
+    //    leftChildPositionY = 200;
+    //}
+    //else {
+    //    //leftChildPositionX = 150;
+    //    leftChildPositionY = leftChildPositionY + 200;
+    //}
+
+
+
+
+
+    var leftChildPositionX = 150;
+    var leftChildPositionY = 200;
+
 
     if (window['currentLevel'] == 1) {
         leftChildPositionX = 150;
         leftChildPositionY = 200;
-    }
 
-    if (window['currentLevel'] == 2) {
-        return;
-    }
+        //load leftchild for clicked item
+        for (var i in leftchilddata) {
 
-    //if (window['currentLevel'] == 3) {
-    //    leftChildPositionX = leftChildPositionX;
-    //    leftChildPositionY = leftChildPositionY+200;
-    //}
+            if (leftchilddata[i].shapeType == "Rectangle" && leftchilddata[i].Level == 2 && leftchilddata[i].parent == $("#applicationList option:selected").text()) {
 
-    //if (window['currentLevel'] == 4) {
-    //    return;
-    //}
+                var controlName = JsonData[i].shapeControlName;
+                controlName = new joint.shapes.standard.Image();
+                window[leftchilddata[i].shapeControlName] = controlName;
+                controlName.resize(80, 50);
 
 
-    //load leftchild for clicked item
-    for (var i in leftchilddata) {
-        if (leftchilddata[i].shapeType == "Rectangle" && leftchilddata[i].shapeType != "Link") {
+                controlName.position(150, leftChildPositionY);
+                leftChildPositionY = leftChildPositionY + 90;
 
-            var controlName = JsonData[i].shapeControlName;
-            controlName = new joint.shapes.standard.Image();
-            window[leftchilddata[i].shapeControlName] = controlName;
-            controlName.resize(80, 50);
-
-            controlName.position(150, leftChildPositionY);
-            leftChildPositionY = leftChildPositionY + 90;
-
-            controlName.attr('root/title', 'joint.shapes.standard.Image');
-            controlName.attr('label/text', leftchilddata[i].shapeLabel);
-            controlName.attr('image/xlinkHref', '/Content/Subsystem.png');
-            controlName.attr('line/stroke', '#16459e');
-            controlName.addTo(graph);
-        }
-
-        if (leftchilddata[i].shapeType == "Link") {
-            var controlName = leftchilddata[i].shapeControlName;
-            controlName = new joint.shapes.standard.Link({
-                source: { id: window[leftchilddata[i].linkSource].id },
-                target: { id: window[leftchilddata[i].linkTarget].id },
-                connector: { name: 'rounded' },
-                //router: {
-                //    name: 'manhattan', args: { step: 25 }
-                //},
-                router: {
-                    name: 'manhattan', args: {
-                        //startDirections: ['left'],                        
-                        //endDirections: ['left'],
-                        step: 60,
-                    }
-                },
-            });
-            controlName.attr('line/stroke', '#16459e'),
+                controlName.attr('root/title', 'joint.shapes.standard.Image');
+                controlName.attr('label/text', leftchilddata[i].shapeLabel);
+                controlName.attr('image/xlinkHref', '/Content/Subsystem.png');
+                controlName.attr('line/stroke', '#16459e');
                 controlName.addTo(graph);
+            }
+
+            if (leftchilddata[i].shapeType == "Link" && leftchilddata[i].Level == 2 && leftchilddata[i].parent == $("#applicationList option:selected").text()) {
+                var controlName = leftchilddata[i].shapeControlName;
+                controlName = new joint.shapes.standard.Link({
+                    source: { id: window[leftchilddata[i].linkSource].id },
+                    target: { id: window[leftchilddata[i].linkTarget].id },
+                    connector: { name: 'rounded' },
+                    //router: {
+                    //    name: 'manhattan', args: { step: 25 }
+                    //},
+                    router: {
+                        name: 'manhattan', args: {
+                            //startDirections: ['left'],                        
+                            //endDirections: ['left'],
+                            step: 60,
+                        }
+                    },
+                });
+                controlName.attr('line/stroke', '#16459e'),
+                    controlName.addTo(graph);
+            }
+        }
+
+    }
+
+    else if (window['currentLevel'] == 2) {
+        leftChildPositionX = 150;
+        leftChildPositionY = 200;
+
+        //load leftchild for clicked item
+        for (var i in leftchilddata) {
+            if (leftchilddata[i].shapeType == "Rectangle" && leftchilddata[i].Level == 2 && leftchilddata[i].parent == $("#applicationList option:selected").text()) {
+
+                var controlName = JsonData[i].shapeControlName;
+                controlName = new joint.shapes.standard.Image();
+                window[leftchilddata[i].shapeControlName] = controlName;
+                controlName.resize(80, 50);
+
+
+                controlName.position(150, leftChildPositionY);
+                leftChildPositionY = leftChildPositionY + 90;
+
+                controlName.attr('root/title', 'joint.shapes.standard.Image');
+                controlName.attr('label/text', leftchilddata[i].shapeLabel);
+                controlName.attr('image/xlinkHref', '/Content/Subsystem.png');
+                controlName.attr('line/stroke', '#16459e');
+                controlName.addTo(graph);
+            }
+
+            if (leftchilddata[i].shapeType == "Link" && leftchilddata[i].Level == 2 && leftchilddata[i].parent == $("#applicationList option:selected").text()) {
+                var controlName = leftchilddata[i].shapeControlName;
+                controlName = new joint.shapes.standard.Link({
+                    source: { id: window[leftchilddata[i].linkSource].id },
+                    target: { id: window[leftchilddata[i].linkTarget].id },
+                    connector: { name: 'rounded' },
+                    //router: {
+                    //    name: 'manhattan', args: { step: 25 }
+                    //},
+                    router: {
+                        name: 'manhattan', args: {
+                            //startDirections: ['left'],                        
+                            //endDirections: ['left'],
+                            step: 60,
+                        }
+                    },
+                });
+                controlName.attr('line/stroke', '#16459e'),
+                    controlName.addTo(graph);
+            }
+        }
+
+    }
+
+    else {
+
+
+
+
+        leftChildPositionX = 150;
+        leftChildPositionY = 200;
+        for (var i in leftchilddata) {
+            if (leftchilddata[i].shapeType == "Rectangle" && leftchilddata[i].Level == 2 && leftchilddata[i].parent == $("#applicationList option:selected").text()) {
+
+                var controlName = JsonData[i].shapeControlName;
+                controlName = new joint.shapes.standard.Image();
+                window[leftchilddata[i].shapeControlName] = controlName;
+                controlName.resize(80, 50);
+
+
+                controlName.position(150, leftChildPositionY);
+                leftChildPositionY = leftChildPositionY + 90;
+
+                //controlName.attr('root/title', 'joint.shapes.standard.Image');
+                controlName.attr('label/text', leftchilddata[i].shapeLabel);
+                controlName.attr('image/xlinkHref', '/Content/Subsystem.png');
+                controlName.attr('line/stroke', '#16459e');
+                controlName.addTo(graph);
+            }
+
+            if (leftchilddata[i].shapeType == "Link" && leftchilddata[i].Level == 2 && leftchilddata[i].parent == $("#applicationList option:selected").text()) {
+                var controlName = leftchilddata[i].shapeControlName;
+                controlName = new joint.shapes.standard.Link({
+                    source: { id: window[leftchilddata[i].linkSource].id },
+                    target: { id: window[leftchilddata[i].linkTarget].id },
+                    connector: { name: 'rounded' },
+                    //router: {
+                    //    name: 'manhattan', args: { step: 25 }
+                    //},
+                    router: {
+                        name: 'manhattan', args: {
+                            //startDirections: ['left'],                        
+                            //endDirections: ['right'],
+                            step: 40,
+                        }
+                    },
+                });
+                controlName.attr('line/stroke', '#16459e'),
+                    controlName.addTo(graph);
+            }
+        }
+
+
+
+        leftChildPositionX = 150;
+        leftChildPositionY = leftChildPositionY + 200;
+        for (var i in leftchilddata) {
+            if (leftchilddata[i].shapeType == "Rectangle" && leftchilddata[i].Level == 2 && leftchilddata[i].parent != $("#applicationList option:selected").text()) {
+
+                var controlName = JsonData[i].shapeControlName;
+                controlName = new joint.shapes.standard.Image();
+                window[leftchilddata[i].shapeControlName] = controlName;
+                controlName.resize(80, 50);
+
+
+                controlName.position(150, leftChildPositionY);
+                leftChildPositionY = leftChildPositionY + 90;
+
+                //controlName.attr('root/title', 'joint.shapes.standard.Image');
+                controlName.attr('label/text', leftchilddata[i].shapeLabel);
+                controlName.attr('image/xlinkHref', '/Content/Subsystem.png');
+                controlName.attr('line/stroke', '#16459e');
+                controlName.addTo(graph);
+            }
+
+            if (leftchilddata[i].shapeType == "Link" && leftchilddata[i].Level == 2 && leftchilddata[i].parent != $("#applicationList option:selected").text()) {
+                var controlName = leftchilddata[i].shapeControlName;
+                controlName = new joint.shapes.standard.Link({
+                    source: { id: window[leftchilddata[i].linkSource].id },
+                    target: { id: window[leftchilddata[i].linkTarget].id },
+                    connector: { name: 'rounded' },
+                    //router: {
+                    //    name: 'manhattan', args: { step: 25 }
+                    //},
+                    router: {
+                        name: 'manhattan', args: {
+                            //startDirections: ['left'],                        
+                            //endDirections: ['right'],
+                            step: 40,
+                        }
+                    },
+                });
+                controlName.attr('line/stroke', '#16459e'),
+                    controlName.addTo(graph);
+            }
         }
     }
+    //load leftchild for clicked item
+
+
+
+
+
+
+
 }
 
 function getCompleteGraph(currentLevel, name) {
@@ -267,14 +603,14 @@ function getCompleteGraph(currentLevel, name) {
             JsonData = resp;
             drawGraph(currentLevel, JsonData);
 
-            if (currentLevel != 2) {
-                DrawLeftChildGraph(leftChildJson);
-            }
+            //if (currentLevel != 2) {
+            DrawLeftChildGraph(leftChildJson);
+            //}
 
 
-            if (currentLevel != 2) {
+           // if (currentLevel != 2) {
                 DrawRightChildGraph(databasesJson)
-            }
+           // }
 
             $(".tap2").hide();
         }, error: function (exp) {
@@ -338,21 +674,22 @@ function drawGraph(currentLevel, data) {
             if (prevParentPositionY == 0) {
                 prevParentPositionY = 100;
             }
-            if (counter % 6 == 0) {
-                prevParentPositionX = 90;
+            if (counter % 5 == 0) {
+                prevParentPositionX = 225;
                 prevParentPositionY = prevParentPositionY + 180;
             }
             prevParentPositionX = prevParentPositionX + 120;
             currlevel = JsonData[i].Level;
             counter++;
         }
+
         if (JsonData[i].shapeType == "Rectangle") {
             var controlName = JsonData[i].shapeControlName;
             controlName = new joint.shapes.standard.Image();
             window[JsonData[i].shapeControlName] = controlName;
             controlName.resize(80, 50);
             controlName.position(prevParentPositionX, prevParentPositionY);
-            controlName.attr('root/title', 'joint.shapes.standard.Image');
+            //controlName.attr('root/title', 'joint.shapes.standard.Image');
             controlName.attr('label/text', JsonData[i].shapeLabel);
             controlName.attr('cursor', 'pointer');
 
@@ -431,3 +768,5 @@ $("#btnClear").click(function () {
     prevParentPositionX = prevParentPositionY = 0
     graph.clear();
 });
+
+

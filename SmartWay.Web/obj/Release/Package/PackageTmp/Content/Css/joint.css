@@ -60,7 +60,7 @@ the whole group of elements. Each plugin can provide its own stylesheet.
 
 .joint-element {
    /* Give the user a hint that he can drag&drop the element. */
-   cursor: move;
+   cursor: default;
 }
 
 .joint-element * {
