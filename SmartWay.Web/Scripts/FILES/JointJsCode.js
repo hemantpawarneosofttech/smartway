@@ -101,6 +101,9 @@ function GetLeftSubsystemData(currentLevel, isApp) {
                     //if (!leftChildJson.some(item => item.shapeControlName == response[i].shapeControlName && response[i].linkSource == "")) {
                         leftChildJson.push(response[i]);
                     }
+                    else {
+                        return;
+                    }
                 }
                 else {
                     leftChildJson.push(response[i]);
@@ -139,18 +142,27 @@ function GetDatabasesData(currentLevel, isApp) {
                     $.each(databasesJson, function (j, obj) {
                         if (obj.shapeControlName == name && response[i].linkSource == "")
                             isExist = true;
+                        
                     });
 
+
+                    
                     if (!isExist) {
-                    //if (!databasesJson.some(item => item.shapeControlName == response[i].shapeControlName && response[i].linkSource == "")) {
+                        //if (!databasesJson.some(item => item.shapeControlName == response[i].shapeControlName && response[i].linkSource == "")) {
                         databasesJson.push(response[i]);
+                    }
+                    else {
+                        return;
                     }
                 }
                 else {
                     databasesJson.push(response[i]);
                 }
             }
+
+
             
+            //drawGraph(window['currentLevel'], null);
             DrawRightChildGraph(databasesJson)
         }
     });
@@ -647,7 +659,7 @@ function drawGraph(currentLevel, data) {
             }
             if (counter % 6 == 0) {
                 prevParentPositionX = 230;
-                prevParentPositionY = prevParentPositionY + 95;
+                prevParentPositionY = prevParentPositionY + 90;
             }
             prevParentPositionX = prevParentPositionX + 120;
             currlevel = JsonData[i].Level;
@@ -657,7 +669,7 @@ function drawGraph(currentLevel, data) {
             if (prevParentPositionY == 0) {
                 prevParentPositionY = 100;
             }
-            if (counter % 3 == 0) {
+            if (counter % 6 == 0) {
                 prevParentPositionX = 228;
                 prevParentPositionY = prevParentPositionY + 180;
             }

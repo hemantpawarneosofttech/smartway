@@ -88,9 +88,13 @@
     border: 1px solid #0353b4 !important;
 }
 
+.select2-container.select2-container--default {
+    width: 100% !important;
+}
 .form-control.select2-hidden-accessible .select2-container--focus {
     box-shadow: none !important;
 }
+
 
 .listImages {
     list-style-type: none;

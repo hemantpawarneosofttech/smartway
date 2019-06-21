@@ -48,19 +48,19 @@
                 <div class=""></div>
                 <div class="panel-body" style="background: #eef2f5;">
                     <form class="form-inline" style="margin-bottom: 10px; margin-top: 11px;">
-                        <div class="col-md-2"></div>
-                        <div class="form-group col-md-8">
-                            <div class="form-group col-md-3">
-                                <label for="email">Select Application:</label>
-                            </div>
-                            <div class="col-md-4">
-                                @Html.DropDownListFor(m => m.applicationList, new SelectList(Model.applicationList, "Id", "Name"), "--Select--", new { @class = "form-control" })
-                            </div>
-                            <div class="col-sm-2">
-                                <button type="button" id="btnShow" class="btn custom-btn">Show Details</button>
-                            </div>
-                            <div class="col-sm-3">
-                                <button type="button" id="btnClear" class="btn btn-red custom-btn ">Reset</button>
+
+                        <div class="form-group col-md-12  col-sm-12 col-lg-9 col-lg-offset-2 ">
+                            <div class="row">
+                                <div class="form-group col-md-2">
+                                    <label for="email">Select Application:</label>
+                                </div>
+                                <div class="col-md-4">
+                                    @Html.DropDownListFor(m => m.applicationList, new SelectList(Model.applicationList, "Id", "Name"), "--Select--", new { @class = "form-control" })
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="button" id="btnShow" class="btn custom-btn">Show Details</button> &nbsp;&nbsp;<button type="button" id="btnClear" class="btn btn-red custom-btn ">Reset</button>
+                                </div>
+
                             </div>
                         </div>
                     </form>
@@ -107,10 +107,13 @@
                             </div>
                         </div>
                         <ul class="listImages" style="position:absolute;top:0;left:22px;">
-                            <li><img src="~/Content/images/4.png"><p>System</p></li>
-                            <li><img src="~/Content/images/3.png"><p>Subsystem</p></li>
-                            <li><img src="~/Content/images/2.png"><p>Server</p></li>
-                            <li><img src="~/Content/images/1.png"><p>Database</p></li>
+                            <li>
+                                <img src="~/Content/images/4.png"><p>System</p>
+                                <div style="clear:left"></div>
+                            </li>
+                            <li><img src="~/Content/images/3.png"><p>Subsystem</p><div style="clear:left"></div></li>
+                            <li><img src="~/Content/images/2.png"><p>Server</p><div style="clear:left"></div></li>
+                            <li><img src="~/Content/images/1.png"><p>Database</p>  <div style="clear:left"></div></li>
 
                         </ul>
                     </div>
