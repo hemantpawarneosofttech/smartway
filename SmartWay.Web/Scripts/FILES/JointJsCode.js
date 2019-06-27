@@ -13,7 +13,7 @@ var paper = new joint.dia.Paper({
     el: document.getElementById('myholder'),
     model: graph,
     width: 3000,
-    height: 1500,
+    height: 3500,
     gridSize: 10,
     drawGrid: false
     //interactive:false
@@ -33,6 +33,16 @@ $(document).ready(function () {
     currentWidth = 1000;
 })
 
+$('#applicationList').change(function () {
+    JsonData = [];    
+    leftChildJson = [];
+    databasesJson = [];
+    clickedElementName = '';
+    prevParentPositionX = prevParentPositionY = 0
+    leftChildJson.length = 0;
+    databasesJson.length = 0;
+    JsonData.length = 0;
+});
 var parent = $("#applicationList option:selected").text();
 var leftChildJson = [], databasesJson = [];
 
@@ -41,7 +51,7 @@ function checkIsApplication(shapeLabel, JsonData) {
     var levelData = $.grep(JsonData, function (el) {
         return el.shapeLabel == shapeLabel;
     });
-    return levelData[0].IsApplication;
+    return levelData[0].IsApplication == undefined ? false : levelData[0].IsApplication;
 }
 
 
@@ -629,7 +639,8 @@ function getCurrentLevel(shapeLabel, JsonData) {
     var levelData = $.grep(JsonData, function (el) {
         return el.shapeLabel == shapeLabel;
     });
-    return levelData[0].Level;
+    return levelData[0].Level == undefined ? 1 : levelData[0].Level;
+    
 }
 
 function drawGraph(currentLevel, data) {
@@ -782,9 +793,13 @@ $("#btnClear").click(function () {
     databasesJson = [];    
     clickedElementName = '';
     prevParentPositionX = prevParentPositionY = 0
+
+    leftChildJson.length = 0;
+    databasesJson.length = 0;
+    JsonData.length = 0;
     graph.clear();
 
-    location.reload(true);
+    location.reload();
 });
 
 
