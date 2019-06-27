@@ -13,14 +13,17 @@ var paper = new joint.dia.Paper({
     el: document.getElementById('myholder'),
     model: graph,
     width: 3000,
-    height: 3500,
+    height: 1500,
     gridSize: 10,
     drawGrid: false
     //interactive:false
 
 });
-
-
+paper.scaleContentToFit({ padding: 1000 });
+//$(window).resize(function () {
+//    var canvas = $('#modelCanvas');
+//    paper.setDimensions(canvas.width(), canvas.height());
+//});
 
 
 $(document).ready(function () {
@@ -180,7 +183,17 @@ function GetDatabasesData(currentLevel, isApp) {
 
 function DrawRightChildGraph(rightChildData) {
 
+    console.log('-----------------'+JSON.stringify(JsonData));
+    //set height dynamic
+    if (JsonData.length <= 1) {
+        if (rightChildData.length < 20) {
 
+            paper.setDimensions(3000, rightChildData.length * 100);
+        } else {
+
+            paper.setDimensions(3000, rightChildData.length * 150);
+        }
+    }
 
 
     var rightChildPositionY = 200;
@@ -390,8 +403,19 @@ function DrawLeftChildGraph(leftchilddata) {
     //    leftChildPositionY = leftChildPositionY + 200;
     //}
 
+    
+    //set height dynamic
+    if (JsonData.length <= 1) {
+        if (leftchilddata.length < 20) {
 
+            paper.setDimensions(3000, leftchilddata.length * 100);
+        } else {
+            
+            paper.setDimensions(3000, leftchilddata.length * 150);
+        }
+    }
 
+  
 
 
     var leftChildPositionX = 150;
@@ -404,6 +428,9 @@ function DrawLeftChildGraph(leftchilddata) {
 
         //load leftchild for clicked item
         for (var i in leftchilddata) {
+
+            
+            
 
             if (leftchilddata[i].shapeType == "Rectangle" && leftchilddata[i].Level == 2 && leftchilddata[i].parent == $("#applicationList option:selected").text()) {
 
@@ -653,6 +680,20 @@ function drawGraph(currentLevel, data) {
 
     var len = JsonData.length;
 
+    
+    //set height dynamic
+    if (len > 0) {
+        if (len < 20) {
+
+            paper.setDimensions(3000, JsonData.length * 100);
+        } else {
+            
+            paper.setDimensions(3000, JsonData.length * 150);
+        }
+    }
+
+    
+
 
     for (var i in JsonData) {
 
@@ -753,6 +794,8 @@ function drawGraph(currentLevel, data) {
     var isApp = checkIsApplication(clickedElementName, JsonData);
     GetLeftSubsystemData(currentLevel, isApp);
     GetDatabasesData(currentLevel, isApp);
+
+
 }
 
 paper.on('cell:pointerdblclick', function (cellView) {
