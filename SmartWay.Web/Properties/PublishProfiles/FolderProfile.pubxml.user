@@ -178,13 +178,13 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/24/2018 13:38:24</publishTime>
     </File>
     <File Include="bin/SmartWay.Data.dll">
-      <publishTime>06/19/2019 18:45:00</publishTime>
+      <publishTime>06/24/2019 16:38:38</publishTime>
     </File>
     <File Include="bin/SmartWay.Data.dll.config">
       <publishTime>06/06/2019 13:12:03</publishTime>
     </File>
     <File Include="bin/SmartWay.Data.pdb">
-      <publishTime>06/19/2019 18:45:00</publishTime>
+      <publishTime>06/24/2019 16:38:38</publishTime>
     </File>
     <File Include="bin/SmartWay.Model.dll">
       <publishTime>06/19/2019 18:44:59</publishTime>
@@ -193,10 +193,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/19/2019 18:44:59</publishTime>
     </File>
     <File Include="bin/SmartWay.Web.dll">
-      <publishTime>06/20/2019 17:48:54</publishTime>
+      <publishTime>06/24/2019 16:38:39</publishTime>
     </File>
     <File Include="bin/SmartWay.Web.pdb">
-      <publishTime>06/20/2019 17:48:54</publishTime>
+      <publishTime>06/24/2019 16:38:39</publishTime>
     </File>
     <File Include="bin/System.Diagnostics.DiagnosticSource.dll">
       <publishTime>07/19/2017 10:01:30</publishTime>
@@ -259,7 +259,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/28/2019 11:42:00</publishTime>
     </File>
     <File Include="Content/Css/graphstyle.css">
-      <publishTime>06/19/2019 11:36:36</publishTime>
+      <publishTime>06/21/2019 15:39:38</publishTime>
     </File>
     <File Include="Content/Css/joint.css">
       <publishTime>06/20/2019 17:32:32</publishTime>
@@ -331,7 +331,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/27/2019 18:16:25</publishTime>
     </File>
     <File Include="Scripts/FILES/JointJsCode.js">
-      <publishTime>06/20/2019 17:47:34</publishTime>
+      <publishTime>06/24/2019 15:48:50</publishTime>
     </File>
     <File Include="Scripts/item.json">
       <publishTime>05/24/2019 17:58:40</publishTime>
@@ -400,7 +400,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/22/2019 18:35:59</publishTime>
     </File>
     <File Include="Views/Home/Graph.cshtml">
-      <publishTime>06/19/2019 12:11:29</publishTime>
+      <publishTime>06/21/2019 15:49:35</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
       <publishTime>05/31/2019 17:13:34</publishTime>

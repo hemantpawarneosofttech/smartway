@@ -89,16 +89,16 @@ function GetLeftSubsystemData(currentLevel, isApp) {
                 if (leftChildJson.length != 0) {
                     //var isExist = checkExist(databasesJson, response[i].shapeControlName);
 
-                    console.log('LEFTCHILD:_'+JSON.stringify(leftChildJson));
+                    console.log('LEFTCHILD:_' + JSON.stringify(leftChildJson));
                     var name = response[i].shapeControlName;
-                    var isExist = false;                   
+                    var isExist = false;
                     $.each(leftChildJson, function (j, obj) {
-                        if (obj.shapeControlName == name && response[i].linkSource == "")                            
+                        if (obj.shapeControlName == name && response[i].linkSource == "")
                             isExist = true;
                     });
-                    
+
                     if (!isExist) {
-                    //if (!leftChildJson.some(item => item.shapeControlName == response[i].shapeControlName && response[i].linkSource == "")) {
+                        //if (!leftChildJson.some(item => item.shapeControlName == response[i].shapeControlName && response[i].linkSource == "")) {
                         leftChildJson.push(response[i]);
                     }
                     else {
@@ -142,11 +142,11 @@ function GetDatabasesData(currentLevel, isApp) {
                     $.each(databasesJson, function (j, obj) {
                         if (obj.shapeControlName == name && response[i].linkSource == "")
                             isExist = true;
-                        
+
                     });
 
 
-                    
+
                     if (!isExist) {
                         //if (!databasesJson.some(item => item.shapeControlName == response[i].shapeControlName && response[i].linkSource == "")) {
                         databasesJson.push(response[i]);
@@ -161,7 +161,7 @@ function GetDatabasesData(currentLevel, isApp) {
             }
 
 
-            
+
             //drawGraph(window['currentLevel'], null);
             DrawRightChildGraph(databasesJson)
         }
@@ -174,6 +174,7 @@ function DrawRightChildGraph(rightChildData) {
 
 
     var rightChildPositionY = 200;
+    
 
     if (window['currentLevel'] == 1) {
 
@@ -223,11 +224,12 @@ function DrawRightChildGraph(rightChildData) {
             }
         }
 
+     
 
     }
 
     else if (window['currentLevel'] == 2) {
-        debugger;
+
         rightChildPositionY = 200;
 
         //load leftchild for clicked item
@@ -611,14 +613,10 @@ function getCompleteGraph(currentLevel, name) {
             JsonData = resp;
             drawGraph(currentLevel, JsonData);
 
-            //if (currentLevel != 2) {
+
             DrawLeftChildGraph(leftChildJson);
-            //}
 
-
-           // if (currentLevel != 2) {
-                DrawRightChildGraph(databasesJson)
-           // }
+            DrawRightChildGraph(databasesJson)
 
             $(".tap2").hide();
         }, error: function (exp) {
@@ -637,6 +635,7 @@ function getCurrentLevel(shapeLabel, JsonData) {
 function drawGraph(currentLevel, data) {
     var counter = 0;
     var currentLevel = currentLevel;
+
     prevParentPositionY = 0;
     var currlevel = 1;
     prevParentPositionX = 50;
@@ -645,8 +644,10 @@ function drawGraph(currentLevel, data) {
 
 
     for (var i in JsonData) {
-        //if (JsonData[i].Level != currlevel)
-        //    prevParentPositionX = 500;
+
+        if (JsonData[i].Level > currlevel)
+            counter = 0;
+
 
         //set first positioning
         if (JsonData[i].Level == 1) {
@@ -659,13 +660,14 @@ function drawGraph(currentLevel, data) {
             }
             if (counter % 6 == 0) {
                 prevParentPositionX = 230;
-                prevParentPositionY = prevParentPositionY + 90;
+                prevParentPositionY = prevParentPositionY + 100;
             }
             prevParentPositionX = prevParentPositionX + 120;
             currlevel = JsonData[i].Level;
             counter++;
         }
         else if (JsonData[i].Level == 3 && JsonData[i].shapeType == "Rectangle") {
+
             if (prevParentPositionY == 0) {
                 prevParentPositionY = 100;
             }
@@ -678,11 +680,11 @@ function drawGraph(currentLevel, data) {
             counter++;
         }
         else if (JsonData[i].Level == 4 && JsonData[i].shapeType == "Rectangle") {
-            
+
             if (prevParentPositionY == 0) {
                 prevParentPositionY = 100;
             }
-            if (counter % 5 == 0) {
+            if (counter % 6 == 0) {
                 prevParentPositionX = 225;
                 prevParentPositionY = prevParentPositionY + 180;
             }
@@ -777,7 +779,7 @@ $("#btnClear").click(function () {
     JsonData = [];
     $('#applicationList').val('');
     leftChildJson = [];
-    databasesJson = [];
+    databasesJson = [];    
     clickedElementName = '';
     prevParentPositionX = prevParentPositionY = 0
     graph.clear();

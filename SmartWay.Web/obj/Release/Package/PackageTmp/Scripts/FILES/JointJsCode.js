@@ -16,6 +16,7 @@ var paper = new joint.dia.Paper({
     height: 1500,
     gridSize: 10,
     drawGrid: false
+    //interactive:false
 
 });
 
@@ -83,20 +84,25 @@ function GetLeftSubsystemData(currentLevel, isApp) {
         dataType: "json",
         data: JSON.stringify({ model: LeftChildInputModel }),
         success: function (response) {
-            //if (leftChildJson.length != 0) {
-            //    DrawLeftChildGraph(response, 3)
-
-            //} else {
-            //    leftChildJson = JSON.parse(JSON.stringify(response));
-            //    //Calling draw left childs method.
-            //    DrawLeftChildGraph(leftChildJson, 1)
-            //}
-            console.log(JSON.stringify(response));
             for (var i in response) {
 
                 if (leftChildJson.length != 0) {
-                    if (!leftChildJson.some(item => item.shapeControlName == response[i].shapeControlName && response[i].linkSource == "")) {
+                    //var isExist = checkExist(databasesJson, response[i].shapeControlName);
+
+                    console.log('LEFTCHILD:_'+JSON.stringify(leftChildJson));
+                    var name = response[i].shapeControlName;
+                    var isExist = false;                   
+                    $.each(leftChildJson, function (j, obj) {
+                        if (obj.shapeControlName == name && response[i].linkSource == "")                            
+                            isExist = true;
+                    });
+                    
+                    if (!isExist) {
+                    //if (!leftChildJson.some(item => item.shapeControlName == response[i].shapeControlName && response[i].linkSource == "")) {
                         leftChildJson.push(response[i]);
+                    }
+                    else {
+                        return;
                     }
                 }
                 else {
@@ -127,29 +133,36 @@ function GetDatabasesData(currentLevel, isApp) {
         dataType: "json",
         data: JSON.stringify({ model: LeftChildInputModel }),
         success: function (response) {
-
-            //if (databasesJson.length != 0) {
-            //    DrawRightChildGraph(response)
-
-            //} else {
-            //    databasesJson = JSON.parse(JSON.stringify(response));
-            //    //Calling draw right childs method.
-            //    DrawRightChildGraph(databasesJson)
-            //}
-
-            
             for (var i in response) {
 
                 if (databasesJson.length != 0) {
-                    if (!databasesJson.some(item => item.shapeControlName == response[i].shapeControlName && response[i].linkSource == "")) {
+
+                    var name = response[i].shapeControlName;
+                    var isExist = false;
+                    $.each(databasesJson, function (j, obj) {
+                        if (obj.shapeControlName == name && response[i].linkSource == "")
+                            isExist = true;
+                        
+                    });
+
+
+                    
+                    if (!isExist) {
+                        //if (!databasesJson.some(item => item.shapeControlName == response[i].shapeControlName && response[i].linkSource == "")) {
                         databasesJson.push(response[i]);
+                    }
+                    else {
+                        return;
                     }
                 }
                 else {
                     databasesJson.push(response[i]);
                 }
             }
+
+
             
+            //drawGraph(window['currentLevel'], null);
             DrawRightChildGraph(databasesJson)
         }
     });
@@ -164,7 +177,7 @@ function DrawRightChildGraph(rightChildData) {
 
     if (window['currentLevel'] == 1) {
 
-        rightChildPositionY = 200;
+        rightChildPositionY = 180;
         //load rightchilds for clicked item
         for (var i in rightChildData) {
 
@@ -352,11 +365,6 @@ function DrawRightChildGraph(rightChildData) {
                 controlName.addTo(graph);
         }
     }
-
-
-
-
-
 }
 
 function DrawLeftChildGraph(leftchilddata) {
@@ -626,7 +634,6 @@ function getCurrentLevel(shapeLabel, JsonData) {
     return levelData[0].Level;
 }
 
-
 function drawGraph(currentLevel, data) {
     var counter = 0;
     var currentLevel = currentLevel;
@@ -671,6 +678,7 @@ function drawGraph(currentLevel, data) {
             counter++;
         }
         else if (JsonData[i].Level == 4 && JsonData[i].shapeType == "Rectangle") {
+            
             if (prevParentPositionY == 0) {
                 prevParentPositionY = 100;
             }
@@ -678,7 +686,7 @@ function drawGraph(currentLevel, data) {
                 prevParentPositionX = 225;
                 prevParentPositionY = prevParentPositionY + 180;
             }
-            prevParentPositionX = prevParentPositionX + 120;
+            prevParentPositionX = prevParentPositionX + 115;
             currlevel = JsonData[i].Level;
             counter++;
         }
@@ -717,9 +725,9 @@ function drawGraph(currentLevel, data) {
                 //router: { name: 'manhattan' },
                 router: {
                     name: 'manhattan', args: {
-                        startDirections: ['left'],
-                        endDirections: ['bottom'],
-                        step: 15,
+                        //startDirections: ['left'],
+                        //endDirections: ['bottom'],
+                        step: 40,
                     }
                 },
                 connector: { name: 'rounded' },
@@ -773,6 +781,8 @@ $("#btnClear").click(function () {
     clickedElementName = '';
     prevParentPositionX = prevParentPositionY = 0
     graph.clear();
+
+    location.reload(true);
 });
 
 
