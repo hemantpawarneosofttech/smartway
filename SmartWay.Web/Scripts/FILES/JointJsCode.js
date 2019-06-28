@@ -20,11 +20,11 @@ var paper = new joint.dia.Paper({
 
 });
 paper.scaleContentToFit({ padding: 1000 });
-//$(window).resize(function () {
-//    var canvas = $('#modelCanvas');
-//    paper.setDimensions(canvas.width(), canvas.height());
-//});
+$(document).ajaxError(function (e, xhr, settings) {
+    //AJAX ERROR
+    //alert(settings.url + ':' + xhr.status + '\n\n' + xhr.responseText);
 
+});
 
 $(document).ready(function () {
     $('#applicationList').select2({
@@ -36,16 +36,7 @@ $(document).ready(function () {
     currentWidth = 1000;
 })
 
-$('#applicationList').change(function () {
-    JsonData = [];    
-    leftChildJson = [];
-    databasesJson = [];
-    clickedElementName = '';
-    prevParentPositionX = prevParentPositionY = 0
-    leftChildJson.length = 0;
-    databasesJson.length = 0;
-    JsonData.length = 0;
-});
+
 var parent = $("#applicationList option:selected").text();
 var leftChildJson = [], databasesJson = [];
 
@@ -183,7 +174,7 @@ function GetDatabasesData(currentLevel, isApp) {
 
 function DrawRightChildGraph(rightChildData) {
 
-    console.log('-----------------'+JSON.stringify(JsonData));
+    console.log('-----------------' + JSON.stringify(JsonData));
     //set height dynamic
     if (JsonData.length <= 1) {
         if (rightChildData.length < 20) {
@@ -197,7 +188,7 @@ function DrawRightChildGraph(rightChildData) {
 
 
     var rightChildPositionY = 200;
-    
+
 
     if (window['currentLevel'] == 1) {
 
@@ -247,7 +238,7 @@ function DrawRightChildGraph(rightChildData) {
             }
         }
 
-     
+
 
     }
 
@@ -403,19 +394,19 @@ function DrawLeftChildGraph(leftchilddata) {
     //    leftChildPositionY = leftChildPositionY + 200;
     //}
 
-    
+
     //set height dynamic
     if (JsonData.length <= 1) {
         if (leftchilddata.length < 20) {
 
             paper.setDimensions(3000, leftchilddata.length * 100);
         } else {
-            
+
             paper.setDimensions(3000, leftchilddata.length * 150);
         }
     }
 
-  
+
 
 
     var leftChildPositionX = 150;
@@ -429,8 +420,8 @@ function DrawLeftChildGraph(leftchilddata) {
         //load leftchild for clicked item
         for (var i in leftchilddata) {
 
-            
-            
+
+
 
             if (leftchilddata[i].shapeType == "Rectangle" && leftchilddata[i].Level == 2 && leftchilddata[i].parent == $("#applicationList option:selected").text()) {
 
@@ -627,7 +618,7 @@ function DrawLeftChildGraph(leftchilddata) {
 
 function getCompleteGraph(currentLevel, name) {
 
-    graph.clear();
+
     var selectedApplication = $("#applicationList").val();
 
     $(".tap2").show();
@@ -647,17 +638,29 @@ function getCompleteGraph(currentLevel, name) {
         dataType: "json",
         data: JSON.stringify({ graphInput: graphInputModel, inputJsonModel: JsonData }),
         success: function (resp) {
-            JsonData = resp;
-            drawGraph(currentLevel, JsonData);
 
 
-            DrawLeftChildGraph(leftChildJson);
+            if (resp.length > 0 && resp != undefined) {
 
-            DrawRightChildGraph(databasesJson)
+                JsonData = resp;
+
+                graph.clear();
+
+                drawGraph(currentLevel, JsonData);
+
+                DrawLeftChildGraph(leftChildJson);
+
+                DrawRightChildGraph(databasesJson);
+            }
+            else {
+                return;
+            }
 
             $(".tap2").hide();
         }, error: function (exp) {
+            alert("something went wrong please try again.")
             $(".tap2").hide();
+            window.location.reload();
         }
     });
 }
@@ -667,7 +670,7 @@ function getCurrentLevel(shapeLabel, JsonData) {
         return el.shapeLabel == shapeLabel;
     });
     return levelData[0].Level == undefined ? 1 : levelData[0].Level;
-    
+
 }
 
 function drawGraph(currentLevel, data) {
@@ -680,19 +683,19 @@ function drawGraph(currentLevel, data) {
 
     var len = JsonData.length;
 
-    
+
     //set height dynamic
     if (len > 0) {
         if (len < 20) {
 
             paper.setDimensions(3000, JsonData.length * 100);
         } else {
-            
+
             paper.setDimensions(3000, JsonData.length * 150);
         }
     }
 
-    
+
 
 
     for (var i in JsonData) {
@@ -827,13 +830,14 @@ $("#btnShow").click(function () {
     JsonData = [];
     graph.clear();
     bindData();
+    $("#btnsaveasimage").prop('disabled', false);
 });
 
 $("#btnClear").click(function () {
     JsonData = [];
     $('#applicationList').val('');
     leftChildJson = [];
-    databasesJson = [];    
+    databasesJson = [];
     clickedElementName = '';
     prevParentPositionX = prevParentPositionY = 0
 
@@ -845,4 +849,63 @@ $("#btnClear").click(function () {
     location.reload();
 });
 
+$('#applicationList').change(function () {
+    JsonData = [];
+    leftChildJson = [];
+    databasesJson = [];
+    clickedElementName = '';
+    prevParentPositionX = prevParentPositionY = 0
+    
+});
 
+var download = function (filename, blob) {
+    if (window.navigator.msSaveOrOpenBlob) {
+        window.navigator.msSaveBlob(blob, filename);
+    } else {
+        const elem = window.document.createElement('a');
+        elem.href = window.URL.createObjectURL(blob);
+        elem.download = filename;
+        document.body.appendChild(elem);
+        elem.click();
+        document.body.removeChild(elem);
+    }
+}
+
+$("#btnsaveasimage").click(function () {
+
+    var svg = document.querySelector('#v-2');
+    var data = (new XMLSerializer()).serializeToString(svg);
+    // We can just create a canvas element inline so you don't even need one on the DOM. Cool!
+    var canvas = document.getElementById("canvas");
+
+    canvg(canvas, data, {
+        ignoreClear: true,
+        renderCallback: function () {
+            canvas.toBlob(function (blob) {
+                download('Image.jpeg', blob);
+            });
+        }
+
+
+    });
+
+    if (!HTMLCanvasElement.prototype.toBlob) {
+        Object.defineProperty(HTMLCanvasElement.prototype, 'toBlob', {
+            value: function (callback, type, quality) {
+                var canvas = this;
+                setTimeout(function () {
+                    var binStr = atob(canvas.toDataURL(type, quality).split(',')[1]),
+                        len = binStr.length,
+                        arr = new Uint8Array(len);
+
+                    for (var i = 0; i < len; i++) {
+                        arr[i] = binStr.charCodeAt(i);
+                    }
+
+                    callback(new Blob([arr], { type: type || 'image/png' }));
+                });
+            }
+        });
+    }
+
+});

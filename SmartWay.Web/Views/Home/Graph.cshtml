@@ -20,6 +20,9 @@
 <script src="~/Scripts/JS/backbone.js"></script>
 <script src="~/Scripts/JS/joint.js"></script>
 <script src="~/Scripts/JS/select2.min.js"></script>
+<script src="~/Scripts/JS/canvg.js"></script>
+
+
 
 <script type="text/javascript">
 
@@ -59,6 +62,9 @@
                                 </div>
                                 <div class="col-md-6">
                                     <button type="button" id="btnShow" class="btn custom-btn">Show Details</button> &nbsp;&nbsp;<button type="button" id="btnClear" class="btn btn-red custom-btn ">Reset</button>
+
+                                    <button type="button" id="btnsaveasimage" disabled="disabled" class="btn custom-btn">Save as Image</button>
+
                                 </div>
 
                             </div>
@@ -104,6 +110,7 @@
                                         <img src="https://i.ytimg.com/vi/Ai4Xi8GWSgM/maxresdefault.jpg" />
                                     </div>*@
                                 <div id="myholder" style="height:100%;width:100%; overflow-y: auto; overflow-x: auto;background-color: #eef2f5;"></div>
+                                <canvas id="canvas" style="fill:white" hidden></canvas>
                             </div>
                         </div>
                         <ul class="listImages" style="position:absolute;top:0;left:22px;">

@@ -19,8 +19,11 @@ var paper = new joint.dia.Paper({
     //interactive:false
 
 });
-
-
+paper.scaleContentToFit({ padding: 1000 });
+//$(window).resize(function () {
+//    var canvas = $('#modelCanvas');
+//    paper.setDimensions(canvas.width(), canvas.height());
+//});
 
 
 $(document).ready(function () {
@@ -33,6 +36,16 @@ $(document).ready(function () {
     currentWidth = 1000;
 })
 
+$('#applicationList').change(function () {
+    JsonData = [];    
+    leftChildJson = [];
+    databasesJson = [];
+    clickedElementName = '';
+    prevParentPositionX = prevParentPositionY = 0
+    leftChildJson.length = 0;
+    databasesJson.length = 0;
+    JsonData.length = 0;
+});
 var parent = $("#applicationList option:selected").text();
 var leftChildJson = [], databasesJson = [];
 
@@ -41,7 +54,7 @@ function checkIsApplication(shapeLabel, JsonData) {
     var levelData = $.grep(JsonData, function (el) {
         return el.shapeLabel == shapeLabel;
     });
-    return levelData[0].IsApplication;
+    return levelData[0].IsApplication == undefined ? false : levelData[0].IsApplication;
 }
 
 
@@ -89,16 +102,16 @@ function GetLeftSubsystemData(currentLevel, isApp) {
                 if (leftChildJson.length != 0) {
                     //var isExist = checkExist(databasesJson, response[i].shapeControlName);
 
-                    console.log('LEFTCHILD:_'+JSON.stringify(leftChildJson));
+                    console.log('LEFTCHILD:_' + JSON.stringify(leftChildJson));
                     var name = response[i].shapeControlName;
-                    var isExist = false;                   
+                    var isExist = false;
                     $.each(leftChildJson, function (j, obj) {
-                        if (obj.shapeControlName == name && response[i].linkSource == "")                            
+                        if (obj.shapeControlName == name && response[i].linkSource == "")
                             isExist = true;
                     });
-                    
+
                     if (!isExist) {
-                    //if (!leftChildJson.some(item => item.shapeControlName == response[i].shapeControlName && response[i].linkSource == "")) {
+                        //if (!leftChildJson.some(item => item.shapeControlName == response[i].shapeControlName && response[i].linkSource == "")) {
                         leftChildJson.push(response[i]);
                     }
                     else {
@@ -142,11 +155,11 @@ function GetDatabasesData(currentLevel, isApp) {
                     $.each(databasesJson, function (j, obj) {
                         if (obj.shapeControlName == name && response[i].linkSource == "")
                             isExist = true;
-                        
+
                     });
 
 
-                    
+
                     if (!isExist) {
                         //if (!databasesJson.some(item => item.shapeControlName == response[i].shapeControlName && response[i].linkSource == "")) {
                         databasesJson.push(response[i]);
@@ -161,7 +174,7 @@ function GetDatabasesData(currentLevel, isApp) {
             }
 
 
-            
+
             //drawGraph(window['currentLevel'], null);
             DrawRightChildGraph(databasesJson)
         }
@@ -170,10 +183,21 @@ function GetDatabasesData(currentLevel, isApp) {
 
 function DrawRightChildGraph(rightChildData) {
 
+    console.log('-----------------'+JSON.stringify(JsonData));
+    //set height dynamic
+    if (JsonData.length <= 1) {
+        if (rightChildData.length < 20) {
 
+            paper.setDimensions(3000, rightChildData.length * 100);
+        } else {
+
+            paper.setDimensions(3000, rightChildData.length * 150);
+        }
+    }
 
 
     var rightChildPositionY = 200;
+    
 
     if (window['currentLevel'] == 1) {
 
@@ -223,11 +247,12 @@ function DrawRightChildGraph(rightChildData) {
             }
         }
 
+     
 
     }
 
     else if (window['currentLevel'] == 2) {
-        debugger;
+
         rightChildPositionY = 200;
 
         //load leftchild for clicked item
@@ -378,8 +403,19 @@ function DrawLeftChildGraph(leftchilddata) {
     //    leftChildPositionY = leftChildPositionY + 200;
     //}
 
+    
+    //set height dynamic
+    if (JsonData.length <= 1) {
+        if (leftchilddata.length < 20) {
 
+            paper.setDimensions(3000, leftchilddata.length * 100);
+        } else {
+            
+            paper.setDimensions(3000, leftchilddata.length * 150);
+        }
+    }
 
+  
 
 
     var leftChildPositionX = 150;
@@ -392,6 +428,9 @@ function DrawLeftChildGraph(leftchilddata) {
 
         //load leftchild for clicked item
         for (var i in leftchilddata) {
+
+            
+            
 
             if (leftchilddata[i].shapeType == "Rectangle" && leftchilddata[i].Level == 2 && leftchilddata[i].parent == $("#applicationList option:selected").text()) {
 
@@ -611,14 +650,10 @@ function getCompleteGraph(currentLevel, name) {
             JsonData = resp;
             drawGraph(currentLevel, JsonData);
 
-            //if (currentLevel != 2) {
+
             DrawLeftChildGraph(leftChildJson);
-            //}
 
-
-           // if (currentLevel != 2) {
-                DrawRightChildGraph(databasesJson)
-           // }
+            DrawRightChildGraph(databasesJson)
 
             $(".tap2").hide();
         }, error: function (exp) {
@@ -631,22 +666,40 @@ function getCurrentLevel(shapeLabel, JsonData) {
     var levelData = $.grep(JsonData, function (el) {
         return el.shapeLabel == shapeLabel;
     });
-    return levelData[0].Level;
+    return levelData[0].Level == undefined ? 1 : levelData[0].Level;
+    
 }
 
 function drawGraph(currentLevel, data) {
     var counter = 0;
     var currentLevel = currentLevel;
+
     prevParentPositionY = 0;
     var currlevel = 1;
     prevParentPositionX = 50;
 
     var len = JsonData.length;
 
+    
+    //set height dynamic
+    if (len > 0) {
+        if (len < 20) {
+
+            paper.setDimensions(3000, JsonData.length * 100);
+        } else {
+            
+            paper.setDimensions(3000, JsonData.length * 150);
+        }
+    }
+
+    
+
 
     for (var i in JsonData) {
-        //if (JsonData[i].Level != currlevel)
-        //    prevParentPositionX = 500;
+
+        if (JsonData[i].Level > currlevel)
+            counter = 0;
+
 
         //set first positioning
         if (JsonData[i].Level == 1) {
@@ -659,13 +712,14 @@ function drawGraph(currentLevel, data) {
             }
             if (counter % 6 == 0) {
                 prevParentPositionX = 230;
-                prevParentPositionY = prevParentPositionY + 90;
+                prevParentPositionY = prevParentPositionY + 100;
             }
             prevParentPositionX = prevParentPositionX + 120;
             currlevel = JsonData[i].Level;
             counter++;
         }
         else if (JsonData[i].Level == 3 && JsonData[i].shapeType == "Rectangle") {
+
             if (prevParentPositionY == 0) {
                 prevParentPositionY = 100;
             }
@@ -678,11 +732,11 @@ function drawGraph(currentLevel, data) {
             counter++;
         }
         else if (JsonData[i].Level == 4 && JsonData[i].shapeType == "Rectangle") {
-            
+
             if (prevParentPositionY == 0) {
                 prevParentPositionY = 100;
             }
-            if (counter % 5 == 0) {
+            if (counter % 6 == 0) {
                 prevParentPositionX = 225;
                 prevParentPositionY = prevParentPositionY + 180;
             }
@@ -740,6 +794,8 @@ function drawGraph(currentLevel, data) {
     var isApp = checkIsApplication(clickedElementName, JsonData);
     GetLeftSubsystemData(currentLevel, isApp);
     GetDatabasesData(currentLevel, isApp);
+
+
 }
 
 paper.on('cell:pointerdblclick', function (cellView) {
@@ -777,12 +833,16 @@ $("#btnClear").click(function () {
     JsonData = [];
     $('#applicationList').val('');
     leftChildJson = [];
-    databasesJson = [];
+    databasesJson = [];    
     clickedElementName = '';
     prevParentPositionX = prevParentPositionY = 0
+
+    leftChildJson.length = 0;
+    databasesJson.length = 0;
+    JsonData.length = 0;
     graph.clear();
 
-    location.reload(true);
+    location.reload();
 });
 
 
